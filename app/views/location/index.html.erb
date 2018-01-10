@@ -1,2 +1,8 @@
 <h1>Locofinder</h1>
 <p>Version 1.0</p>
+<% if signed_in? %>
+  <p><%= current_user.email %></p>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Log In!", new_user_session_path %>
+<% end %>
