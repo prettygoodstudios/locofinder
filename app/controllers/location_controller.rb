@@ -6,6 +6,19 @@ class LocationController < ActionController::Base
   end
   def show
     @location = Location.find(params[:id])
+    @friendly_address = ""
+    @location.address.split(" ").each do |m|
+      @friendly_address += m + "+"
+    end
+    @location.city.split(" ").each do |m|
+      @friendly_address += m + "+"
+    end
+    @location.state.split(" ").each do |m|
+      @friendly_address += m + "+"
+    end
+    @location.country.split(" ").each do |m|
+      @friendly_address += m + "+"
+    end
   end
   def edit
     @location = Location.find(params[:id])
@@ -27,7 +40,7 @@ class LocationController < ActionController::Base
   def create
     @location = Location.create!(location_params)
     if @location.save
-      redirect_to location_path
+      redirect_to location_path(@location)
     else
 
     end

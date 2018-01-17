@@ -1,2 +1,9 @@
 <h1><%= @location.title %></h1>
 <%= link_to "Home", location_index_path %>
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDeRKNH5CbjJ2s2d19a3WYR-lYQQ6b3eUU
+    &q=<%= @friendly_address %>" allowfullscreen>
+</iframe>

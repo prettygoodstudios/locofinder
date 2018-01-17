@@ -6,6 +6,6 @@
 <% end %>
 <ul>
 <% @locations.each do |l| %>
-  <li><%=l.title %><%= link_to "Delete", location_path(l), method: :delete %><%= link_to "Edit", edit_location_path(l) %></li>
+  <li><%= link_to l.title, l %><%= link_to "Delete", location_path(l), method: :delete %><%= link_to "Edit", edit_location_path(l) %></li>
 <% end %>
 </ul>
