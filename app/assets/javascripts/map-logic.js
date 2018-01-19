@@ -19,11 +19,12 @@ function initMap() {
             title: 'Hello World!'
       });
       var infoWindow = new google.maps.InfoWindow({
-        content: "Hello World"
+        content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a>"
       });
+      var content = "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a>";
       google.maps.event.addListener(marker,'click', (function(marker,content,infoWindow){
           return function() {
-              infoWindow.setContent("Hello World!");
+              infoWindow.setContent(content);
               infoWindow.open(map,marker);
           };
       })(marker,content,infoWindow));
