@@ -11,10 +11,10 @@ function initMap() {
   $.get(ROOT_URL+"geo_json_api", function( d ) {
     data = d;
     console.log(data);
-    map.setCenter({lat: data.features[0].geometry.coordinates[0] ,lng: data.features[0].geometry.coordinates[1]});
-    for( var i =0;  i < data.features.length; i++){
+    map.setCenter({lat: data[0].coordinates[0] ,lng: data[0].coordinates[1]});
+    for( var i =0;  i < data.length; i++){
       var marker = new google.maps.Marker({
-            position: {lat: data.features[i].geometry.coordinates[0] ,lng: data.features[i].geometry.coordinates[1]},
+            position: {lat: data[i].coordinates[0] ,lng: data[i].coordinates[1]},
             map: map,
             title: 'Hello World!'
       });

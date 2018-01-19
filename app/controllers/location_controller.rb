@@ -55,15 +55,9 @@ class LocationController < ActionController::Base
     @locations = Location.all
     @geo_json = []
     @locations.each do |l|
-      geo = { type: "Point", coordinates: [l.latitude,l.longitude]}
-      props = { name: l.id.to_s, color: "blue", rank: "7", ascii: "71", letter: "G" }
-      temp = { type: "Feature", geometry: geo, properties: props  }
+      temp = { title: l.title , id: l.id, url: location_path(l),coordinates: [l.latitude,l.longitude]}
       @geo_json.push temp
     end
-    stringVer = JSON.generate(@geo_json).to_s
-    puts stringVer
-    stringVer.sub!("[","{")
-    stringVer = stringVer.reverse.sub("]","}").reverse
-    render json: { "type": "FeatureCollection", "features": @geo_json }
+    render json: @geo_json
   end
 end
