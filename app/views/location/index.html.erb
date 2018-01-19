@@ -23,30 +23,8 @@
   }
 </style>
 <div id="map"></div>
+<script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= root_url %>';</script>
 <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKJD9rLWLCIKWyk-2cPc8tCQaYWk4lUqg&callback=initMap">
 </script>
-<script>
-  var map;
-  var data;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: {lat: -28, lng: 137}
-    });
-    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-    var markers = [];
-    $.get( "<%= root_url %>geo_json_api", function( d ) {
-      data = d;
-      console.log(data);
-      for( var i =0;  i < data.features.length; i++){
-        markers[i] = new google.maps.Marker({
-              position: {lat: data.features[i].geometry.coordinates[0] ,lng: data.features[i].geometry.coordinates[1]},
-              map: map,
-              title: 'Hello World!'
-        });
-      }
-    });
-  }
-
-</script>
+<%= javascript_include_tag "map-logic" %>
