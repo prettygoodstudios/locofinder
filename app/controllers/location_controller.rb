@@ -51,4 +51,19 @@ class LocationController < ActionController::Base
   def location_params
     params.require(:location).permit(:title,:city,:address,:state,:country)
   end
+  def geo_json_api
+    @locations = Location.all
+    @geo_json = []
+    @locations.each do |l|
+      geo = { type: "Point", coordinates: [l.latitude,l.longitude]}
+      props = { name: l.id.to_s, color: "blue", rank: "7", ascii: "71", letter: "G" }
+      temp = { type: "Feature", geometry: geo, properties: props  }
+      @geo_json.push temp
+    end
+    stringVer = JSON.generate(@geo_json).to_s
+    puts stringVer
+    stringVer.sub!("[","{")
+    stringVer = stringVer.reverse.sub("]","}").reverse
+    render json: { "type": "FeatureCollection", "features": @geo_json }
+  end
 end

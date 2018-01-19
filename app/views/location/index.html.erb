@@ -9,3 +9,44 @@
   <li><%= link_to l.title, l %><%= link_to "Delete", location_path(l), method: :delete %><%= link_to "Edit", edit_location_path(l) %></li>
 <% end %>
 </ul>
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<div id="map"></div>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKJD9rLWLCIKWyk-2cPc8tCQaYWk4lUqg&callback=initMap">
+</script>
+<script>
+  var map;
+  var data;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: {lat: -28, lng: 137}
+    });
+    // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+    var markers = [];
+    $.get( "<%= root_url %>geo_json_api", function( d ) {
+      data = d;
+      console.log(data);
+      for( var i =0;  i < data.features.length; i++){
+        markers[i] = new google.maps.Marker({
+              position: {lat: data.features[i].geometry.coordinates[0] ,lng: data.features[i].geometry.coordinates[1]},
+              map: map,
+              title: 'Hello World!'
+        });
+      }
+    });
+  }
+
+</script>
