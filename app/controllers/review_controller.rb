@@ -5,12 +5,12 @@ class ReviewController < ActionController::Base
   def create
     @location = Location.find(params[:review][:location].to_i)
     @user = User.find(params[:review][:user])
-    @review = @location.reviews.create!(review_params)
+    @review = @location.reviews.build(review_params)
+    @user.reviews << @review
     if @review.save
-      @user.reviews << @review
       redirect_to @location
     else
-      redirect_to @location, alert: @location.errors[0]
+      redirect_to @location, alert: @review.errors.first
     end
   end
   def review_params
