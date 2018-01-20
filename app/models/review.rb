@@ -16,8 +16,12 @@ class Review < ApplicationRecord
     end
   end
   def score_range
-    if !(score > 0 and score < 11)
-      errors.add(:score, "Your score must be an integer between 1 and 10.")
+    if score != nil
+      if !(score > 0 and score < 11)
+        errors.add(:score, "Your score must be an integer between 1 and 10.")
+      end
+    else
+        errors.add(:score, "You must enter in a score.")
     end
   end
   def message_length

@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   has_many :photos
   belongs_to :user
   def full_address
-    addressArray = [country, state, city, address]
+    addressArray = [address, city, state, country]
     addressArray.compact.join(", ")
   end
 
