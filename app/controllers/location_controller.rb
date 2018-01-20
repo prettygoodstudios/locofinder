@@ -6,6 +6,8 @@ class LocationController < ActionController::Base
   end
   def show
     @location = Location.find(params[:id])
+    @reviews = @location.reviews.all
+    @review = Review.new
     @friendly_address = ""
     @location.address.split(" ").each do |m|
       @friendly_address += m + "+"
@@ -34,11 +36,12 @@ class LocationController < ActionController::Base
     if @location.update_attributes(location_params)
       redirect_to location_path
     else
-
+      redirect_to edit_location_path(@location), alert: @location.errors.first
     end
   end
   def create
-    @location = Location.create!(location_params)
+    @user = User.find(params[:location][:user].to_i)
+    @location = @user.locations.create!(location_params)
     if @location.save
       redirect_to location_path(@location)
     else
@@ -49,7 +52,7 @@ class LocationController < ActionController::Base
     @location = Location.new
   end
   def location_params
-    params.require(:location).permit(:title,:city,:address,:state,:country)
+    params.require(:location).permit(:title,:city,:address,:state,:country,:id)
   end
   def geo_json_api
     @locations = Location.all

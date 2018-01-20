@@ -1,0 +1,21 @@
+<h1>Submit A Review<h1>
+<%= form_for(review, url: review_index_path ) do |f| %>
+  <h3>User: <%= current_user.email %></h3>
+  <div class="form-group">
+    <%= f.label :score %>
+    <%= f.number_field :score %>
+  </div>
+  <div>
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div>
+  <%= f.hidden_field :location, value: location.id %>
+  <%= f.hidden_field :user, value: current_user.id %>
+  <%= f.submit "Post Review!" %>
+<% end %>
+<% reviews.each do |r| %>
+  <h1><%= User.find(r.user_id).email %></h1>
+  <h3>Score: <%= r.score %></h3>
+  <p>Message: <%= r.message %></p>
+  <hr>
+<% end %>
