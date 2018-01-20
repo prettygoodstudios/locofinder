@@ -8,4 +8,12 @@ class Location < ApplicationRecord
     addressArray = [country, state, city, address]
     addressArray.compact.join(", ")
   end
+
+  def average_score
+    avg_score = 0
+    reviews.each do |r|
+      avg_score += r.score / reviews.length
+    end
+    return avg_score
+  end
 end

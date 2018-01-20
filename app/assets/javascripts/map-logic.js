@@ -21,7 +21,7 @@ function initMap() {
       var infoWindow = new google.maps.InfoWindow({
         content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a>"
       });
-      var content = "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a>";
+      var content = "<h1>"+data[i].title+"</h1><p>Average Score:"+data[i].average_score+"</p><a href='"+data[i].url+"'>More Details!</a>";
       google.maps.event.addListener(marker,'click', (function(marker,content,infoWindow){
           return function() {
               infoWindow.setContent(content);
