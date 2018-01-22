@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: "location#index"
   resources "location"
   resources "review"
+  resources "photo"
   get "/geo_json_api", to: "location#geo_json_api"
 end

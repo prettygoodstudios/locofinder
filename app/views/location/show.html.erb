@@ -1,6 +1,7 @@
 <h1><%= @location.title %></h1>
 <%= link_to "Edit", edit_location_path(@location) %>
 <%= link_to "Delete", location_path(@location), method: :delete %>
+<%= link_to "Add Photo", new_photo_path + "/?location=#{@location.id}&user=#{current_user.id}" %>
 <iframe
   width="600"
   height="450"
@@ -8,4 +9,8 @@
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDeRKNH5CbjJ2s2d19a3WYR-lYQQ6b3eUU
     &q=<%= @friendly_address %>" allowfullscreen>
 </iframe>
+<% @location.photos.each do |p| %>
+  <img src="<%= p.img_url.url %>" />
+  <p><%= p.caption %></p>
+<% end %>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user} %>
