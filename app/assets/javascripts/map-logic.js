@@ -18,10 +18,10 @@ function initMap() {
             map: map,
             title: 'Hello World!'
       });
+      var content = "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a><a href='"+data[i].edit+"'>Edit</a><a href='"+data[i].url+"' data-method='delete'>Delete</a>";
       var infoWindow = new google.maps.InfoWindow({
-        content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a>"
+        content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a><a href='"+data[i].edit+"'>Edit</a><a href='"+data[i].url+"' method='delete'>Delete</a>"
       });
-      var content = "<h1>"+data[i].title+"</h1><p>"+data[i].address+"</p><p>Average Score:"+data[i].average_score+"</p><a href='"+data[i].url+"'>More Details!</a>";
       google.maps.event.addListener(marker,'click', (function(marker,content,infoWindow){
           return function() {
               infoWindow.setContent(content);

@@ -1,11 +1,6 @@
 <% if signed_in? %>
   <%= link_to "Create New Location", new_location_path %>
 <% end %>
-<ul>
-<% @locations.each do |l| %>
-  <li><%= link_to l.title, l %><%= link_to "Delete", location_path(l), method: :delete %><%= link_to "Edit", edit_location_path(l) %></li>
-<% end %>
-</ul>
 <style>
   /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
