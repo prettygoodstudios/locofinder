@@ -41,11 +41,11 @@ class LocationController < ActionController::Base
   end
   def create
     @user = User.find(params[:location][:user].to_i)
-    @location = @user.locations.create!(location_params)
-    if @location.save
+    @location = @user.locations.create(location_params)
+    if @user.save
       redirect_to location_path(@location)
     else
-
+      redirect_to new_location_path, alert: @location.errors.first
     end
   end
   def new
