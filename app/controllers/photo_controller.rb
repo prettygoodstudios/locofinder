@@ -1,7 +1,6 @@
 class PhotoController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :is_mine, only: [:destroy]
   def create
     @location = Location.find(params[:photo][:location].to_i)
     @user = User.find(params[:photo][:user].to_i)
@@ -21,6 +20,7 @@ class PhotoController < ActionController::Base
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy!
+    redirect_to Location.find(@photo.location_id)
   end
   def photo_params
     params.require(:photo).permit(:img_url,:caption)

@@ -15,10 +15,27 @@
  */
 
 .img-card{
-  display: inline-block;
-  width: 28%;
-  margin: 20px;
+  position: relative;
+  height: 400px;
 }
-.img-card img{
+.img-holder{
+  overflow: hidden;
+  height: 250px;
+}
+.img-card a{
+  position: absolute;
+  bottom: 0;
+}
+.img-holder img{
+  min-width: 100%;
+  max-width: 200%;
+  min-height: 100%;
+}
+textarea{
+  width: 100%;
   max-width: 100%;
+  min-width: 100%;
+}
+tr{
+  font-size: 1.5em;
 }

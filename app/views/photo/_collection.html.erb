@@ -1,7 +1,17 @@
-<% location.photos.each do |p| %>
-  <div class="img-card">
-    <img src="<%= p.img_url.url %>" />
-    <p><%= p.caption %></p>
-    <%= link_to("Delete", photo_path(p), method: :delete) if p.is_mine(current_user.id) %>
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="row">
+    <% location.photos.each do |p| %>
+      <div class="four columns img-card">
+        <div class="img-holder">
+          <img src="<%= p.img_url.url %>" />
+        </div>
+        <p>
+          <em><%= User.find(p.user_id).email %></em>
+          -"<%= p.caption %>"
+        </p>
+        <%= link_to("Delete", photo_path(p), method: :delete, class: 'button') if p.is_mine(current_user.id) %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

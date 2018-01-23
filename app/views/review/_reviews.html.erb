@@ -1,21 +1,38 @@
-<h1>Submit A Review<h1>
-<%= form_for(review, url: review_index_path ) do |f| %>
-  <h3>User: <%= current_user.email %></h3>
-  <div class="form-group">
-    <%= f.label :score %>
-    <%= f.number_field :score %>
-  </div>
-  <div>
-    <%= f.label :message %>
-    <%= f.text_field :message %>
-  </div>
-  <%= f.hidden_field :location, value: location.id %>
-  <%= f.hidden_field :user, value: current_user.id %>
-  <%= f.submit "Post Review!" %>
-<% end %>
-<% reviews.each do |r| %>
-  <h1><%= User.find(r.user_id).email %></h1>
-  <h3>Score: <%= r.score %></h3>
-  <p>Message: <%= r.message %></p>
+<div class="container">
   <hr>
-<% end %>
+  <br>
+  <h3>Submit A Review</h3>
+  <h5>User: <%= current_user.email %></h5>
+  <%= form_for(review, url: review_index_path ) do |f| %>
+    <div class="form-group">
+      <%= f.label :score %>
+      <%= f.number_field :score %>
+    </div>
+    <div>
+      <%= f.label :message %>
+      <%= f.text_area :message, rows: 5 %>
+    </div>
+    <%= f.hidden_field :location, value: location.id %>
+    <%= f.hidden_field :user, value: current_user.id %>
+    <br>
+    <%= f.submit "Post Review!" %>
+  <% end %>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Score</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reviews.each do |r| %>
+        <tr>
+          <td><%= User.find(r.user_id).email %></td>
+          <td><%= r.score %>/10</td>
+          <td><%= r.message %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
