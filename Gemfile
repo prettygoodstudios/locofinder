@@ -53,3 +53,5 @@ gem 'devise'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'geocoder'
 gem 'carrierwave', '~> 1.0'
+gem "fog-aws"
+gem "figaro"
