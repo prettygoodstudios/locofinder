@@ -18,7 +18,11 @@ function initMap() {
             map: map,
             title: 'Hello World!'
       });
-      var content = "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a><a href='"+data[i].edit+"'>Edit</a><a href='"+data[i].url+"' data-method='delete'>Delete</a>";
+      var image = "";
+      if(data[i].img_url != ""){
+        image = "<img src='"+data[i].img_url+"'/>"
+      }
+      var content = "<div class='window'><h1>"+data[i].title+"</h1><h5>Average Score: "+data[i].average_score+"</h5>"+image+"<a href='"+data[i].url+"' class='button'>More Details!</a><a href='"+data[i].edit+"' class='button'>Edit</a><a href='"+data[i].url+"' data-method='delete' class='button'>Delete</a></div>";
       var infoWindow = new google.maps.InfoWindow({
         content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a><a href='"+data[i].edit+"'>Edit</a><a href='"+data[i].url+"' method='delete'>Delete</a>"
       });

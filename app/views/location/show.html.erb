@@ -2,8 +2,10 @@
   <div class="row">
     <h1><%= @location.title %></h1>
     <p><%= @location.address + ", " + @location.city + ", " + @location.state + ", " + @location.country %></p>
-    <%= link_to "Edit", edit_location_path(@location), class: "button" %>
-    <%= link_to "Delete", location_path(@location), method: :delete, class: "button" %>
+    <% if @location.user_id.to_i == current_user.id %>
+      <%= link_to "Edit", edit_location_path(@location), class: "button" %>
+      <%= link_to "Delete", location_path(@location), method: :delete, class: "button" %>
+    <% end %>
     <%= link_to "Add Photo", new_photo_path + "/?location=#{@location.id}&user=#{current_user.id}", class: "button" %>
   </div>
   <div class="row">

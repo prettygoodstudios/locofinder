@@ -39,3 +39,27 @@ textarea{
 tr{
   font-size: 1.5em;
 }
+.nav{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nav ul{
+  list-style: none;
+  display: inline;
+}
+.nav li{
+  text-decoration: none;
+  display: inline;
+}
+.nav a{
+  color: black;
+}
+.nav h1{
+  display: inline;
+}
+.nav a:hover{
+  color:gray;
+}
+.window img{
+  max-width: 300px;
+}

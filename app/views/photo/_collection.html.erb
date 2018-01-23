@@ -8,7 +8,7 @@
         </div>
         <p>
           <em><%= User.find(p.user_id).email %></em>
-          -"<%= p.caption %>"
+          - "<%= p.caption %>"
         </p>
         <%= link_to("Delete", photo_path(p), method: :delete, class: 'button') if p.is_mine(current_user.id) %>
       </div>
