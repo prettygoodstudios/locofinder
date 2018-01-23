@@ -8,6 +8,8 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( info-window.css )
+Rails.application.config.assets.precompile += %w( skeleton.css )
+Rails.application.config.assets.precompile += %w( normalize.css )
 Rails.application.config.assets.precompile += %w( info-window.js )
 Rails.application.config.assets.precompile += %w( map-logic.js )
 # Precompile additional assets.

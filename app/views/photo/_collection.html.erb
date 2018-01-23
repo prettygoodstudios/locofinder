@@ -1,0 +1,7 @@
+<% location.photos.each do |p| %>
+  <div class="img-card">
+    <img src="<%= p.img_url.url %>" />
+    <p><%= p.caption %></p>
+    <%= link_to("Delete", photo_path(p), method: :delete) if p.is_mine(current_user.id) %>
+  </div>
+<% end %>

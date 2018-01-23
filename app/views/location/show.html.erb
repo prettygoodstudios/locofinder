@@ -9,8 +9,5 @@
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDeRKNH5CbjJ2s2d19a3WYR-lYQQ6b3eUU
     &q=<%= @friendly_address %>" allowfullscreen>
 </iframe>
-<% @location.photos.each do |p| %>
-  <img src="<%= p.img_url.url %>" />
-  <p><%= p.caption %></p>
-<% end %>
+<%= render partial: "photo/collection", locals: {location: @location} %>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user} %>
