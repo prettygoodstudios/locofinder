@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources "review"
   resources "photo"
   get "/geo_json_api", to: "location#geo_json_api"
+  get "/user/show/:id", to: "user#show"
 end

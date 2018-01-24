@@ -1,22 +1,25 @@
 <div class="container">
   <hr>
   <br>
-  <h3>Submit A Review</h3>
-  <h5>User: <%= current_user.email %></h5>
-  <%= form_for(review, url: review_index_path ) do |f| %>
-    <div class="form-group">
-      <%= f.label :score %>
-      <%= f.number_field :score %>
-    </div>
-    <div>
-      <%= f.label :message %>
-      <%= f.text_area :message, rows: 5 %>
-    </div>
-    <%= f.hidden_field :location, value: location.id %>
-    <%= f.hidden_field :user, value: current_user.id %>
-    <br>
-    <%= f.submit "Post Review!" %>
+  <% if signed_in? %>
+    <h3>Submit A Review</h3>
+    <h5>User: <%= current_user.email %></h5>
+    <%= form_for(review, url: review_index_path ) do |f| %>
+      <div class="form-group">
+        <%= f.label :score %>
+        <%= f.number_field :score %>
+      </div>
+      <div>
+        <%= f.label :message %>
+        <%= f.text_area :message, rows: 5 %>
+      </div>
+      <%= f.hidden_field :location, value: location.id %>
+      <%= f.hidden_field :user, value: current_user.id %>
+      <br>
+      <%= f.submit "Post Review!" %>
+    <% end %>
   <% end %>
+  <h3>Reviews</h3>
   <table class="u-full-width">
     <thead>
       <tr>

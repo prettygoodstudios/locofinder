@@ -22,7 +22,7 @@
   overflow: hidden;
   height: 250px;
 }
-.img-card a{
+.img-card .button{
   position: absolute;
   bottom: 0;
 }

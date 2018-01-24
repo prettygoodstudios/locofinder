@@ -1,11 +1,11 @@
 class LocationController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
+  before_action :set_location, only: [:show,:edit,:update]
   def index
     @locations = Location.all
   end
   def show
-    @location = Location.find(params[:id])
     @reviews = @location.reviews.all
     @review = Review.new
     @friendly_address = ""
@@ -23,7 +23,7 @@ class LocationController < ActionController::Base
     end
   end
   def edit
-    @location = Location.find(params[:id])
+    
   end
   def destroy
     @location = Location.find(params[:id])
@@ -32,7 +32,6 @@ class LocationController < ActionController::Base
   end
 
   def update
-    @location = Location.find(params[:id])
     if @location.update_attributes(location_params)
       redirect_to location_path
     else
@@ -62,9 +61,12 @@ class LocationController < ActionController::Base
       if l.photos.length > 0
         img_url = l.photos.first.img_url.url
       end
-      temp = { title: l.title , id: l.id, url: location_path(l), edit: edit_location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address,coordinates: [l.latitude,l.longitude]}
+      temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address,coordinates: [l.latitude,l.longitude]}
       @geo_json.push temp
     end
     render json: @geo_json
+  end
+  def set_location
+    @location = Location.find(params[:id])
   end
 end

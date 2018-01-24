@@ -1,17 +1,22 @@
 <div class="container">
   <h1><%= title %></h1>
   <div class="row">
-    <% location.photos.each do |p| %>
+    <% collection.each do |p| %>
       <div class="four columns img-card">
         <div class="img-holder">
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <em><%= User.find(p.user_id).email %></em>
+          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
           - "<%= p.caption %>"
         </p>
-        <%= link_to("Delete", photo_path(p), method: :delete, class: 'button') if p.is_mine(current_user.id) %>
+        <% if signed_in? %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button') if p.is_mine(current_user.id) %>
+        <% end %>
       </div>
+    <% end %>
+    <% if collection.length == 0 %>
+      <p>Sorry there are currently no photos.</p>
     <% end %>
   </div>
 </div>
