@@ -1,7 +1,9 @@
 class LocationController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :set_location, only: [:show,:edit,:update]
+  before_action :set_location, only: [:show,:edit,:update,:destroy]
+  before_action :is_mine_or_admin, only: [:edit,:update,:destroy]
+  before_action :is_logged_in, only: [:new,:create]
   def index
     @locations = Location.all
   end
@@ -23,10 +25,9 @@ class LocationController < ActionController::Base
     end
   end
   def edit
-    
+
   end
   def destroy
-    @location = Location.find(params[:id])
     @location.destroy!
     redirect_to location_index_path
   end
@@ -68,5 +69,19 @@ class LocationController < ActionController::Base
   end
   def set_location
     @location = Location.find(params[:id])
+  end
+  def is_logged_in
+    if !signed_in?
+      redirect_to location_index_path, alert: "You must be logged in to perform this action."
+    end
+  end
+  def is_mine_or_admin
+    if signed_in?
+      if current_user.id != Location.find(params[:id]).user_id
+        redirect_to location_index_path, alert: "You must own or be an admin to access this content."
+      end
+    else
+      redirect_to location_index_path, alert: "You must be signed in to access this content."
+    end
   end
 end
