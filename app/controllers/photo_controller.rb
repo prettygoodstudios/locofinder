@@ -10,9 +10,9 @@ class PhotoController < ActionController::Base
     @photo = @location.photos.build(photo_params)
     @user.photos << @photo
     if @photo.save
-      redirect_to @location
+      redirect_to @location, alert: "Successfully Posted!"
     else
-      redirect_to new_photo_path, alert: @photo.errors.first
+      redirect_to new_photo_path+"/?user=#{@user.id}&location=#{@location.id}", alert: @photo.errors.first
     end
   end
   def new

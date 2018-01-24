@@ -13,11 +13,14 @@ class Location < ApplicationRecord
   def average_score
     avg_score = 0
     reviews.each do |r|
-      avg_score += r.score / reviews.length
+      avg_score += r.score
     end
-    return avg_score
+    if reviews.length != 0
+      return avg_score/reviews.length
+    else
+      return 0
+    end
   end
-
   def location_validate
     if title != ""
       if address != ""

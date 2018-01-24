@@ -33,7 +33,7 @@
         <tr>
           <td><%= User.find(r.user_id).email %></td>
           <td><%= r.score %>/10</td>
-          <td><%= r.message %></td>
+          <td><%= r.message %><%= link_to("Delete", review_path(r), method: :delete, class: 'button') if r.is_mine(current_user.id) %></td>
         </tr>
       <% end %>
     </tbody>

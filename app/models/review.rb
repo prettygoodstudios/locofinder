@@ -15,6 +15,13 @@ class Review < ApplicationRecord
       errors.add(:user_id, "A user may not leave multiple reviews on a location.")
     end
   end
+  def is_mine user
+    if user == user_id
+      return true
+    else
+      return false
+    end
+  end
   def score_range
     if score != nil
       if !(score > 0 and score < 11)

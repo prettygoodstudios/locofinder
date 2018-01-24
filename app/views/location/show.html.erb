@@ -2,6 +2,7 @@
   <div class="row">
     <h1><%= @location.title %></h1>
     <p><%= @location.address + ", " + @location.city + ", " + @location.state + ", " + @location.country %></p>
+    <p>Average Score: <%= @location.average_score %>/10</p>
     <% if signed_in? %>
       <% if @location.user_id.to_i == current_user.id %>
         <%= link_to "Edit", edit_location_path(@location), class: "button" %>

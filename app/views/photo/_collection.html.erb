@@ -8,6 +8,7 @@
         </div>
         <p>
           <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
+          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
           - "<%= p.caption %>"
         </p>
         <% if signed_in? %>
