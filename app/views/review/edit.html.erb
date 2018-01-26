@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Edit Your Review</h1>
+  <%= form_for(@review, url: review_path(@review) ) do |f| %>
+    <div class="form-group">
+      <%= f.label :score %>
+      <%= f.number_field :score %>
+    </div>
+    <div>
+      <%= f.label :message %>
+      <%= f.text_area :message, rows: 5 %>
+    </div>
+    <%= f.hidden_field :location, value: @review.location_id%>
+    <%= f.hidden_field :user, value: current_user.id %>
+    <br>
+    <%= f.submit "Update Review!" %>
+  <% end %>
+</div>

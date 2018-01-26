@@ -6,7 +6,7 @@ class Review < ApplicationRecord
     puts user_id
     Location.all.each do |l|
       l.reviews.each do |r|
-        if user_id == r.user_id and location_id == r.location_id
+        if user_id == r.user_id and location_id == r.location_id and r.id !=id
           multiple = true
         end
       end

@@ -1,8 +1,9 @@
 class ReviewController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
+  before_action :set_review, only: [:update,:destroy,:edit]
   before_action :is_logged_in, only: [:create]
-  before_action :is_mine_or_admin, only: [:destroy]
+  before_action :is_mine_or_admin, only: [:destroy,:edit,:update]
   def create
     @location = Location.find(params[:review][:location].to_i)
     @user = User.find(params[:review][:user])
@@ -14,8 +15,18 @@ class ReviewController < ActionController::Base
       redirect_to @location, alert: @review.errors.first
     end
   end
+  def edit
+
+  end
+  def update
+    @location = Location.find(@review.location_id)
+    if @review.update_attributes(review_params)
+      redirect_to @location, alert: "Successfully Updated Review!"
+    else
+      redirect_to edit_review_path(@review), alert: @review.errors.first
+    end
+  end
   def destroy
-    @review = Review.find(params[:id])
     @location = Location.find(@review.location_id)
     @review.destroy!
     redirect_to @location, alert: "You have just deleted a review"
@@ -27,6 +38,9 @@ class ReviewController < ActionController::Base
     if !signed_in?
       redirect_to location_index_path, alert: "You must be logged in to perform this action."
     end
+  end
+  def set_review
+    @review = Review.find(params[:id])
   end
   def is_mine_or_admin
     if signed_in?

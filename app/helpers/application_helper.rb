@@ -8,4 +8,11 @@ module ApplicationHelper
       link_to "Log In!", new_user_session_path
     end
   end
+  def views_helper views
+    if views < 1000
+      return views.to_s
+    else
+      return (views/1000).floor.to_s + "K"
+    end
+  end
 end
