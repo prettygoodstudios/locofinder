@@ -1,7 +1,15 @@
 class Location < ApplicationRecord
-  geocoded_by :full_address
-  validate :address, :city, :state, :country, :title, :location_validate
-  after_validation :geocode
+  geocoded_by :full_address do |object, results|
+    if results.present?
+     object.latitude = results.first.latitude
+     object.longitude = results.first.longitude
+    else
+     object.latitude = nil
+     object.longitude = nil
+    end
+  end
+  validate :address, :city, :state, :country, :title, :location_validate, :found_address_presence
+  before_validation :geocode
   has_many :reviews
   has_many :photos
   belongs_to :user
@@ -42,6 +50,11 @@ class Location < ApplicationRecord
       end
     else
       errors.add(:title,"Title may not be blank.")
+    end
+  end
+  def found_address_presence
+    if latitude.blank? || longitude.blank?
+      errors.add(:address, "We couldn't find the address.")
     end
   end
 end

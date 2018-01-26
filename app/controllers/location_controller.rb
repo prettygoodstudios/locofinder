@@ -77,7 +77,7 @@ class LocationController < ActionController::Base
   end
   def is_mine_or_admin
     if signed_in?
-      if current_user.id != Location.find(params[:id]).user_id
+      if current_user.id != Location.find(params[:id]).user_id.to_i
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
       end
     else
