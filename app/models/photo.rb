@@ -10,6 +10,9 @@ class Photo < ApplicationRecord
       return false
     end
   end
+  def self.mostViews
+    order("views DESC")
+  end
   def has_caption
     if caption.length < 6 and caption.length > 100
       errors.add(:caption,"Your caption must be atleast six characters long and may not exceed 100 characters in length.")

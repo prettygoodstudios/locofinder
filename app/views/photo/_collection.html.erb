@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= title %></h1>
   <div class="row">
-    <% collection.each do |p| %>
+    <% collection.mostViews.each do |p| %>
       <div class="four columns img-card">
         <div class="img-holder">
           <img src="<%= p.img_url.url %>" />
@@ -12,8 +12,9 @@
           - "<%= p.caption %>"
         </p>
         <% if signed_in? %>
-          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button') if p.is_mine(current_user.id) %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') if p.is_mine(current_user.id) %>
         <% end %>
+        <%= link_to "View - " + p.views.to_s + " Views" , photo_path(p), class:'button' %>
       </div>
     <% end %>
     <% if collection.length == 0 %>

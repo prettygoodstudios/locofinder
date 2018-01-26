@@ -25,6 +25,11 @@
 .img-card .button{
   position: absolute;
   bottom: 0;
+
+}
+.delete-button{
+  right: 0;
+  max-width: 50%;
 }
 .img-holder img{
   min-width: 100%;
@@ -62,4 +67,7 @@ tr{
 }
 .window img{
   max-width: 300px;
+}
+.show-image{
+  width: 100%;
 }

@@ -60,7 +60,7 @@ class LocationController < ActionController::Base
     @locations.each do |l|
       img_url = ""
       if l.photos.length > 0
-        img_url = l.photos.first.img_url.url
+        img_url = l.photos.mostViews.first.img_url.url
       end
       temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address,coordinates: [l.latitude,l.longitude]}
       @geo_json.push temp
