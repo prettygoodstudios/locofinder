@@ -44,9 +44,6 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-<<<<<<< HEAD
-  
-=======
   CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'                        # required
   config.fog_credentials = {
@@ -60,8 +57,7 @@ Rails.application.configure do
   config.fog_directory  = 'name_of_directory'                                   # required
   config.fog_public     = false                                                 # optional, defaults to true
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
-end 
->>>>>>> master
+end
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
