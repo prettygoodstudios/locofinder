@@ -21,8 +21,4 @@
 /yarn-error.log
 
 .byebug_history
-<<<<<<< HEAD
 config/application.yml
-=======
-/config/application.yml
->>>>>>> master

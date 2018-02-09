@@ -12,9 +12,12 @@
   </head>
 
   <body>
-    <%= render partial: "sharred/nav" %>
-    <%= alert %>
-    <%= yield %>
+    <div class="push">
+      <%= render partial: "sharred/nav" %>
+      <%= alert %>
+      <%= yield %>
+    </div>
+    <%= render partial: "sharred/footer" %>
   </body>
 
 </html>
