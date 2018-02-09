@@ -11,8 +11,10 @@
     padding: 0;
   }
 </style>
-<% if signed_in? %>
+<% if signed_in? and current_user.verified %>
   <%= link_to "Create Location", new_location_path, class: "button" %>
+<% elsif signed_in? %>
+  <p>You must verify your email inorder to create a location.</p>
 <% end %>
 <div id="map"></div>
 <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= root_url %>';</script>

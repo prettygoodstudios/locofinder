@@ -37,6 +37,8 @@ class ReviewController < ActionController::Base
   def is_logged_in
     if !signed_in?
       redirect_to location_index_path, alert: "You must be logged in to perform this action."
+    elsif !current_user.verified
+      redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."
     end
   end
   def set_review
@@ -46,6 +48,8 @@ class ReviewController < ActionController::Base
     if signed_in?
       if current_user.id != Review.find(params[:id]).user_id
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
+      elsif !current_user.verified
+        redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."
       end
     else
       redirect_to location_index_path, alert: "You must be signed in to access this content."

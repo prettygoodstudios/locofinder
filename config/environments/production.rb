@@ -18,7 +18,29 @@ Rails.application.configure do
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
   config.read_encrypted_secrets = true
+  config.action_mailer.delivery_method = :smtp
 
+
+  config.action_mailer.smtp_settings = {
+    :address => "email-smtp.us-west-2.amazonaws.com",
+    :port => 587,
+    :user_name => ENV["SMTP_USER"],
+    :password => ENV["SMTP_PASSWORD"],
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
+  CarrierWave.configure do |config|
+     config.fog_provider = 'fog/aws'                        # required
+     config.fog_credentials = {
+       provider:              'AWS',                        # required
+       aws_access_key_id:     ENV["aws_access_key_id"],       # required
+       aws_secret_access_key: ENV["aws_secret_access_key"],                        # required
+       region:                ENV["aws_region"],                  # optional, defaults to 'us-east-1'
+     }
+     config.fog_directory  = ENV["aws_bucket_name"]                                      # required
+     config.fog_public     = true                                                # optional, defaults to true
+     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
+  end
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?

@@ -4,11 +4,15 @@
     <p><%= @location.address + ", " + @location.city + ", " + @location.state + ", " + @location.country %></p>
     <p>Average Score: <%= @location.average_score %>/10</p>
     <% if signed_in? %>
-      <% if @location.user_id.to_i == current_user.id %>
+      <% if @location.user_id.to_i == current_user.id and @user.verified%>
         <%= link_to "Edit", edit_location_path(@location), class: "button" %>
         <%= link_to "Delete", location_path(@location), method: :delete, class: "button" %>
+      <% elsif !current_user.verified %>
+        <p>You must verify your email to add photos.</p>
       <% end %>
-      <%= link_to "Add Photo", new_photo_path + "/?location=#{@location.id}&user=#{current_user.id}", class: "button" %>
+      <% if current_user.verified %>
+        <%= link_to("Add Photo", new_photo_path + "/?location=#{@location.id}&user=#{current_user.id}", class: "button") if !current_user.verified %>
+      <% end %>
     <% end %>
   </div>
   <div class="row">

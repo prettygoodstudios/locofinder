@@ -12,7 +12,7 @@
           - "<%= p.caption %>"
         </p>
         <% if signed_in? %>
-          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') if p.is_mine(current_user.id) %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') if p.is_mine(current_user.id) and current_user.verified %>
         <% end %>
         <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
       </div>
