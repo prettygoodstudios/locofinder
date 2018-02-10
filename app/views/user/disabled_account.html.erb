@@ -1,4 +1,5 @@
 <div class="container">
   <h1>You account has not been enabled yet</h1>
   <p>You must verify your email to enable your account.</p>
+  <a href="<%= '/user/send_email_verification/' + current_user.id.to_s %>">Resend Email Verification Email</a>
 </div>

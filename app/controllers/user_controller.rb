@@ -18,9 +18,12 @@ class UserController < ActionController::Base
     else
       redirect_to location_index_path, alert: "You have already verified your email."
     end
+    redirect_to location_index_path, alert: "Your account has been verified."
   end
   def send_email_verification
-    @user = User.find(params[:id]).id
+    @user = User.find(params[:id])
+    @user.update_attribute("token",rand(36**16).to_s(36))
+    @user = @user.id
     UserMailer.verify_email(@user).deliver!
     redirect_to location_index_path, alert: "Sent email verification."
   end

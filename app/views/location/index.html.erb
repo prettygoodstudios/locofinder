@@ -15,6 +15,7 @@
   <%= link_to "Create Location", new_location_path, class: "button" %>
 <% elsif signed_in? %>
   <p>You must verify your email inorder to create a location.</p>
+  <a href="<%= root_url %>user/disabled_account/<%= current_user.id %>">Enable Your Account.</a>
 <% end %>
 <div id="map"></div>
 <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= root_url %>';</script>
