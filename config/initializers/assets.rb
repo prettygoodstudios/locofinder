@@ -12,6 +12,7 @@ Rails.application.config.assets.precompile += %w( skeleton.css )
 Rails.application.config.assets.precompile += %w( normalize.css )
 Rails.application.config.assets.precompile += %w( info-window.js )
 Rails.application.config.assets.precompile += %w( map-logic.js )
+Rails.application.config.assets.precompile += %w( alerts.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

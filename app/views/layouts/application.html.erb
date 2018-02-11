@@ -9,12 +9,23 @@
     <%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'alerts' %>
   </head>
 
   <body>
     <div class="push">
       <%= render partial: "sharred/nav" %>
-      <%= alert %>
+      <div class="modal" style="<%= 'background-color: rgba(0,0,0,0.0);' if alert == nil  %>">
+        <div class="modal-content" style="<%= 'display:none' if alert == nil  %>">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Error</h2>
+          </div>
+          <div class="modal-body">
+            <%= alert[1] if alert != nil %>
+          </div>
+        </div>
+      </div>
       <%= yield %>
     </div>
     <%= render partial: "sharred/footer" %>
