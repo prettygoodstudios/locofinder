@@ -7,4 +7,13 @@ class User < ApplicationRecord
   has_many :photos
   has_many :locations
 
+  def has_a_review location
+    found = false
+    reviews.each do |r|
+      if r.location_id == location
+        found = true
+      end
+    end
+    return found
+  end
 end
