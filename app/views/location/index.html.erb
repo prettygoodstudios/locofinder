@@ -1,25 +1,11 @@
-<style>
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #map {
-    height: 80vh;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-</style>
 <% if signed_in? and current_user.verified %>
   <%= link_to "Create Location", new_location_path, class: "button" %>
 <% elsif signed_in? %>
   <p>You must verify your email inorder to create a location.</p>
   <a href="<%= root_url %>user/disabled_account/<%= current_user.id %>">Enable Your Account.</a>
 <% end %>
-<div id="map"></div>
 <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= root_url %>';</script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKJD9rLWLCIKWyk-2cPc8tCQaYWk4lUqg&callback=initMap">
-</script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+<div id='map'></div>
 <%= javascript_include_tag "map-logic" %>

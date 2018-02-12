@@ -1,52 +1,26 @@
-var map;
-var data;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
-    center: {lat: -28, lng: 137}
-  });
-  // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-  var markers = [];
-  var infoWindows = [];
-  $.get(ROOT_URL+"geo_json_api", function( d ) {
-    data = d;
-    console.log(data);
-    map.setCenter({lat: data[0].coordinates[0] ,lng: data[0].coordinates[1]});
-    for( var i =0;  i < data.length; i++){
-      var marker = new google.maps.Marker({
-            position: {lat: data[i].coordinates[0] ,lng: data[i].coordinates[1]},
-            map: map,
-            title: 'Hello World!'
-      });
-      var image = "";
-      if(data[i].img_url != ""){
-        image = "<img src='"+data[i].img_url+"'/>"
-      }
-      var content = "<div class='window'><h1>"+data[i].title+"</h1><h5>Average Score: "+data[i].average_score+"</h5>"+image+"<a href='"+data[i].url+"' class='button'>More Details!</a></div>";
-      var infoWindow = new google.maps.InfoWindow({
-        content: "<h1>"+data[i].title+"</h1><a href='"+data[i].url+"'>More Details!</a><a href='"+data[i].edit+"'>Edit</a><a href='"+data[i].url+"' method='delete'>Delete</a>"
-      });
-      google.maps.event.addListener(marker,'click', (function(marker,content,infoWindow){
-          return function() {
-              infoWindow.setContent(content);
-              infoWindow.open(map,marker);
-          };
-      })(marker,content,infoWindow));
-    }
-  });
+mapboxgl.accessToken = 'pk.eyJ1IjoicHJldHR5Z29vZHN0dWRpb3MiLCJhIjoiY2pkamx4aTZlMWt4dDJwbnF5a3ZmbTEzcyJ9.lu_9eqO1kmUMPf9LXU80yg';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/outdoors-v10'
+});
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-left');
+$.get(ROOT_URL+"geo_json_api").then(function(d) {
+  var center = [d[0].coordinates[1],d[0].coordinates[0]];
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      map.setCenter(pos);
-    }, function() {
-
+    navigator.geolocation.getCurrentPosition(function(position){
+      center = [position.coords.longitude,position.coords.latitude];
     });
-  } else {
-    // Browser doesn't support Geolocation
   }
-
-}
+  map.flyTo({center: [d[0].coordinates[1],d[0].coordinates[0]], zoom: 9});
+  for( var i = 0; i < d.length; i++ ){
+    var marker = new mapboxgl.Marker().setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
+    var title = "<h1>"+d[i].title+"</h1>";
+    var address = "<p>"+d[i].address+"</p>";
+    var average_score = "<p>Average Score: "+d[i].average_score+"</p>"
+    var image = "<image class='popup-image' src='"+d[i].img_url+"'></image>"
+    var link = "<a href='"+ROOT_URL+d[i].url+"' class='button'>More Info</a>";
+    var popup = new mapboxgl.Popup().setHTML(title+address+average_score+image+link);
+    marker.setPopup(popup);
+  }
+});
