@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJldHR5Z29vZHN0dWRpb3MiLCJhIjoiY2pkamx4aTZlMWt4dDJwbnF5a3ZmbTEzcyJ9.lu_9eqO1kmUMPf9LXU80yg';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/outdoors-v10'
+  style: 'mapbox://styles/prettygoodstudios/cjdjnyk9047qy2rmm28tmk0m8'
 });
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
@@ -14,7 +14,9 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
   }
   map.flyTo({center: [d[0].coordinates[1],d[0].coordinates[0]], zoom: 9});
   for( var i = 0; i < d.length; i++ ){
-    var marker = new mapboxgl.Marker().setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
+    var el = document.createElement('div');
+    el.className = 'marker';
+    var marker = new mapboxgl.Marker(el).setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
     var title = "<h1>"+d[i].title+"</h1>";
     var address = "<p>"+d[i].address+"</p>";
     var average_score = "<p>Average Score: "+d[i].average_score+"</p>"
