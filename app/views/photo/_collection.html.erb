@@ -11,8 +11,8 @@
           - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
           - "<%= p.caption %>"
         </p>
-        <% if signed_in? %>
-          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') if p.is_mine(current_user.id) and current_user.verified %>
+        <% if is_mine_or_admin(p.user_id) %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>
         <% end %>
         <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
       </div>

@@ -48,7 +48,7 @@ class ReviewController < ActionController::Base
     if signed_in?
       if current_user.id != Review.find(params[:id]).user_id
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
-      elsif !current_user.verified
+      elsif !current_user.verified and current_user.role != "admin"
         redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."
       end
     else

@@ -35,10 +35,14 @@
         <tr>
           <td><%= User.find(r.user_id).email %></td>
           <td><%= r.score %>/10</td>
-          <td><%= r.message %>
-          <% if signed_in? %>
-            <%= link_to("Edit", edit_review_path(r), class: 'button') if r.is_mine(current_user.id) and current_user.verified %><%= link_to("Delete", review_path(r), method: :delete, class: 'button') if r.is_mine(current_user.id) and current_user.verified %></td>
-          <% end %>
+          <td>
+            <%= r.message %>
+            <br>
+            <% if is_mine_or_admin(r.user_id) %>
+              <%= link_to("Edit", edit_review_path(r), class: 'button')  %>
+              <%= link_to("Delete", review_path(r), method: :delete, class: 'button') %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
