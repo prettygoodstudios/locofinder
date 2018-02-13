@@ -5,4 +5,10 @@ class UserMailer < ApplicationMailer
     @user = User.find(user)
     mail(to: @user.email, subject: 'Locofinder Email Verification')
   end
+  def new_report(report)
+    @report = Report.find(report)
+    @recipients = User.all.where(role: "admin")
+    emails = @recipients.collect(&:email).join(",")
+    mail(to: emails, subject: "Alert Additional Content Has Been Reported!")
+  end
 end
