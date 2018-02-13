@@ -2,6 +2,7 @@ class LocationController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
   before_action :set_location, only: [:show,:edit,:update,:destroy]
+  before_action :send_initial_email_verification_email, only: [:index,:show,:edit,:destroy,:update,:new]
   before_action :is_mine_or_admin, only: [:edit,:update,:destroy]
   before_action :is_logged_in, only: [:new,:create]
   def index
@@ -79,6 +80,17 @@ class LocationController < ActionController::Base
   end
   def set_location
     @location = Location.find(params[:id])
+  end
+  def send_initial_email_verification_email
+    if signed_in?
+      if current_user.token == nil
+        @user = User.find(current_user.id)
+        @user.update_attribute("token",rand(36**16).to_s(36))
+        @user = @user.id
+        UserMailer.verify_email(@user).deliver!
+        redirect_to location_index_path, alert: "Check your email for an email that will verify your email address and enable your accounts."
+      end
+    end
   end
   def is_logged_in
     if !signed_in?
