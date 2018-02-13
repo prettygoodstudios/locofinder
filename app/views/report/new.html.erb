@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Report Content</h1>
+  <p>Report content will be investigated by a site administrator before any action will be taken. Content that violates our terms of service will be edited or taken down. A account may be terminated after repeat violations or extreme acts.</p>
+  <%= form_for(@report, url: report_index_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :message %>
+      <%= f.text_area :message, width:"100%", rows: "5" %>
+    </div>
+    <%= f.hidden_field :review_id, value: @review %>
+    <%= f.hidden_field :location_id, value: @location %>
+    <%= f.hidden_field :photo_id, value: @photo %>
+    <%= f.submit "Submit Report", class: 'button' %>
+  <% end %>
+</div>

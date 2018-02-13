@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources "location"
   resources "review"
   resources "photo"
+  resources "report"
   get "/geo_json_api", to: "location#geo_json_api"
   get "/user/show/:id", to: "user#show"
   get "/user/enable_account/:id", to: "user#enable_account"
   get "/user/disabled_account/:id", to: "user#disabled_account"
   get "/user/send_email_verification/:id", to: "user#send_email_verification"
+  delete "/report_destroy/:id", to: "report#report_destroy"
 end

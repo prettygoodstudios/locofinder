@@ -74,12 +74,12 @@ class LocationController < ActionController::Base
     if !signed_in?
       redirect_to location_index_path, alert: "You must be logged in to perform this action."
     elsif !current_user.verified
-      redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."
+      redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify your email to perform this action."
     end
   end
   def is_mine_or_admin
-    if signed_in? and current_user.role != "admin"
-      if current_user.id != Location.find(params[:id]).user_id.to_i
+    if signed_in?
+      if current_user.id != Location.find(params[:id]).user_id.to_i and current_user.role != "admin"
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
       elsif !current_user.verified
         redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."

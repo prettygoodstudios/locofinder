@@ -12,6 +12,7 @@
       <% end %>
       <% if current_user.verified %>
         <%= link_to("Add Photo", new_photo_path + "/?location=#{@location.id}&user=#{current_user.id}", class: "button") %>
+        <%= link_to "Report Content", new_report_path({location: @location.id,photo: nil, review: nil}), class: 'button' %>
       <% end %>
     <% end %>
   </div>

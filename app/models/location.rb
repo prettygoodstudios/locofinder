@@ -10,8 +10,8 @@ class Location < ApplicationRecord
   end
   validate :address, :city, :state, :country, :title, :location_validate, :found_address_presence
   before_validation :geocode
-  has_many :reviews
-  has_many :photos
+  has_many :reviews, dependent: :destroy
+  has_many :photos, dependent: :destroy
   belongs_to :user
   def full_address
     addressArray = [address, city, state, country]

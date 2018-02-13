@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Resolve Reported Content</h1>
+  <hr>
+  <p>User: <%= link_to @report.user.email, "/user/show/#{@report.user.id}" %></p>
+  <%= link_to "View all Reported Content", report_index_path, class: 'button' %>
+  <%= link_to "View", @report.link, class: 'button' %>
+  <% if @report.what_type == "location" %>
+    <%= link_to "Edit", edit_location_path(@report.location_id), class: "button" %>
+  <% elsif @report.what_type == "photo" %>
+    <%= link_to "Edit", edit_photo_path(@report.photo_id), class: "button" %>
+  <% elsif @report.what_type == "review" %>
+    <%= link_to "Edit", edit_review_path(@report.review_id), class: "button" %>
+  <% end %>
+  <%= link_to "Delete", "/report_destroy/#{@report.id}", class: "button", method: :delete %>
+  <%= link_to "Mark as Resolved", report_path(@report.id), class: 'button', method: :delete %>
+  <p>Message: <%= @report.message %></p>
+</div>
