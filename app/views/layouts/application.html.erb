@@ -22,7 +22,8 @@
             <h2>Alert</h2>
           </div>
           <div class="modal-body">
-            <%= alert[1] if alert != nil %>
+            <%= alert[1] if alert != nil and !(alert.is_a? String) %>
+            <%= alert if alert.is_a? String %>
           </div>
         </div>
       </div>
