@@ -6,13 +6,6 @@ var map = new mapboxgl.Map({
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-left');
 $.get(ROOT_URL+"geo_json_api").then(function(d) {
-  var center = [d[0].coordinates[1],d[0].coordinates[0]];
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position){
-      center = [position.coords.longitude,position.coords.latitude];
-    });
-  }
-  map.flyTo({center: [d[0].coordinates[1],d[0].coordinates[0]], zoom: 9});
   for( var i = 0; i < d.length; i++ ){
     var el = document.createElement('div');
     el.className = 'marker';
@@ -25,4 +18,7 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
     var popup = new mapboxgl.Popup().setHTML(title+address+average_score+image+link);
     marker.setPopup(popup);
   }
+});
+$.get(ROOT_URL+"my_location_api").then(function(d){
+  map.flyTo({center: [d.longitude, d.latitude], zoom: 9});
 });

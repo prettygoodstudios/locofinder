@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources "photo"
   resources "report"
   get "/geo_json_api", to: "location#geo_json_api"
+  get "/my_location_api", to: "location#my_location_api"
   get "/user/show/:id", to: "user#show"
   get "/user/enable_account/:id", to: "user#enable_account"
   get "/user/disabled_account/:id", to: "user#disabled_account"
