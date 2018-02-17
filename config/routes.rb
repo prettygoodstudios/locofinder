@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get "/user/enable_account/:id", to: "user#enable_account"
   get "/user/disabled_account/:id", to: "user#disabled_account"
   get "/user/send_email_verification/:id", to: "user#send_email_verification"
+  get "/reset_password/:id", to: "user#new_password"
+  post "/new_password/:id", to: "user#reset_password"
   delete "/report_destroy/:id", to: "report#report_destroy"
 end

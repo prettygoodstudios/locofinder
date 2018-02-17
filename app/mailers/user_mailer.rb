@@ -11,4 +11,9 @@ class UserMailer < ApplicationMailer
     emails = @recipients.collect(&:email).join(",")
     mail(to: emails, subject: "Alert Additional Content Has Been Reported!")
   end
+  def reset_password(user,token)
+    @user = User.find(user)
+    @token = token
+    mail(to: @user.email, subject: "Reset Locofinder Password.")
+  end
 end
