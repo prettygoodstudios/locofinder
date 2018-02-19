@@ -16,4 +16,23 @@ class User < ApplicationRecord
     end
     return found
   end
+  def self.index_sort
+    users = select{ |u| u.has_photos }
+    #users = users.order("Desc cumulative_views")
+    users
+  end
+  def has_photos
+    retVal = false
+    if photos.length != 0
+      retVal = true
+    end
+    retVal
+  end
+  def cumulative_views
+    retVal = 0
+    photos.each do |p|
+      retVal += p.views
+    end
+    retVal
+  end
 end

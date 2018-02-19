@@ -2,6 +2,9 @@ class UserController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
   before_action :set_user, only: [:show,:enable_account,:send_email_verification,:reset_password,:new_password]
+  def index
+    @users = User.all.index_sort  
+  end
   def show
     @photos = @user.photos
   end

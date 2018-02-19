@@ -1,0 +1,4 @@
+<div class="user-banner">
+  <h3><%= user.email %></h3>
+</div>
+<%= render partial: "photo/collection", locals: {collection: user.photos, title: ""} %>

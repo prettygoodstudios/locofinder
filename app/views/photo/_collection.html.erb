@@ -1,5 +1,7 @@
 <div class="container">
-  <h1><%= title %></h1>
+  <% if title != "" %>
+    <h1><%= title %></h1>
+  <% end %>
   <div class="row">
     <% collection.mostViews.each do |p| %>
       <div class="four columns img-card">
