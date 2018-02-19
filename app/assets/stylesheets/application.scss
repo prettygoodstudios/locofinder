@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+$primary-color: #3644A1;
+$light-text-color: white;
+$dark-text-color: black;
+/* Image collection card styles */
 .img-card{
   position: relative;
   height: 400px;
@@ -35,6 +39,7 @@
   max-width: 200%;
   min-height: 100%;
 }
+/* End of image card collection styles */
 textarea{
   width: 100%;
   max-width: 100%;
@@ -43,10 +48,12 @@ textarea{
 tr{
   font-size: 1.5em;
 }
+/* Start of Navbar Styles */
 .nav{
-  border-bottom: 2px solid black;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: $primary-color;
+  color: $light-text-color;
+  padding:20px;
+  margin-bottom: 20px;
 }
 .nav ul{
   list-style: none;
@@ -58,36 +65,32 @@ tr{
   margin: 20px;
 }
 .nav a{
-  color: black;
+  color: $light-text-color;
   text-decoration: none;
 }
 .nav h1{
   display: inline;
 }
 .nav a:hover{
-  color:gray;
+  color: $dark-text-color;
   text-decoration: none;
 }
-.window img{
-  max-width: 300px;
-}
-.show-image{
-  width: 100%;
-}
+/* End of Navbar styles */
+/* Footer Styles */
 footer{
-  border-top: 2px solid black;
+  margin-top: 20px;
+  background-color: $primary-color;
+  color: $light-text-color;
 }
 footer p{
   margin: 0.67em 0;
-}
-.nav{
-  margin-bottom: 20px;
-  padding:20px;
 }
 .push{
   min-height: 90vh;
   margin-bottom: 20px;
 }
+/* End of Footer Styles */
+/* Modal Styles */
 /* The Modal (background) */
 .modal {
    display: none; /* Hidden by default */
@@ -125,6 +128,8 @@ footer p{
    text-decoration: none;
    cursor: pointer;
 }
+/* End of Modal Styles */
+/* Map Styles */
 #map{
   width: 100%;
   height: 80vh;
@@ -141,4 +146,11 @@ footer p{
   height: 50px;
   border-radius: 0%;
   cursor: pointer;
+}
+/* End of Map Styles */
+.user-banner{
+  background-color: $primary-color;
+  color: $light-text-color;
+  padding: 20px;
+  margin-bottom: 20px;
 }
