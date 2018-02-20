@@ -1,5 +1,6 @@
 <div class="container">
-  <h1><%= @user.email %></h1>
+  <h1><div class="profile-img"><img src="<%= @user.profile_img.url %>" class="<%= 'display-none' if @user.profile_img.url == nil %>"></div><%= @user.email %></h1>
+  <p><%= @user.bio %></p>
   <hr>
   <%= render partial: "photo/collection", locals: { collection: @photos, title: "Photos", collumns: 3} %>
 </div>

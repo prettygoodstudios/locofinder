@@ -6,7 +6,9 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :locations
-
+  mount_uploader :profile_img, PictureUploader
+  serialize :profile_img, JSON
+  validate :has_profile, :has_bio
   def has_a_review location
     found = false
     reviews.each do |r|
@@ -46,5 +48,15 @@ class User < ApplicationRecord
       retVal += p.views
     end
     retVal
+  end
+  def has_bio
+    if bio == ""
+      errors.add(:bio,"You must have a bio.");
+    end
+  end
+  def has_profile
+    if profile_img == nil
+      errors.add(:profile_img, "You must upload a profile image.")
+    end
   end
 end

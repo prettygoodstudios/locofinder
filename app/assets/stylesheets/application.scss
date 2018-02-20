@@ -164,9 +164,32 @@ footer p{
   cursor: pointer;
 }
 /* End of Map Styles */
+/* User partial Styles */
 .user-banner{
   background-color: $primary-color;
   color: $light-text-color;
   padding: 20px;
   margin-bottom: 20px;
 }
+.user-banner h3{
+  display: inline;
+}
+.profile-img{
+  display: inline-block;
+  background: url('https://png.icons8.com/android/1600/user.png');
+  background-size: cover;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-img> img{
+  max-width: 150%;
+  min-width: 100%;
+  min-height: 100%;
+}
+.display-none{
+  display: none !important;
+}
+/* End of User Partial Styles */
