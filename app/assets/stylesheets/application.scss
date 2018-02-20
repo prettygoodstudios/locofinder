@@ -19,11 +19,27 @@ $dark-text-color: black;
 /* Image collection card styles */
 .img-card{
   position: relative;
+}
+.img-card-3{
   height: 400px;
+}
+.img-card-2{
+  height: 450px;
+}
+.img-card-1{
+  height: 500px;
 }
 .img-holder{
   overflow: hidden;
+}
+.img-holder-3{
   height: 250px;
+}
+.img-holder-2{
+  height: 300px;
+}
+.img-holder-1{
+  height: 350px;
 }
 .img-card .button{
   position: absolute;

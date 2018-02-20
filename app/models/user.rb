@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
   def self.index_sort
     users = select{ |u| u.has_photos }
-    users.sort_by{ |u| u.photos.length }
+    users.sort_by!{ |u| u.cumulative_views }.reverse!
     #users = users.order("Desc cumulative_views")
     users
   end
@@ -28,6 +28,17 @@ class User < ApplicationRecord
       retVal = true
     end
     retVal
+  end
+  def collumns
+    cols = 0
+    if photos.length > 2
+      cols = 3
+    elsif photos.length > 1
+      cols = 2
+    else
+      cols = 1
+    end
+    cols
   end
   def cumulative_views
     retVal = 0

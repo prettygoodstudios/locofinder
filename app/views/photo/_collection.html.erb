@@ -1,11 +1,45 @@
-<div class="container">
-  <% if title != "" %>
-    <h1><%= title %></h1>
-  <% end %>
-  <div class="row">
-    <% collection.mostViews.each do |p| %>
-      <div class="four columns img-card">
-        <div class="img-holder">
+<% if title != "" %>
+  <h1><%= title %></h1>
+<% end %>
+<div class="row">
+  <% collection.mostViews.each do |p| %>
+    <% if collumns == 3 %>
+      <div class="four columns img-card img-card-3">
+        <div class="img-holder img-holder-3">
+          <img src="<%= p.img_url.url %>" />
+        </div>
+        <p>
+          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
+          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
+          - "<%= p.caption %>"
+          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
+        </p>
+        <% if is_mine_or_admin(p.user_id) %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>
+        <% end %>
+        <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
+        <br>
+      </div>
+    <% elsif collumns == 2 %>
+      <div class="six columns img-card img-card-2">
+        <div class="img-holder img-holder-2">
+          <img src="<%= p.img_url.url %>" />
+        </div>
+        <p>
+          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
+          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
+          - "<%= p.caption %>"
+          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
+        </p>
+        <% if is_mine_or_admin(p.user_id) %>
+          <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>
+        <% end %>
+        <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
+        <br>
+      </div>
+    <% elsif collumns == 1 %>
+      <div class="twelve columns img-card img-card-1">
+        <div class="img-holder img-holder-1">
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
@@ -21,8 +55,8 @@
         <br>
       </div>
     <% end %>
-    <% if collection.length == 0 %>
-      <p>Sorry there are currently no photos.</p>
-    <% end %>
-  </div>
+  <% end %>
+  <% if collection.length == 0 %>
+    <p>Sorry there are currently no photos.</p>
+  <% end %>
 </div>
