@@ -146,14 +146,42 @@ footer p{
 }
 /* End of Modal Styles */
 /* Map Styles */
+.create-button{
+  position: relative;
+  left: 75px;
+  top: 10px;
+  background-color: white !important;
+  z-index: 999;
+}
+.map-alert{
+  position: relative;
+  left: 75px;
+  top: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 300px;
+  background-color: white !important;
+  z-index: 999;
+}
 #map{
+  margin-top: -20px;
   width: 100%;
   height: 80vh;
+  margin-bottom: -20px;
+}
+.signed-in{
+  margin-top:  -70px !important;
+}
+.not-verified{
+  margin-top: -160px !important;
 }
 .popup-image{
   max-width: 300px !important;
   display: block;
   padding-bottom: 20px;
+}
+.mapboxgl-popup-content{
+  max-width: 300px;
 }
 .marker {
   background-image: url('https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/camera-512.png');

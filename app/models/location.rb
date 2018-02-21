@@ -24,7 +24,7 @@ class Location < ApplicationRecord
       avg_score += r.score
     end
     if reviews.length != 0
-      return avg_score/reviews.length
+      return avg_score.to_f/reviews.length.to_f
     else
       return 0
     end
