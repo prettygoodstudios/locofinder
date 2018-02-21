@@ -4,7 +4,8 @@ module ApplicationHelper
       content = "<li>" + (link_to'Logout', destroy_user_session_path, method: :delete) +"</li><li>"+ (link_to 'Edit Acount', edit_user_registration_path)+"</li>"
       content.html_safe
     else
-      link_to "Log In!", new_user_session_path
+      content = "<li>"+link_to("Log In!", new_user_session_path)+"</li>"
+      content.html_safe
     end
   end
   def views_helper views
