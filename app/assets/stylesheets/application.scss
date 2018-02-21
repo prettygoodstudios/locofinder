@@ -13,9 +13,15 @@
  *= require_tree .
  *= require_self
  */
+$hamburger-layer-color: white;
+$hamburger-padding-y: 5px;
+@import "hamburgers";
 $primary-color: #3644A1;
 $light-text-color: white;
 $dark-text-color: black;
+html, body{
+  overflow-x: hidden;
+}
 /* Image collection card styles */
 .img-card{
   position: relative;
@@ -90,6 +96,9 @@ tr{
 .nav a:hover{
   color: $dark-text-color;
   text-decoration: none;
+}
+.toggle{
+  float: right;
 }
 /* End of Navbar styles */
 /* Footer Styles */
@@ -221,3 +230,18 @@ footer p{
   display: none !important;
 }
 /* End of User Partial Styles */
+/*Mobile Media Query*/
+@media only screen and (max-width: 500px){
+  .nav ul{
+    display: none;
+  }
+  .nav li {
+    display: block !important;
+  }
+}
+/*Non Mobile Media Query*/
+@media only screen and (min-width: 500px){
+  .toggle{
+    display: none !important;
+  }
+}

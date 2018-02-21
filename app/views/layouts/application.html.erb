@@ -8,8 +8,6 @@
     <%= stylesheet_link_tag    'info-window', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.4/cropper.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.4/cropper.js"></script>
     <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag 'alerts' %>
   </head>
@@ -17,7 +15,7 @@
   <body>
     <div class="push">
       <%= render partial: "sharred/nav" %>
-      <div class="modal" style="<%= 'background-color: rgba(0,0,0,0.0);' if alert == nil  %>">
+      <div class="modal" style="<%= 'background-color: rgba(0,0,0,0.0); display: none;' if alert == nil  %>">
         <div class="modal-content" style="<%= 'display:none' if alert == nil  %>">
           <div class="modal-header">
             <span class="close">&times;</span>

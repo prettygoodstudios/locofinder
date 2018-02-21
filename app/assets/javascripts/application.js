@@ -15,3 +15,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+
+$("#toggle").click(function(){
+  $(".hamburger").toggleClass("hamburger--slider");
+});
