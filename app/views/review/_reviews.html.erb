@@ -22,30 +22,20 @@
     <p>You must verify your email to write a review.</p>
   <% end %>
   <h3>Reviews</h3>
-  <table class="u-full-width">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Score</th>
-        <th>Message</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% reviews.each do |r| %>
-        <tr>
-          <td><%= User.find(r.user_id).email %></td>
-          <td><%= r.score %>/10</td>
-          <td>
-            <%= r.message %>
-            <br>
-            <% if is_mine_or_admin(r.user_id) %>
-              <%= link_to("Edit", edit_review_path(r), class: 'button')  %>
-              <%= link_to("Delete", review_path(r), method: :delete, class: 'button') %>
-            <% end %>
-            <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: 'button') if signed_in? %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% reviews.each do |r| %>
+    <div class="review-card">
+      <div class="review-card-header">
+        <%= small_profile_img(User.find(r.user_id)) %><%= User.find(r.user_id).email %> - Score <%= r.score %>/10
+      </div>
+      <div class="review-card-body">
+        <%= r.message %>
+        <br />
+        <% if is_mine_or_admin(r.user_id) %>
+          <%= link_to("Edit", edit_review_path(r), class: '')  %>
+          <%= link_to("Delete", review_path(r), method: :delete, class: '') %>
+        <% end %>
+        <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: '') if signed_in? %>
+      </div>
+    </div>
+  <% end %>
 </div>

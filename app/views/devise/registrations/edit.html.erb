@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: 'profile-form') do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
@@ -35,10 +35,34 @@
       <%= f.label :bio %><br />
       <%= f.text_field :bio %>
     </div>
-    <div class="field">
-      <%= f.label :profile_img %><br />
-      <%= f.file_field :profile_img %>
+    <div id="image-cropper">
+      <div class="cropit-preview"></div>
+      <input type="range" class="cropit-image-zoom-input" />
+      <!-- The actual file input will be hidden -->
+      <%= f.file_field :profile_img, class: "cropit-image-input", style: "display: none !important;", value: current_user.profile_img.url %>
+      <!-- And clicking on this button will open up select file dialog -->
+      <div class="select-image-btn button">Select new image</div>
     </div>
+    <%= f.hidden_field :offsetX %>
+    <%= f.hidden_field :offsetY %>
+    <%= f.hidden_field :height %>
+    <%= f.hidden_field :width %>
+    <%= f.hidden_field :zoom %>
+    <script>
+      var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true});
+      $("#image-cropper").find(".cropit-preview");
+      $(".edit_user").submit(function(e){
+        console.log("Zoom: ",$("#image-cropper").cropit("zoom"));
+        $("#user_zoom").val($("#image-cropper").cropit("zoom"));
+        $("#user_offsetX").val($("#image-cropper").cropit("offset").x);
+        $("#user_offsetY").val($("#image-cropper").cropit("offset").y);
+        $("#user_width").val($("#image-cropper").cropit("previewSize").width);
+        $("#user_height").val($("#image-cropper").cropit("previewSize").height);
+      });
+      $('.select-image-btn').click(function() {
+        $('.cropit-image-input').click();
+      });
+    </script>
     <br />
     <div class="actions">
       <%= f.submit "Update" %>

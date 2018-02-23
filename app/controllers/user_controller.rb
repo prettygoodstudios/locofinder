@@ -1,15 +1,18 @@
 class UserController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:reset_password,:new_password]
+  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:reset_password,:new_password,:update_profile_photo]
   def index
-    @users = User.all.index_sort  
+    @users = User.all.index_sort
   end
   def show
     @photos = @user.photos
   end
   def create
     UserMailer.verify_email(current_user.id).deliver!
+  end
+  def update_profile_photo
+    
   end
   def enable_account
     if @user.token == params[:token]

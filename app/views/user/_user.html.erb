@@ -1,7 +1,5 @@
 <div class="user-banner">
-  <div class="profile-img">
-    <image src="<%= user.profile_img.url %>" class="<%= 'display-none' if user.profile_img.url == nil %>">
-  </div>
+  <%= small_profile_img(user) %>
   <h3><%= user.email %></h3>
 </div>
 <%= render partial: "photo/collection", locals: {collection: user.photos, title: "", collumns: user.collumns} %>

@@ -1,5 +1,8 @@
 {
   "name": "locofinder",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "browserify": "^16.1.0",
+    "cropit": "^0.5.1"
+  }
 }
