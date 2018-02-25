@@ -42,7 +42,7 @@ module ApplicationHelper
     #These two lines can be uncommented and used for diagnostics
     #puts "Width: #{finalWidth}, Height: #{finalHeight}, offSetX: #{user.offsetX*scaleRatio}, offsetY: #{user.offsetY*scaleRatio}"
     #puts "Width: #{user.profile_img.width}, Height: #{user.profile_img.height}, offSetX: #{user.offsetX}, offsetY: #{user.offsetY}"
-    content = "<div class='profile-img'>"+image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")+"</div>"
+    content = "<div class='profile-img' style='#{'background: black;' if user.profile_img.height != 0}'>"+image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")+"</div>"
     content.html_safe
   end
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources "review"
   resources "photo"
   resources "report"
+  get "/landing", to: "user#landing"
   get "/users/all", to: "user#index"
   get "/geo_json_api", to: "location#geo_json_api"
   get "/my_location_api", to: "location#my_location_api"
@@ -16,4 +17,6 @@ Rails.application.routes.draw do
   get "/reset_password/:id", to: "user#new_password"
   post "/new_password/:id", to: "user#reset_password"
   delete "/report_destroy/:id", to: "report#report_destroy"
+  get "/user/edit_profile/:id", to: "user#edit_profile_image"
+  post "/user/update_profile", to: "user#update_profile_image"
 end

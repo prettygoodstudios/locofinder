@@ -13,12 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Path 2: */
+
 $hamburger-layer-color: white;
 $hamburger-padding-y: 5px;
 @import "hamburgers";
-$primary-color: #3644A1;
-$light-text-color: white;
-$link-highlight-color: gray;
+$primary-color: #9013FE;
+$blue-blob-color: #CAFDF5;
+$light-text-color: #ECECEC;
+$link-highlight-color: #CAFDF5;
 $dark-text-color: black;
 html, body{
   overflow-x: hidden;
@@ -130,6 +134,7 @@ tr{
 /* End of UserTab Styles */
 /* Footer Styles */
 footer{
+  z-index: 999;
   margin-top: 20px;
   background-color: $primary-color;
   color: $light-text-color;
@@ -193,8 +198,11 @@ footer a:hover{
   position: relative;
   left: 75px;
   top: 10px;
-  background-color: white !important;
+  background-color: $primary-color !important;
   z-index: 999;
+}
+.create-button:hover{
+  background-color: $blue-blob-color !important;
 }
 .map-alert{
   position: relative;
@@ -296,6 +304,29 @@ footer a:hover{
 .cropit-image-zoom-input{
   width: 400px;
   display: block;
+}
+/* Location Header Styles */
+.location-header{
+  margin-top: -20px;
+  position: relative;
+  display: block;
+  height: 400px;
+  overflow: hidden;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+  margin-bottom: 20px;
+}
+.location-header>h1{
+  color: $light-text-color;
+  position: absolute;
+  font-size: 4em;
+  left:0px;
+  right:0px;
+  top: 40%;
+  text-align: center;
 }
 /*Mobile Media Query*/
 @media only screen and (max-width: 500px){

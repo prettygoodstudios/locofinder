@@ -1,0 +1,42 @@
+.landing-content{
+  height: 75vh;
+
+}
+.landing-parent{
+  overflow:hidden;
+  position: relative;
+  background-color: #9013FE;
+  margin-top: -20px;
+  margin-bottom:-20px;
+}
+.card-area{
+  height: 300px;
+  background-color: #ECECEC;
+}
+.landing-card{
+  top: 40px;
+  bottom: 40px;
+  position: absolute;
+  width: 40%;
+}
+.landing-card > img{
+  max-width: 100%;
+  min-height: 100%;
+}
+.landing-card > h1 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+}
+.landing-card > p {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+.landing-card-row{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

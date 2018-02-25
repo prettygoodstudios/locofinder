@@ -1,40 +1,15 @@
 <div class="container">
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-    <div class="field">
-      <%= f.label :bio %><br />
-      <%= f.text_field :bio %>
-    </div>
-    <br />
-    <label>Profile Picture</label>
+  <%= form_for(@user, url:"/user/update_profile", class:'edit-profile-image', method: "post") do |f| %>
+    <h1>Edit my Profile Picture</h1>
     <div id="image-cropper">
       <div class="cropit-preview"></div>
       <input type="range" class="cropit-image-zoom-input" />
       <!-- The actual file input will be hidden -->
-      <%= f.file_field :profile_img, class: "cropit-image-input", style: "display: none !important;" %>
+      <%= f.file_field :profile_img, class: "cropit-image-input", style: "display: none !important;", value: current_user.profile_img.url %>
       <!-- And clicking on this button will open up select file dialog -->
       <div class="select-image-btn button">Select new image</div>
     </div>
+    <%= f.hidden_field :id, value: @user.id %>
     <%= f.hidden_field :offsetX %>
     <%= f.hidden_field :offsetY %>
     <%= f.hidden_field :height %>
@@ -43,7 +18,7 @@
     <script>
       var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true});
       $("#image-cropper").find(".cropit-preview");
-      $(".new_user").submit(function(e){
+      $(".edit_user").submit(function(e){
         console.log("Zoom: ",$("#image-cropper").cropit("zoom"));
         $("#user_zoom").val($("#image-cropper").cropit("zoom"));
         $("#user_offsetX").val($("#image-cropper").cropit("offset").x);
@@ -56,10 +31,7 @@
       });
     </script>
     <br />
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    <%= f.submit "Update Profile Picture" %>
+    <%= link_to "Keep My Old Profile Picture", "/user/show/"+@user.id.to_s, class: 'button', method: "get" %>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>
