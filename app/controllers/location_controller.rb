@@ -5,6 +5,7 @@ class LocationController < ActionController::Base
   before_action :send_initial_email_verification_email, only: [:index,:show,:edit,:destroy,:update,:new]
   before_action :is_mine_or_admin, only: [:edit,:update,:destroy]
   before_action :is_logged_in, only: [:new,:create]
+  before_action :send_to_landing, only: [:index]
   def index
     @locations = Location.all
   end
@@ -108,6 +109,11 @@ class LocationController < ActionController::Base
       end
     else
       redirect_to location_index_path, alert: "You must be signed in to access this content."
+    end
+  end
+  def send_to_landing
+    if !signed_in? and params[:see] != "true"
+      redirect_to "/landing"
     end
   end
 end
