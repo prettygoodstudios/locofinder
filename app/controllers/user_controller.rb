@@ -63,7 +63,7 @@ class UserController < ActionController::Base
     if signed_in?
       if current_user.id != params[:id].to_i and current_user.role != "admin"
         if params[:user] != nil
-          if current_user.id != params[:user][:id]
+          if current_user.id != params[:user][:id].to_i
             redirect_to location_index_path, alert: "You must own or be an admin to access this content."
           end
         else

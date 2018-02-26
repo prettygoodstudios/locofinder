@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def verify_email(user)
     @user = User.find(user)
-    mail(to: @user.email, subject: 'Locofinder Email Verification')
+    mail(to: @user.email, subject: 'Geofocus Email Verification')
   end
   def new_report(report)
     @report = Report.find(report)
@@ -14,6 +14,6 @@ class UserMailer < ApplicationMailer
   def reset_password(user,token)
     @user = User.find(user)
     @token = token
-    mail(to: @user.email, subject: "Reset Locofinder Password.")
+    mail(to: @user.email, subject: "Reset Geofocus Password.")
   end
 end

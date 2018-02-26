@@ -31,10 +31,10 @@
         <%= r.message %>
         <br />
         <% if is_mine_or_admin(r.user_id) %>
-          <%= link_to("Edit", edit_review_path(r), class: '')  %>
-          <%= link_to("Delete", review_path(r), method: :delete, class: '') %>
+          <%= link_to("Edit", edit_review_path(r), class: 'button-secondary')  %>
+          <%= link_to("Delete", review_path(r), method: :delete, class: 'button-secondary') %>
         <% end %>
-        <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: '') if signed_in? %>
+        <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: 'button-secondary') if signed_in? %>
       </div>
     </div>
   <% end %>

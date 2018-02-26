@@ -1,4 +1,4 @@
-<h1>Locofinder</h1>
+<h1>Geofocus</h1>
 <p>Welcome <%= @user.email %>,</p>
-<p>Explore the endless possiblities with Locofinder. Click the link below to verify your email and enable your account.</p>
+<p>Explore the endless possiblities with Geofocus. Click the link below to verify your email and enable your account.</p>
 <a href="<%= root_url + 'user/enable_account/' + @user.id.to_s + '?token=' + @user.token.to_s %>">Enable My Acount!</a>

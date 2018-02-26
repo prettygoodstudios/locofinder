@@ -33,11 +33,11 @@ module ApplicationHelper
     end
     finalWidth  = scaleRatio * user.profile_img.width * zoom
     finalHeight = scaleRatio * user.profile_img.height * zoom
-    finalOffsetX = user.offsetX*scaleRatio
-    finalOffsetY = user.offsetY*scaleRatio
-    if user.offsetX == nil or user.offsetY == nil
-      finalOffsetX = 0
-      finalOffsetY = 0
+    finalOffsetX = 0
+    finalOffsetY = 0
+    if user.offsetX != nil
+      finalOffsetX = user.offsetX*scaleRatio
+      finalOffsetY = user.offsetY*scaleRatio
     end
     #These two lines can be uncommented and used for diagnostics
     #puts "Width: #{finalWidth}, Height: #{finalHeight}, offSetX: #{user.offsetX*scaleRatio}, offsetY: #{user.offsetY*scaleRatio}"

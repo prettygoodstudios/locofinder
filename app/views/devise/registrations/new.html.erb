@@ -43,7 +43,7 @@
     <script>
       var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true});
       $("#image-cropper").find(".cropit-preview");
-      $(".new_user").submit(function(e){
+      $("#new_user").submit(function(e){
         console.log("Zoom: ",$("#image-cropper").cropit("zoom"));
         $("#user_zoom").val($("#image-cropper").cropit("zoom"));
         $("#user_offsetX").val($("#image-cropper").cropit("offset").x);

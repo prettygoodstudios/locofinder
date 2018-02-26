@@ -49,10 +49,10 @@ class ReportController < ActionController::Base
   def is_logged_in
     if signed_in?
       if !current_user.verified
-        redirect_to location_index_path, alert: "You must be signed in to report content."
+        redirect_to location_index_path, alert: "You must verify your account to report content."
       end
     else
-      redirect_to location_index_path, alert: "You must verify your email to report content."
+      redirect_to location_index_path, alert: "You must be signed in to report content."
     end
   end
   def is_admin
