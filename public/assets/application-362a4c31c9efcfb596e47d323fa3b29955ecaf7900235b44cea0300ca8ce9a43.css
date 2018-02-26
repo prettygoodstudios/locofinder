@@ -1,0 +1,2410 @@
+/* line 1, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-content {
+  height: 75vh;
+}
+
+/* line 5, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-parent {
+  overflow: hidden;
+  position: relative;
+  background-color: #9013FE;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+/* line 12, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.card-area {
+  height: 300px;
+  background-color: #ECECEC;
+}
+
+/* line 16, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card {
+  top: 40px;
+  bottom: 40px;
+  position: absolute;
+  width: 40%;
+}
+
+/* line 22, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > img {
+  max-width: 100%;
+  min-height: 100%;
+}
+
+/* line 26, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > h1 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 32, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > p {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+/* line 39, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Grid
+- Base Styles
+- Typography
+- Links
+- Buttons
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    width: 85%;
+    padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .container {
+    width: 80%; }
+  .column,
+  .columns {
+    margin-left: 4%; }
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns                    { width: 4.66666666667%; }
+  .two.columns                    { width: 13.3333333333%; }
+  .three.columns                  { width: 22%;            }
+  .four.columns                   { width: 30.6666666667%; }
+  .five.columns                   { width: 39.3333333333%; }
+  .six.columns                    { width: 48%;            }
+  .seven.columns                  { width: 56.6666666667%; }
+  .eight.columns                  { width: 65.3333333333%; }
+  .nine.columns                   { width: 74.0%;          }
+  .ten.columns                    { width: 82.6666666667%; }
+  .eleven.columns                 { width: 91.3333333333%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 30.6666666667%; }
+  .two-thirds.column              { width: 65.3333333333%; }
+
+  .one-half.column                { width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.66666666667%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 17.3333333333%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 26%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 34.6666666667%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 43.3333333333%; }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 52%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 78.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 52%; }
+
+}
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; }
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+
+p {
+  margin-top: 0; }
+
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB; }
+a:hover {
+  color: #0FA0CE; }
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button-secondary{
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #9013FE;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #CAFDF5;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.button-secondary:hover{
+  background-color: #ECECEC;
+  color: #9013FE;
+}
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #ECECEC;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #9013FE;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box; }
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  background-color: #CAFDF5;
+  color: #9013FE;
+  outline: 0; }
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  background-color: #9013FE;
+  color: #9013FE;
+}
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  background-color: #CAFDF5;
+  color: #9013FE;
+}
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul {
+  list-style: circle inside; }
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%; }
+li {
+  margin-bottom: 1rem; }
+
+
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px; }
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre; }
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem; }
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* Path 2: */
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+/* line 3, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger {
+  padding: 5px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 38, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+/* line 43, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+/* line 56, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+/* line 62, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-inner::before {
+  top: -10px;
+}
+/* line 66, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/_base.scss */
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/*
+ * 3DX
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx .hamburger-inner::before, .hamburger--3dx .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateY(180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx.scss */
+.hamburger--3dx.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * 3DX Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r .hamburger-inner::before, .hamburger--3dx-r .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateY(-180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dx-r.scss */
+.hamburger--3dx-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * 3DY
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy .hamburger-inner::before, .hamburger--3dy .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateX(-180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy.scss */
+.hamburger--3dy.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * 3DY Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r .hamburger-inner::before, .hamburger--3dy-r .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateX(180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dy-r.scss */
+.hamburger--3dy-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * 3DXY
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy .hamburger-inner::before, .hamburger--3dxy .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateX(180deg) rotateY(180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy.scss */
+.hamburger--3dxy.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * 3DXY Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r .hamburger-box {
+  perspective: 80px;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r .hamburger-inner {
+  transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 14, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r .hamburger-inner::before, .hamburger--3dxy-r .hamburger-inner::after {
+  transition: transform 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r.is-active .hamburger-inner {
+  background-color: transparent;
+  transform: rotateX(180deg) rotateY(180deg) rotateZ(-180deg);
+}
+/* line 25, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r.is-active .hamburger-inner::before {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_3dxy-r.scss */
+.hamburger--3dxy-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+}
+
+/*
+ * Arrow
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrow.scss */
+.hamburger--arrow.is-active .hamburger-inner::before {
+  transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrow.scss */
+.hamburger--arrow.is-active .hamburger-inner::after {
+  transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Right
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrow-r.scss */
+.hamburger--arrow-r.is-active .hamburger-inner::before {
+  transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrow-r.scss */
+.hamburger--arrow-r.is-active .hamburger-inner::after {
+  transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Alt
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt.scss */
+.hamburger--arrowalt .hamburger-inner::before {
+  transition: top 0.1s 0.1s ease, transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* line 12, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt.scss */
+.hamburger--arrowalt .hamburger-inner::after {
+  transition: bottom 0.1s 0.1s ease, transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* line 20, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt.scss */
+.hamburger--arrowalt.is-active .hamburger-inner::before {
+  top: 0;
+  transform: translate3d(-8px, -10px, 0) rotate(-45deg) scale(0.7, 1);
+  transition: top 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt.scss */
+.hamburger--arrowalt.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: translate3d(-8px, 10px, 0) rotate(45deg) scale(0.7, 1);
+  transition: bottom 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+/*
+ * Arrow Alt Right
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt-r.scss */
+.hamburger--arrowalt-r .hamburger-inner::before {
+  transition: top 0.1s 0.1s ease, transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* line 12, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt-r.scss */
+.hamburger--arrowalt-r .hamburger-inner::after {
+  transition: bottom 0.1s 0.1s ease, transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* line 20, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt-r.scss */
+.hamburger--arrowalt-r.is-active .hamburger-inner::before {
+  top: 0;
+  transform: translate3d(8px, -10px, 0) rotate(45deg) scale(0.7, 1);
+  transition: top 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowalt-r.scss */
+.hamburger--arrowalt-r.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: translate3d(8px, 10px, 0) rotate(-45deg) scale(0.7, 1);
+  transition: bottom 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+/*
+ * Arrow Turn
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn.scss */
+.hamburger--arrowturn.is-active .hamburger-inner {
+  transform: rotate(-180deg);
+}
+/* line 9, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn.scss */
+.hamburger--arrowturn.is-active .hamburger-inner::before {
+  transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+/* line 13, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn.scss */
+.hamburger--arrowturn.is-active .hamburger-inner::after {
+  transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+
+/*
+ * Arrow Turn Right
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn-r.scss */
+.hamburger--arrowturn-r.is-active .hamburger-inner {
+  transform: rotate(-180deg);
+}
+/* line 9, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn-r.scss */
+.hamburger--arrowturn-r.is-active .hamburger-inner::before {
+  transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1);
+}
+/* line 13, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_arrowturn-r.scss */
+.hamburger--arrowturn-r.is-active .hamburger-inner::after {
+  transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1);
+}
+
+/*
+ * Boring
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_boring.scss */
+.hamburger--boring .hamburger-inner, .hamburger--boring .hamburger-inner::before, .hamburger--boring .hamburger-inner::after {
+  transition-property: none;
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_boring.scss */
+.hamburger--boring.is-active .hamburger-inner {
+  transform: rotate(45deg);
+}
+/* line 18, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_boring.scss */
+.hamburger--boring.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+/* line 23, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_boring.scss */
+.hamburger--boring.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/*
+ * Collapse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse .hamburger-inner {
+  top: auto;
+  bottom: 0;
+  transition-duration: 0.13s;
+  transition-delay: 0.13s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 13, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse .hamburger-inner::after {
+  top: -20px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+}
+/* line 19, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse .hamburger-inner::before {
+  transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 26, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse.is-active .hamburger-inner {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+  transition-delay: 0.22s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse.is-active .hamburger-inner::after {
+  top: 0;
+  opacity: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+}
+/* line 38, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse.scss */
+.hamburger--collapse.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(-90deg);
+  transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Collapse Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r .hamburger-inner {
+  top: auto;
+  bottom: 0;
+  transition-duration: 0.13s;
+  transition-delay: 0.13s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 13, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r .hamburger-inner::after {
+  top: -20px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+}
+/* line 19, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r .hamburger-inner::before {
+  transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 26, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r.is-active .hamburger-inner {
+  transform: translate3d(0, -10px, 0) rotate(45deg);
+  transition-delay: 0.22s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r.is-active .hamburger-inner::after {
+  top: 0;
+  opacity: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+}
+/* line 38, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_collapse-r.scss */
+.hamburger--collapse-r.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(90deg);
+  transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Elastic
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic .hamburger-inner {
+  top: 2px;
+  transition-duration: 0.275s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic .hamburger-inner::before {
+  top: 10px;
+  transition: opacity 0.125s 0.275s ease;
+}
+/* line 16, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic .hamburger-inner::after {
+  top: 20px;
+  transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* line 23, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(135deg);
+  transition-delay: 0.075s;
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic.is-active .hamburger-inner::before {
+  transition-delay: 0s;
+  opacity: 0;
+}
+/* line 34, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic.scss */
+.hamburger--elastic.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-270deg);
+  transition-delay: 0.075s;
+}
+
+/*
+ * Elastic Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r .hamburger-inner {
+  top: 2px;
+  transition-duration: 0.275s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r .hamburger-inner::before {
+  top: 10px;
+  transition: opacity 0.125s 0.275s ease;
+}
+/* line 16, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r .hamburger-inner::after {
+  top: 20px;
+  transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* line 23, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(-135deg);
+  transition-delay: 0.075s;
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r.is-active .hamburger-inner::before {
+  transition-delay: 0s;
+  opacity: 0;
+}
+/* line 34, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_elastic-r.scss */
+.hamburger--elastic-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(270deg);
+  transition-delay: 0.075s;
+}
+
+/*
+ * Emphatic
+ */
+/* line 5, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic {
+  overflow: hidden;
+}
+/* line 8, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic .hamburger-inner {
+  transition: background-color 0.125s 0.175s ease-in;
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic .hamburger-inner::before {
+  left: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+/* line 18, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic .hamburger-inner::after {
+  top: 10px;
+  right: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
+}
+/* line 28, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic.is-active .hamburger-inner {
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  background-color: transparent;
+}
+/* line 33, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic.is-active .hamburger-inner::before {
+  left: -80px;
+  top: -80px;
+  transform: translate3d(80px, 80px, 0) rotate(45deg);
+  transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+/* line 42, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic.scss */
+.hamburger--emphatic.is-active .hamburger-inner::after {
+  right: -80px;
+  top: -80px;
+  transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+  transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*
+ * Emphatic Reverse
+ */
+/* line 5, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r {
+  overflow: hidden;
+}
+/* line 8, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r .hamburger-inner {
+  transition: background-color 0.125s 0.175s ease-in;
+}
+/* line 11, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r .hamburger-inner::before {
+  left: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+/* line 18, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r .hamburger-inner::after {
+  top: 10px;
+  right: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
+}
+/* line 28, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r.is-active .hamburger-inner {
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  background-color: transparent;
+}
+/* line 33, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r.is-active .hamburger-inner::before {
+  left: -80px;
+  top: 80px;
+  transform: translate3d(80px, -80px, 0) rotate(-45deg);
+  transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+/* line 42, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_emphatic-r.scss */
+.hamburger--emphatic-r.is-active .hamburger-inner::after {
+  right: -80px;
+  top: 80px;
+  transform: translate3d(-80px, -80px, 0) rotate(45deg);
+  transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*
+ * Minus
+ */
+/* line 7, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_minus.scss */
+.hamburger--minus .hamburger-inner::before, .hamburger--minus .hamburger-inner::after {
+  transition: bottom 0.08s 0s ease-out, top 0.08s 0s ease-out, opacity 0s linear;
+}
+/* line 17, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_minus.scss */
+.hamburger--minus.is-active .hamburger-inner::before, .hamburger--minus.is-active .hamburger-inner::after {
+  opacity: 0;
+  transition: bottom 0.08s ease-out, top 0.08s ease-out, opacity 0s 0.08s linear;
+}
+/* line 24, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_minus.scss */
+.hamburger--minus.is-active .hamburger-inner::before {
+  top: 0;
+}
+/* line 28, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_minus.scss */
+.hamburger--minus.is-active .hamburger-inner::after {
+  bottom: 0;
+}
+
+/*
+ * Slider
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider .hamburger-inner {
+  top: 2px;
+}
+/* line 9, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider .hamburger-inner::before {
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+/* line 16, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider .hamburger-inner::after {
+  top: 20px;
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider.is-active .hamburger-inner::before {
+  transform: rotate(-45deg) translate3d(-5.7142857143px, -6px, 0);
+  opacity: 0;
+}
+/* line 32, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider.scss */
+.hamburger--slider.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-90deg);
+}
+
+/*
+ * Slider Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r .hamburger-inner {
+  top: 2px;
+}
+/* line 9, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r .hamburger-inner::before {
+  top: 10px;
+  transition-property: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+/* line 16, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r .hamburger-inner::after {
+  top: 20px;
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(-45deg);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r.is-active .hamburger-inner::before {
+  transform: rotate(45deg) translate3d(5.7142857143px, -6px, 0);
+  opacity: 0;
+}
+/* line 32, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_slider-r.scss */
+.hamburger--slider-r.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(90deg);
+}
+
+/*
+ * Spin
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+/* line 34, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin.scss */
+.hamburger--spin.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Spin Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r .hamburger-inner::before {
+  transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r .hamburger-inner::after {
+  transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r.is-active .hamburger-inner {
+  transform: rotate(-225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+}
+/* line 34, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spin-r.scss */
+.hamburger--spin-r.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(90deg);
+  transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Spring
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring .hamburger-inner {
+  top: 2px;
+  transition: background-color 0s 0.13s linear;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring .hamburger-inner::before {
+  top: 10px;
+  transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 16, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring .hamburger-inner::after {
+  top: 20px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 24, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring.is-active .hamburger-inner {
+  transition-delay: 0.22s;
+  background-color: transparent;
+}
+/* line 28, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring.is-active .hamburger-inner::before {
+  top: 0;
+  transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 10px, 0) rotate(45deg);
+}
+/* line 35, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring.scss */
+.hamburger--spring.is-active .hamburger-inner::after {
+  top: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 10px, 0) rotate(-45deg);
+}
+
+/*
+ * Spring Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r .hamburger-inner {
+  top: auto;
+  bottom: 0;
+  transition-duration: 0.13s;
+  transition-delay: 0s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 13, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r .hamburger-inner::after {
+  top: -20px;
+  transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0s linear;
+}
+/* line 19, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r .hamburger-inner::before {
+  transition: top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 26, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r.is-active .hamburger-inner {
+  transform: translate3d(0, -10px, 0) rotate(-45deg);
+  transition-delay: 0.22s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r.is-active .hamburger-inner::after {
+  top: 0;
+  opacity: 0;
+  transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0s 0.22s linear;
+}
+/* line 38, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_spring-r.scss */
+.hamburger--spring-r.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(90deg);
+  transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Stand
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand .hamburger-inner {
+  transition: transform 0.075s 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), background-color 0s 0.075s linear;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand .hamburger-inner::before {
+  transition: top 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand .hamburger-inner::after {
+  transition: bottom 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand.is-active .hamburger-inner {
+  transform: rotate(90deg);
+  background-color: transparent;
+  transition: transform 0.075s 0s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0s 0.15s linear;
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(-45deg);
+  transition: top 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 36, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand.scss */
+.hamburger--stand.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(45deg);
+  transition: bottom 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Stand Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r .hamburger-inner {
+  transition: transform 0.075s 0.15s cubic-bezier(0.55, 0.055, 0.675, 0.19), background-color 0s 0.075s linear;
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r .hamburger-inner::before {
+  transition: top 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r .hamburger-inner::after {
+  transition: bottom 0.075s 0.075s ease-in, transform 0.075s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r.is-active .hamburger-inner {
+  transform: rotate(-90deg);
+  background-color: transparent;
+  transition: transform 0.075s 0s cubic-bezier(0.215, 0.61, 0.355, 1), background-color 0s 0.15s linear;
+}
+/* line 29, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r.is-active .hamburger-inner::before {
+  top: 0;
+  transform: rotate(-45deg);
+  transition: top 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 36, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_stand-r.scss */
+.hamburger--stand-r.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(45deg);
+  transition: bottom 0.075s 0.1s ease-out, transform 0.075s 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Squeeze
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze .hamburger-inner {
+  transition-duration: 0.075s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze .hamburger-inner::before {
+  transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+}
+/* line 15, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze .hamburger-inner::after {
+  transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+/* line 22, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze.is-active .hamburger-inner {
+  transform: rotate(45deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+}
+/* line 34, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_squeeze.scss */
+.hamburger--squeeze.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+ * Vortex
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex .hamburger-inner {
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex .hamburger-inner::before, .hamburger--vortex .hamburger-inner::after {
+  transition-duration: 0s;
+  transition-delay: 0.1s;
+  transition-timing-function: linear;
+}
+/* line 17, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex .hamburger-inner::before {
+  transition-property: top, opacity;
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex .hamburger-inner::after {
+  transition-property: bottom, transform;
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex.is-active .hamburger-inner {
+  transform: rotate(765deg);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex.is-active .hamburger-inner::before, .hamburger--vortex.is-active .hamburger-inner::after {
+  transition-delay: 0s;
+}
+/* line 36, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+/* line 41, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex.scss */
+.hamburger--vortex.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(90deg);
+}
+
+/*
+ * Vortex Reverse
+ */
+/* line 6, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r .hamburger-inner {
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* line 10, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r .hamburger-inner::before, .hamburger--vortex-r .hamburger-inner::after {
+  transition-duration: 0s;
+  transition-delay: 0.1s;
+  transition-timing-function: linear;
+}
+/* line 17, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r .hamburger-inner::before {
+  transition-property: top, opacity;
+}
+/* line 21, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r .hamburger-inner::after {
+  transition-property: bottom, transform;
+}
+/* line 27, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r.is-active .hamburger-inner {
+  transform: rotate(-765deg);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* line 31, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r.is-active .hamburger-inner::before, .hamburger--vortex-r.is-active .hamburger-inner::after {
+  transition-delay: 0s;
+}
+/* line 36, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+/* line 41, /Users/admin/.rvm/gems/ruby-2.3.4/gems/hamburgers-0.9.3/_sass/hamburgers/types/_vortex-r.scss */
+.hamburger--vortex-r.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/* line 28, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Image collection card styles */
+/* line 32, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-card {
+  position: relative;
+}
+
+/* line 35, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-card-3 {
+  height: 400px;
+}
+
+/* line 38, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-card-2 {
+  height: 450px;
+}
+
+/* line 41, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-card-1 {
+  height: 500px;
+}
+
+/* line 44, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-holder {
+  overflow: hidden;
+}
+
+/* line 47, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-holder-3 {
+  height: 250px;
+}
+
+/* line 50, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-holder-2 {
+  height: 300px;
+}
+
+/* line 53, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-holder-1 {
+  height: 350px;
+}
+
+/* line 56, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-card .button {
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 61, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.delete-button {
+  right: 0;
+  max-width: 50%;
+}
+
+/* line 65, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.img-holder img {
+  min-width: 100%;
+  max-width: 200%;
+  min-height: 100%;
+}
+
+/* End of image card collection styles */
+/* line 71, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+/* line 76, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+tr {
+  font-size: 1.5em;
+}
+
+/* Start of Navbar Styles */
+/* line 80, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav {
+  background-color: #9013FE;
+  color: #ECECEC;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 86, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav h1 {
+  font-size: 2.0em;
+}
+
+/* line 89, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav ul {
+  list-style: none;
+  display: inline;
+}
+
+/* line 93, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav li {
+  text-decoration: none;
+  display: inline;
+  margin: 20px;
+}
+
+/* line 98, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav a {
+  color: #ECECEC;
+  text-decoration: none;
+}
+
+/* line 102, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav h1 {
+  display: inline;
+}
+
+/* line 105, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.nav a:hover {
+  color: #CAFDF5;
+  text-decoration: none;
+}
+
+/* line 109, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.toggle {
+  float: right;
+}
+
+/* End of Navbar styles */
+/* Start of UserTab Styles */
+/* line 114, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-tab {
+  float: right !important;
+  margin: 0px !important;
+}
+
+/* line 118, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-tab > ul {
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  z-index: 999;
+  display: none;
+  list-style: none;
+  background-color: #9013FE;
+}
+
+/* line 127, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-tab li {
+  display: block;
+}
+
+/* line 131, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-tab:hover ul {
+  display: block;
+}
+
+/* End of UserTab Styles */
+/* Footer Styles */
+/* line 137, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+footer {
+  z-index: 999;
+  margin-top: 20px;
+  background-color: #9013FE;
+  color: #ECECEC;
+}
+
+/* line 143, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+footer p {
+  margin: 0.67em 0;
+}
+
+/* line 146, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+footer a {
+  color: #ECECEC;
+  text-decoration: none;
+}
+
+/* line 150, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+footer a:hover {
+  color: #CAFDF5;
+}
+
+/* line 153, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.push {
+  min-height: 90vh;
+  margin-bottom: 20px;
+}
+
+/* End of Footer Styles */
+/* Modal Styles */
+/* The Modal (background) */
+/* line 160, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1000;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+/* line 174, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+/* line 183, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* line 190, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* End of Modal Styles */
+/* Map Styles */
+/* line 198, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.create-button {
+  position: relative;
+  left: 75px;
+  top: 10px;
+  background-color: #9013FE !important;
+  z-index: 999;
+}
+
+/* line 205, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.create-button:hover {
+  background-color: #CAFDF5 !important;
+}
+
+/* line 208, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.map-alert {
+  position: relative;
+  left: 75px;
+  top: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 300px;
+  background-color: white !important;
+  z-index: 999;
+}
+
+/* line 218, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+#map {
+  margin-top: -20px;
+  width: 100%;
+  height: 80vh;
+  margin-bottom: -20px;
+}
+
+/* line 224, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.signed-in {
+  margin-top: -70px !important;
+}
+
+/* line 227, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.not-verified {
+  margin-top: -160px !important;
+}
+
+/* line 230, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.popup-image {
+  max-width: 300px !important;
+  display: block;
+  padding-bottom: 20px;
+}
+
+/* line 235, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.mapboxgl-popup-content {
+  max-width: 300px;
+}
+
+/* line 238, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.marker {
+  background-image: url("https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/camera-512.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+/* End of Map Styles */
+/* User partial Styles */
+/* line 248, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-banner {
+  background-color: #9013FE;
+  color: #ECECEC;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 254, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.user-banner h3 {
+  display: inline;
+}
+
+/* line 257, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.profile-img {
+  display: inline-block;
+  background: url("https://png.icons8.com/android/1600/user.png");
+  background-size: cover;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* line 267, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.profile-img > img {
+  background-color: black;
+}
+
+/* line 270, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.display-none {
+  display: none !important;
+}
+
+/* End of User Partial Styles */
+/* Start of Review Card Styles */
+/* line 275, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.review-card {
+  background-color: #9013FE;
+  color: #ECECEC;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+/* line 282, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.review-card-header {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* line 286, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.review-card-header .profile-img {
+  margin-right: 20px;
+}
+
+/* End of Review Card styelds */
+/* line 290, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.cropit-preview {
+  border: 1px solid #9013FE;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 295, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.cropit-image-zoom-input {
+  width: 400px;
+  display: block;
+}
+
+/* Location Header Styles */
+/* line 300, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.location-header {
+  margin-top: -20px;
+  position: relative;
+  display: block;
+  height: 400px;
+  overflow: hidden;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+  margin-bottom: 20px;
+}
+
+/* line 313, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+.location-header > h1 {
+  color: #ECECEC;
+  position: absolute;
+  font-size: 4em;
+  left: 0px;
+  right: 0px;
+  top: 40%;
+  text-align: center;
+}
+
+/*Mobile Media Query*/
+@media only screen and (max-width: 500px) {
+  /* line 324, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .nav ul {
+    display: none;
+  }
+
+  /* line 327, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .nav li {
+    display: block !important;
+  }
+
+  /* line 330, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .img-card-2 {
+    height: 400px;
+  }
+
+  /* line 333, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .img-card-1 {
+    height: 400px;
+  }
+
+  /* line 336, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .img-holder-2 {
+    height: 250px;
+  }
+
+  /* line 339, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .img-holder-1 {
+    height: 250px;
+  }
+}
+/*Non Mobile Media Query*/
+@media only screen and (min-width: 500px) {
+  /* line 345, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .toggle {
+    display: none !important;
+  }
+
+  /* line 348, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/application.scss */
+  .nav li > a {
+    font-size: 1.5em;
+  }
+}

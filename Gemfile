@@ -57,3 +57,4 @@ gem "figaro"
 gem 'hamburgers'
 gem 'npm-rails'
 gem "mini_magick"
+gem "browserify-rails"

@@ -1,0 +1,18 @@
+
+<svg width="341px" height="576px" viewBox="0 0 341 576" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="11.3201531%" id="linearGradient-1">
+            <stop stop-color="#CAFDF5" offset="0%"></stop>
+            <stop stop-color="#9AF9E7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-683.000000, -182.000000)" fill="url(#linearGradient-1)">
+            <g id="Blobb" transform="translate(683.000000, 182.000000)">
+                <path d="M158.832408,35.679793 L23.4510197,196.746218 C-11.3493006,238.148979 -6.92414545,299.717813 33.4394014,335.718298 C207.840402,491.267579 323.803253,577.215118 381.327955,593.560916 C446.437277,612.061905 478.75047,538.228571 478.267532,372.060916 L325.380673,56.4293522 C301.30465,6.72493041 241.493781,-14.0509914 191.78936,10.0250321 C179.120463,16.1616419 167.889911,24.9038684 158.832408,35.679793 Z" id="Path-2"></path>
+            </g>
+        </g>
+    </g>
+</svg>
