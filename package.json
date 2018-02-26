@@ -4,5 +4,6 @@
   "dependencies": {
     "browserify": "^16.1.0",
     "cropit": "^0.5.1"
-  }
+  },
+  "devDependencies": {}
 }
