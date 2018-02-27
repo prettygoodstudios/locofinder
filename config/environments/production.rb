@@ -46,7 +46,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
   config.npm.output_file = "vendor/assets/javascripts/npm-rails/production/npm-dependencies.js"
   # Do not fallback to assets pipeline if a precompiled asset is missed.
