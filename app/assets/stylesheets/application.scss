@@ -34,6 +34,9 @@ html, body{
 .img-card-3{
   height: 400px;
 }
+.img-card-3:nth-child(3n+3){
+  margin-left: 0px !important;
+}
 .img-card-2{
   height: 450px;
 }
