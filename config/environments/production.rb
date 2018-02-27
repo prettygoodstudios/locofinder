@@ -48,7 +48,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-
+  config.npm.output_file = "vendor/assets/javascripts/npm-rails/production/npm-dependencies.js"
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
