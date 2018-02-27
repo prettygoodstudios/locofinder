@@ -33,7 +33,7 @@ module ApplicationHelper
     end
     finalWidth = 0
     finalHeight = 0
-    if user.profile_img.width != nil || user.profile_img.height != nil
+    if user.profile_img.width != nil and user.profile_img.height != nil
       finalWidth  = scaleRatio * user.profile_img.width * zoom
       finalHeight = scaleRatio * user.profile_img.height * zoom
     end
