@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w( landing.scss )
 Rails.application.config.assets.precompile += %w( info-window.js )
 Rails.application.config.assets.precompile += %w( map-logic.js )
 Rails.application.config.assets.precompile += %w( alerts.js )
+Rails.application.config.assets.precompile += %w( cropit.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
