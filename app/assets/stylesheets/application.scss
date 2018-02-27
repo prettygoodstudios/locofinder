@@ -26,6 +26,7 @@ $link-highlight-color: #CAFDF5;
 $dark-text-color: black;
 html, body{
   overflow-x: hidden;
+  background-color: $light-text-color;
 }
 /* Image collection card styles */
 .img-card{

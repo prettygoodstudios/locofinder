@@ -58,3 +58,4 @@ gem 'hamburgers'
 gem 'npm-rails'
 gem "mini_magick"
 gem "browserify-rails"
+gem "platform-api"
