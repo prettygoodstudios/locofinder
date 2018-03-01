@@ -372,6 +372,12 @@ footer a:hover{
   .user-tab li{
     display: block;
   }
+  .user-banner h3{
+    font-size: 0.75em !important
+  }
+  .review-card-header{
+    font-size: 0.75em !important;
+  }
 }
 /*Non Mobile Media Query*/
 @media only screen and (min-width: 500px){
