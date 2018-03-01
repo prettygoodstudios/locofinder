@@ -112,6 +112,11 @@ tr{
 .toggle{
   float: right;
 }
+#toggle:hover{
+  color: $light-text-color;
+  background: none !important;
+  outline: none !important;
+}
 /* End of Navbar styles */
 /* Start of UserTab Styles */
 .user-tab{
@@ -126,6 +131,9 @@ tr{
   display: none;
   list-style: none;
   background-color: $primary-color;
+}
+.mobile-user-email{
+  display: none;
 }
 .user-tab li{
   display: block;
@@ -341,6 +349,28 @@ footer a:hover{
   }
   .img-holder-1{
     height: 250px;
+  }
+  .user-tab{
+    float: none !important;
+    position: relative !important;
+  }
+  .user-tab>ul{
+    top: 0px !important;
+    position: relative !important;
+    display: none;
+    list-style: none;
+    background-color: $primary-color;
+    margin: 0px !important;
+  }
+  .mobile-user-email{
+    font-size: 0.8em;
+    display: inline;
+  }
+  .user-tab .desktop-user-email{
+    display: none !important;
+  }
+  .user-tab li{
+    display: block;
   }
 }
 /*Non Mobile Media Query*/

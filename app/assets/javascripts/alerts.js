@@ -3,16 +3,23 @@ $(".close").click(function(){
 });
 $(document).ready(function(){
   lastWidth = window.innerWidth;
-  $(".modal").show();
+  var show = true;
   $("#toggle").click(function(){
     $(".hamburger").toggleClass("is-active");
-    $(".nav ul").toggle();
+    if(show){
+      show = false;
+      $(".nav ul").show();
+    }else{
+      show = true;
+      $(".nav ul").hide();
+    }
   });
+  $(".modal").show();
 });
 $(window).click(function(){
   $(".modal").hide();
 });
-var lastWidth = 1000;
+var lastWidth = 0;
 $(window).resize(function(){
   if (window.innerWidth < 500 && lastWidth > 500){
     $(".nav ul").hide();
