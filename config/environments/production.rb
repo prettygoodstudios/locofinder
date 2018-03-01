@@ -18,39 +18,18 @@ Rails.application.configure do
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
   config.read_encrypted_secrets = true
-  config.action_mailer.delivery_method = :smtp
 
-
-  config.action_mailer.smtp_settings = {
-    :address => "email-smtp.us-west-2.amazonaws.com",
-    :port => 587,
-    :user_name => ENV["smtp_user"],
-    :password => ENV["smtp_password"],
-    :authentication => :login,
-    :enable_starttls_auto => true
-  }
-  CarrierWave.configure do |config|
-     config.fog_provider = 'fog/aws'                        # required
-     config.fog_credentials = {
-       provider:              'AWS',                        # required
-       aws_access_key_id:     ENV["aws_production_access_key_id"],       # required
-       aws_secret_access_key: ENV["aws_production_access_key"],                        # required
-       region:                ENV["aws_production_region"],                  # optional, defaults to 'us-east-1'
-     }
-     config.fog_directory  = ENV["aws_production_bucket_name"]                                      # required
-     config.fog_public     = true                                                # optional, defaults to true
-     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
-  end
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  #config.assets.js_compressor = Uglifier.new(harmony: true)
-  # config.assets.css_compressor = :sass
-  #config.npm.output_file = "vendor/assets/javascripts/npm-rails/production/npm-dependencies.js"
-  # Do not fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :sass
+
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = true
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.

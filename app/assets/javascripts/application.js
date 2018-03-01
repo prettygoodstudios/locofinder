@@ -15,5 +15,3 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
-//= require npm-dependencies
-//= require cropit
