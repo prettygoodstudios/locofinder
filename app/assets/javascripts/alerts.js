@@ -5,13 +5,14 @@ $(document).ready(function(){
   lastWidth = window.innerWidth;
   var show = true;
   $("#toggle").click(function(){
-    $(".hamburger").toggleClass("is-active");
     if(show){
       show = false;
       $(".nav ul").show();
+      $("#toggle").addClass("is-active");
     }else{
       show = true;
       $(".nav ul").hide();
+      $("#toggle").removeClass("is-active");
     }
   });
   $(".modal").show();
