@@ -28,6 +28,9 @@ html, body{
   overflow-x: hidden;
   background-color: $light-text-color;
 }
+.field{
+  margin-bottom: 20px;
+}
 /* Image collection card styles */
 .img-card{
   position: relative;
@@ -373,7 +376,7 @@ footer a:hover{
     display: block;
   }
   .user-banner h3{
-    font-size: 0.75em !important
+    font-size: 1.0em !important
   }
   .review-card-header{
     font-size: 0.75em !important;
