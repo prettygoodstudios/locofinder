@@ -96,6 +96,7 @@ tr{
   margin-bottom: 20px;
 }
 .nav h1{
+  font-weight: bold !important;
   font-size: 2.0em;
 }
 .nav ul{
@@ -106,6 +107,9 @@ tr{
   text-decoration: none;
   display: inline;
   margin: 20px;
+}
+.nav li>a{
+  font-weight: lighter !important;
 }
 .nav a{
   color: $light-text-color;
@@ -256,10 +260,10 @@ footer a:hover{
   max-width: 300px;
 }
 .marker {
-  background-image: url('https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/camera-512.png');
+  background-image: url('https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png');
   background-size: cover;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 0%;
   cursor: pointer;
 }
