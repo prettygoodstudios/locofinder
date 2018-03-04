@@ -42,16 +42,16 @@ html, body{
   position: relative;
 }
 .img-card-3{
-  height: 400px;
+  height: 450px;
 }
 .img-card-3:nth-child(3n+4){
   margin-left: 0px !important;
 }
 .img-card-2{
-  height: 450px;
+  height: 500px;
 }
 .img-card-1{
-  height: 500px;
+  height: 550px;
 }
 .img-holder{
   overflow: hidden;
@@ -78,6 +78,13 @@ html, body{
   min-width: 100%;
   max-width: 200%;
   min-height: 100%;
+}
+.img-card-link{
+  color: $primary-color;
+  text-decoration: none;
+}
+.img-card-link:hover{
+  color: $blue-blob-color !important;
 }
 /* End of image card collection styles */
 textarea{
