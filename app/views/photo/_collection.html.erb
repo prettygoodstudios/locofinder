@@ -12,7 +12,7 @@
           <%= image_collection_user(User.find(p.user_id)) %>
           "<%= p.caption %>"
           <%= location_tag(Location.find(p.location_id))%>
-          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'image-card-link') if signed_in? %>
+          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
           <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>
@@ -29,7 +29,7 @@
           <%= image_collection_user(User.find(p.user_id)) %>
           "<%= p.caption %>"
           <%= location_tag(Location.find(p.location_id))%>
-          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
+          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
           <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>
@@ -46,7 +46,7 @@
           <%= image_collection_user(User.find(p.user_id)) %>
           "<%= p.caption %>"
           <%= location_tag(Location.find(p.location_id))%>
-          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
+          <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
           <%= link_to("Delete", photo_path(p), method: :delete, class: 'button delete-button') %>

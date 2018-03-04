@@ -79,12 +79,12 @@ html, body{
   max-width: 200%;
   min-height: 100%;
 }
-.img-card a{
+.img-card-link{
   color: $primary-color;
   text-decoration: none;
 }
-.img-card a:hover{
-  color: $blue-blob-color !important;
+.img-card-link:hover{
+  color: $dark-text-color !important;
 }
 .img-card .profile-img{
   margin-bottom: -7px !important;
