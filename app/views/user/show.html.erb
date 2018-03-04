@@ -1,6 +1,7 @@
 <div class="container">
-  <h1><%= small_profile_img(@user) %><%= @user.email %></h1>
-  <p><%= @user.bio %></p>
-  <hr>
+  <div class="user-banner">
+    <h1><%= small_profile_img(@user) %><%= @user.email %></h1>
+    <p><%= @user.bio %></p>
+  </div>
   <%= render partial: "photo/collection", locals: { collection: @photos, title: "Photos", collumns: 3} %>
 </div>
