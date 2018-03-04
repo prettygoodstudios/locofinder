@@ -79,12 +79,15 @@ html, body{
   max-width: 200%;
   min-height: 100%;
 }
-.img-card-link{
+.img-card a{
   color: $primary-color;
   text-decoration: none;
 }
-.img-card-link:hover{
+.img-card a:hover{
   color: $blue-blob-color !important;
+}
+.img-card .profile-img{
+  margin-bottom: -7px !important;
 }
 /* End of image card collection styles */
 textarea{
