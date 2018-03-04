@@ -55,6 +55,12 @@
   position: absolute;
   bottom: 0px;
 }
+.left-landing{
+  left: 5%;
+}
+.right-landing{
+  right: 5%
+}
 @media only screen and (max-width: 500px){
   .left-blob{
     position: absolute !important;
@@ -88,5 +94,36 @@
   .card-area{
     padding-top: 20px !important;
     height: auto !important;
+  }
+}
+@media only screen and (min-width: 1900px){
+  .landing-card > img{
+    max-width: none !important;
+    min-height: 100%;
+    width: 200% !important;
+  }
+  .landing-card > h1 {
+    position: absolute;
+    top: 50px !important;
+    text-align: center;
+    width: 200% !important;
+  }
+  .landing-card > p {
+    position: absolute;
+    top: 140px !important;
+    left: 10% !important;
+    width: 180% !important;
+    text-align: center;
+    font-size: 1.2em !important;
+    line-height: 3.0 !important;
+  }
+  .card-area{
+    height: 600px !important;
+  }
+  .left-landing{
+    left: -40% !important;
+  }
+  .right-landing{
+    right: -5% !important;
   }
 }
