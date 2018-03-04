@@ -9,9 +9,9 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
-          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
-          - "<%= p.caption %>"
+          <em><%= image_collection_user(User.find(p.user_id)) %></em>
+          "<%= p.caption %>"
+          <%= location_tag(Location.find(p.location_id))%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
@@ -26,9 +26,9 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
-          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
-          - "<%= p.caption %>"
+          <em><%= image_collection_user(User.find(p.user_id)) %></em>
+          "<%= p.caption %>"
+          <%= location_tag(Location.find(p.location_id))%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
@@ -43,9 +43,9 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <em><%= link_to User.find(p.user_id).email, "/user/show/"+User.find(p.user_id).id.to_s  %></em>
-          - <%= link_to Location.find(p.location_id).title, Location.find(p.location_id) %>
-          - "<%= p.caption %>"
+          <%= image_collection_user(User.find(p.user_id)) %>
+          "<%= p.caption %>"
+          <%= location_tag(Location.find(p.location_id))%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: '') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>

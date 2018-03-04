@@ -31,6 +31,18 @@ module ApplicationHelper
   def large_profile_img(user)
     generate_profile_img(user, 0.500)
   end
+  def location_tag(location)
+    link = link_to location.title, location
+    image = image_tag "https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png", width: "20px", height: "20px", style: "display: inline;"
+    content = link+image
+    content.html_safe
+  end
+  def image_collection_user(user)
+    image = generate_profile_img(user, 0.0625)
+    link = link_to user.email, "/user/show/#{user.id}"
+    content = image+link
+    content.html_safe
+  end
   def generate_profile_img(user,scaleRatio)
     zoom = user.zoom.to_f
     if zoom == nil
