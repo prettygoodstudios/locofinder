@@ -441,6 +441,13 @@ footer a:hover{
     top: 50px !important;
     bottom: auto !important;
   }
+  .user-tab>.profile-img{
+    margin-bottom: -20px !important;
+    margin-right: 5px !important;
+  }
+  .user-tab{
+    padding-left: 20px;
+  }
 }
 /*Non Mobile Media Query*/
 @media only screen and (min-width: 500px){
