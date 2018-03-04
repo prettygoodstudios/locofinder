@@ -26,7 +26,12 @@ module ApplicationHelper
     retVal
   end
   def small_profile_img(user)
-    scaleRatio = 0.125
+    generate_profile_img(user, 0.125)
+  end
+  def large_profile_img(user)
+    generate_profile_img(user, 0.500)
+  end
+  def generate_profile_img(user,scaleRatio)
     zoom = user.zoom.to_f
     if zoom == nil
       zoom  = 0
@@ -50,7 +55,8 @@ module ApplicationHelper
     if user.profile_img.url != nil
       image = image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")
     end
-    content = "<div class='profile-img' style='#{'background: black;' if user.profile_img.url != nil}'>"+image+"</div>"
+    width = (scaleRatio.to_f*400.to_f).to_i
+    content = "<div class='profile-img' style='#{'background: black;' if user.profile_img.url != nil}width: #{width}px !important;height: #{width}px !important;'>"+image+"</div>"
     content.html_safe
   end
 end

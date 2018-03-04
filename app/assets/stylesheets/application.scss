@@ -278,6 +278,38 @@ footer a:hover{
 .user-banner h3{
   display: inline;
 }
+.user-show-banner{
+  margin-top: -20px;
+  position: relative;
+  display: block;
+  height: 400px;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+  margin-bottom: 50px;
+}
+.user-show-banner>h1{
+  color: $light-text-color;
+  position: absolute;
+  font-size: 2em;
+  left: 230px;
+  right:0px;
+  bottom: 20px;
+}
+.user-show-banner>p{
+  position: absolute;
+  color: $light-text-color;
+  left: 230px;
+  font-size: 1em;
+  bottom: -15px;
+}
+.user-show-banner>.profile-img{
+  position: absolute;
+  left: 20px;
+  bottom: -40px;
+}
 .profile-img{
   display: inline-block;
   background: url('https://png.icons8.com/android/1600/user.png');
@@ -390,6 +422,24 @@ footer a:hover{
   }
   .review-card-header{
     font-size: 0.75em !important;
+  }
+  .user-show-banner>h1{
+    font-size: 1.5em !important;
+    left: 20px !important;
+    left: 20px !important;
+    bottom: 20px;
+  }
+  .user-show-banner>p{
+    left: 20px !important;
+    font-size: 1em;
+    bottom: -15px;
+  }
+  .user-show-banner>.profile-img{
+    position: absolute;
+    left: 50% !important;
+    margin-left: -100px !important;
+    top: 50px !important;
+    bottom: auto !important;
   }
 }
 /*Non Mobile Media Query*/
