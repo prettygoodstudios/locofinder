@@ -348,9 +348,48 @@ footer a:hover{
 .review-card-header{
   font-size: 1.5em;
   margin-bottom: 20px;
+  padding-right: 20px;
 }
 .review-card-header .profile-img{
+  margin-bottom: -18px;
+  margin-right: 5px;
+}
+.review-card-body a{
+  color: $light-text-color;
+  text-decoration: none;
   margin-right: 20px;
+}
+.review-card-body a:hover{
+  color: $blue-blob-color !important;
+}
+.review-score p{
+  position: absolute;
+  top: 3px;
+  right: 50px;
+}
+.review-score{
+  margin-top: 20px;
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: $light-text-color;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: right;
+  color: $primary-color;
+}
+.white-review-background{
+  background-color: $primary-color !important;
+  color: $light-text-color !important;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+.review-score-value{
+  height: 30px;
+  border-radius: 15px;
+  background-color: $blue-blob-color;
+  text-align: right;
+  padding-right: 5px;
 }
 /* End of Review Card styelds */
 .cropit-preview{
@@ -457,6 +496,14 @@ footer a:hover{
   }
   .user-tab{
     padding-left: 20px;
+  }
+  .review-score p{
+    top: 7px !important;
+    right: 20px !important;
+    font-size: 1.5em !important;
+  }
+  .white-review-background{
+    font-size: 0.72em !important;
   }
 }
 /*Non Mobile Media Query*/

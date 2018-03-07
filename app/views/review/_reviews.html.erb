@@ -25,16 +25,23 @@
   <% reviews.each do |r| %>
     <div class="review-card">
       <div class="review-card-header">
-        <%= small_profile_img(User.find(r.user_id)) %><%= User.find(r.user_id).email %> - Score <%= r.score %>/10
+        <%= small_profile_img(User.find(r.user_id)) %><%= User.find(r.user_id).email %>
+        <div class="review-score">
+
+          <div class="review-score-value" style="width:<%= r.score*10  if r.score != 0 %><%= '0'  if r.score == 0 %>%;">
+          </div>
+          <p><%= r.score %>/10</p>
+        </div>
       </div>
       <div class="review-card-body">
-        <%= r.message %>
-        <br />
+        <p>
+          <%= r.message %>
+        </p>
         <% if is_mine_or_admin(r.user_id) %>
-          <%= link_to("Edit", edit_review_path(r), class: 'button-secondary')  %>
-          <%= link_to("Delete", review_path(r), method: :delete, class: 'button-secondary') %>
+          <%= link_to("Edit", edit_review_path(r), class: '')  %>
+          <%= link_to("Delete", review_path(r), method: :delete, class: '') %>
         <% end %>
-        <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: 'button-secondary') if signed_in? %>
+        <%= link_to("Report Content", new_report_path({location: nil,photo: nil, review: r.id}), class: '') if signed_in? %>
       </div>
     </div>
   <% end %>

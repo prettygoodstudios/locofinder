@@ -4,7 +4,11 @@
 <div class="container">
   <div class="row">
     <p><%= @location.address + ", " + @location.city + ", " + @location.state + ", " + @location.country %></p>
-    <p>Average Score: <%= @location.average_score %>/10</p>
+    <div class="review-score white-review-background">
+      <div class="review-score-value" style="width:<%= @location.average_score*10  if @location.average_score != 0 %><%= '0'  if @location.average_score == 0 %>%;">
+      </div>
+      <p><%= @location.average_score %>/10</p>
+    </div>
     <% if signed_in? %>
       <% if is_mine_or_admin(@location.user_id.to_i)%>
         <%= link_to "Edit", edit_location_path(@location), class: "button" %>
