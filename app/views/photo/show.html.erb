@@ -1,4 +1,4 @@
 <div class="container">
   <img src="<%= @photo.img_url.url %>" class="show-image"/>
-  <p><em><%= link_to User.find(@photo.user_id).email, "/user/show/"+User.find(@photo.user_id).id.to_s %></em> - <%= link_to Location.find(@photo.location_id).title, location_path(Location.find(@photo.location_id).id) %> - <%= @photo.caption %> - <em><%= views_helper @photo.views %> Views</em></p>
+  <p><%= image_collection_user(User.find(@photo.user_id)) %>"<%= @photo.caption %>"<%= location_tag(Location.find(@photo.location_id))%><%= views_helper @photo.views %> Views</em></p>
 </div>
