@@ -2,4 +2,4 @@
   <%= small_profile_img(user) %>
   <h3><%= user.email %></h3>
 </div>
-<%= render partial: "photo/collection", locals: {collection: user.photos.mostViews.first(6), title: "", collumns: user.collumns} %>
+<%= render partial: "photo/collection", locals: {collection: user.photos.first(6), title: "", collumns: user.collumns} %>
