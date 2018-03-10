@@ -1,8 +1,13 @@
 <% if title != "" %>
   <h1><%= title %></h1>
 <% end %>
+<% if limit != nil %>
+  <% collection = collection.mostViews.first(limit) %>
+<% else %>
+  <% collection = collection.mostViews %>
+<% end %>
 <div class="row">
-  <% collection.mostViews.each do |p| %>
+  <% collection.each do |p| %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
         <div class="img-holder img-holder-3">
