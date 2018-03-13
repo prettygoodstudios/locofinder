@@ -22,6 +22,6 @@
       <% end %>
     <% end %>
   </div>
-  <%= render partial: "photo/collection", locals: {collection: @location.photos, title: "Photos", collumns: 3, limit: nil} %>
+  <%= render partial: "photo/collection", locals: {collection: @location.photos, title: "Photos", collumns: 3, limit: nil, location: @location.id, user: nil} %>
 </div>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user} %>

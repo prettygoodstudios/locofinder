@@ -7,6 +7,8 @@
   <% collection = collection.mostViews %>
 <% end %>
 <div class="row">
+  <% users = User.find(user) if user != nil%>
+  <% locations = Location.find(location) if location != nil%>
   <% collection.each do |p| %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
@@ -14,9 +16,11 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <%= image_collection_user(User.find(p.user_id)) %>
+          <%= image_collection_user(User.find(p.user_id)) if user == nil%>
+          <%= image_collection_user(users) if user != nil%>
           "<%= p.caption %>"
-          <%= location_tag(Location.find(p.location_id))%>
+          <%= location_tag(Location.find(p.location_id)) if location == nil%>
+          <%= location_tag(locations) if location != nil%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
@@ -31,9 +35,11 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <%= image_collection_user(User.find(p.user_id)) %>
+          <%= image_collection_user(User.find(p.user_id)) if user == nil%>
+          <%= image_collection_user(users) if user != nil%>
           "<%= p.caption %>"
-          <%= location_tag(Location.find(p.location_id))%>
+          <%= location_tag(Location.find(p.location_id)) if location == nil%>
+          <%= location_tag(locations) if location != nil%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
@@ -48,9 +54,11 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <%= image_collection_user(User.find(p.user_id)) %>
+          <%= image_collection_user(User.find(p.user_id)) if user == nil%>
+          <%= image_collection_user(users) if user != nil%>
           "<%= p.caption %>"
-          <%= location_tag(Location.find(p.location_id))%>
+          <%= location_tag(Location.find(p.location_id)) if location == nil%>
+          <%= location_tag(locations) if location != nil%>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(p.user_id) %>
