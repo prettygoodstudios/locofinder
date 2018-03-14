@@ -32,7 +32,7 @@ module ApplicationHelper
     generate_profile_img(user, 0.500)
   end
   def location_tag(location)
-    link = link_to location.title, "/location/"+location.id, class: "img-card-link"
+    link = link_to(location.title, "/location/"+location.id.to_s, class: "img-card-link")
     image = image_tag "https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png", width: "20px", height: "20px", style: "display: inline;"
     content = image+link
     content.html_safe
