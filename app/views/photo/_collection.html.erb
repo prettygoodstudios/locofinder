@@ -15,7 +15,7 @@
     <% users = User.find(user) %>
     <% us = Array.new(collection.length) { |x|  users } %>
     <% locos = Location.includes(:photos).where("photos.user_id=#{user.to_s}").order("photos.views DESC")  %>
-    <% puts locos.first.title %>
+    <% puts locos.first %>
   <% end %>
   <% collection.zip(locos,us).each do |p,l,u| %>
     <% puts l %>
