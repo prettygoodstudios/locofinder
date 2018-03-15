@@ -17,10 +17,10 @@
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
   <% puts "Debug Info" %>
-  <% puts locos %>
   <% puts locos.first %>
-  <% puts us %>
+  <% puts locos.first.title %>
   <% puts us.first %>
+  <% puts us.first.email %>
   <% puts "End of Debug Info" %>
   <% collection.zip(locos,us).each do |p,l,u| %>
     <% if collumns == 3 %>
