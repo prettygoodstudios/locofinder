@@ -16,13 +16,13 @@
     <% locos = Location.includes(:photos).where("photos.user_id=#{user}").order("photos.views DESC") %>
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
-  <% puts "Debug Info" %>
-  <% puts locos.first %>
-  <% puts locos.first.title %>
-  <% puts us.first %>
-  <% puts us.first.email %>
-  <% puts "End of Debug Info" %>
   <% collection.zip(locos,us).each do |p,l,u| %>
+    <% puts "Debug Info" %>
+    <% puts l %>
+    <% puts l.title %>
+    <% puts u %>
+    <% puts u.email %>
+    <% puts "End of Debug Info" %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
         <div class="img-holder img-holder-3">
