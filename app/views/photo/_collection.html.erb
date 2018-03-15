@@ -14,7 +14,7 @@
   <% elsif user != nil %>
     <% users = User.find(user) %>
     <% us = Array.new(collection.length) { |x|  users } %>
-    <% locos = Location.find_by_sql("SELECT locations.id, locations.title FROM locations LEFT JOIN photos ON locations.id = photos.location_id WHERE photos.user_id=#{user} ORDER BY photos.views DESC")  %>
+    <% locos = Location.includes(:photos).where("photos.locations_id=#{user}").order("photos.views DESC")  %>
   <% end %>
   <% collection.zip(locos,us).each do |p,l,u| %>
     <% if collumns == 3 %>
