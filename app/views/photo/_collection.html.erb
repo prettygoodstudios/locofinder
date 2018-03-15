@@ -10,10 +10,10 @@
   <% if user == nil and location != nil %>
     <% locations = Location.find(location) %>
     <% locos = Array.new(collection.length) { |x|  locations } %>
-    <% us =  User.includes(:photos).where("photos.location_id=#{location}").order("photos.views DESC")%>
+    <% us =  User.joins(:photos).where("photos.location_id=#{location}").order("photos.views DESC")%>
   <% elsif user != nil %>
     <% users = User.find(user) %>
-    <% locos = Location.includes(:photos).where("photos.user_id=#{user}").order("photos.views DESC") %>
+    <% locos = Location.joins(:photos).where("photos.user_id=#{user}").order("photos.views DESC") %>
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
   <% collection.zip(locos,us).each do |p,l,u| %>
