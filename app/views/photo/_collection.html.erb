@@ -17,12 +17,6 @@
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
   <% collection.zip(locos,us).each do |p,l,u| %>
-    <% puts "Debug Info" %>
-    <% puts l %>
-    <% puts l.title %>
-    <% puts u %>
-    <% puts u.email %>
-    <% puts "End of Debug Info" %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
         <div class="img-holder img-holder-3">
