@@ -57,7 +57,7 @@
           <img src="<%= p.img_url.url %>" />
         </div>
         <p>
-          <%= image_collection_user(u) >
+          <%= image_collection_user(u) %>
           "<%= p.caption %>"
           <%= location_tag(l) %>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
