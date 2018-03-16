@@ -1,5 +1,5 @@
 <h1>Additional Content Has Been Reported</h1>
 <p>Message: <%= @report.message %></p>
 <p>Type: <%= @report.what_type %></p>
-<p>User: <%= @report.user.email %></p>
+<p>User: <%= @user.email %></p>
 <%= link_to "Resolve!", @root_url+"/report/"+@report %>

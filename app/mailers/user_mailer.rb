@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
   end
   def new_report(report)
     @report = Report.find(report)
+    @user = User.find(current_user.id)
     @recipients = User.all.where(role: "admin")
     emails = @recipients.collect(&:email).join(",")
     @root_url = root_url
