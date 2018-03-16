@@ -1,11 +1,3 @@
-<script>
-  [].forEach.call(document.querySelectorAll('img[data-src]'),    function(img) {
-  img.setAttribute('src', img.getAttribute('data-src'));
-  img.onload = function() {
-    img.removeAttribute('data-src');
-  };
-  });
-</script>
 <% if title != "" %>
   <h1><%= title %></h1>
 <% end %>
@@ -28,7 +20,7 @@
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
         <div class="img-holder img-holder-3">
-          <img data-src="<%= p.img_url.url %>" />
+          <img src="<%= p.img_url.url %>" />
         </div>
         <p>
           <%= image_collection_user(u)%>
@@ -45,7 +37,7 @@
     <% elsif collumns == 2 %>
       <div class="six columns img-card img-card-2">
         <div class="img-holder img-holder-2">
-          <img data-src="<%= p.img_url.url %>" />
+          <img src="<%= p.img_url.url %>" />
         </div>
         <p>
           <%= image_collection_user(u) %>
@@ -62,7 +54,7 @@
     <% elsif collumns == 1 %>
       <div class="twelve columns img-card img-card-1">
         <div class="img-holder img-holder-1">
-          <img data-src="<%= p.img_url.url %>" />
+          <img src="<%= p.img_url.url %>" />
         </div>
         <p>
           <%= image_collection_user(u) %>
