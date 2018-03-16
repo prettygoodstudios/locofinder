@@ -2,4 +2,4 @@
 <p>Message: <%= @report.message %></p>
 <p>Type: <%= @report.what_type %></p>
 <p>User: <%= @report.user.email %></p>
-<%= link_to "Resolve!", report_url(@report) %>
+<%= link_to "Resolve!", @root_url+"/report/"+@report %>
