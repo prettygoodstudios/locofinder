@@ -19,7 +19,7 @@ class ReportController < ActionController::Base
   def create
     @report = Report.create(report_params)
     if @report.save
-      UserMailer.new_report(@report.id).deliver!
+      UserMailer.new_report(@report.id,current_user.id).deliver!
       redirect_to location_index_path, alert: "Successfully reported content."
     else
       redirect_to new_report_path, alert: @report.errors.first

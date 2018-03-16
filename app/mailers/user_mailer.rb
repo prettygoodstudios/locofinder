@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
     @root_url = root_url
     mail(to: @user.email, subject: 'Geofocus Email Verification')
   end
-  def new_report(report)
+  def new_report(report,user)
     @report = Report.find(report)
-    @user = User.find(current_user.id)
+    @user = User.find(user)
     @recipients = User.all.where(role: "admin")
     emails = @recipients.collect(&:email).join(",")
     @root_url = root_url
