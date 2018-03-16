@@ -41,7 +41,7 @@ class PhotoController < ActionController::Base
       @collection = Location.find(params[:location]).photos.mostViews
       location = Location.find(params[:location])
       @locations = Array.new(@collection.length) { |x| location }
-      @user = User.joins(:photos).where("photos.location_id=#{params[:location]}").order("photos.views DESC")
+      @users = User.joins(:photos).where("photos.location_id=#{params[:location]}").order("photos.views DESC")
     end
     render json: @collection.zip(@users,@locations)
   end
