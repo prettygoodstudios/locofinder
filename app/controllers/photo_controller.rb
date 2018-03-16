@@ -31,7 +31,7 @@ class PhotoController < ActionController::Base
   def collection_api
     @collection = nil
     @users = nil
-    @locations =
+    @locations = nil
     if params[:user] != nil
       @collection = User.find(params[:user]).photos.mostViews
       user = User.find(params[:user])
