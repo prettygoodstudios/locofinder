@@ -44,6 +44,14 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.action_mailer.smtp_settings = {
+    :address => "email-smtp.us-west-2.amazonaws.com",
+    :port => 587,
+    :user_name => ENV["smtp_user"],
+    :password => ENV["smtp_password"],
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
