@@ -28,6 +28,15 @@ class PhotoController < ActionController::Base
   def show
     @photo.update_attribute("views",@photo.views+1)
   end
+  def collection_api
+    @collection = nil
+    if params[:user] != nil
+      @collection = User.find(params[:user]).photos.mostViews.includes(:photos,:locations,:users)
+    else
+      @collection = Location.find(params[:location]).photos.mostViews.includes(:photos,:locations,:users)
+    end
+    render json: @collection
+  end
   def photo_params
     params.require(:photo).permit(:img_url,:caption)
   end
