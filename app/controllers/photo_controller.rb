@@ -30,12 +30,20 @@ class PhotoController < ActionController::Base
   end
   def collection_api
     @collection = nil
+    @users = nil
+    @locations =
     if params[:user] != nil
-      @collection = User.find(params[:user]).photos.mostViews.includes(:photos,:locations,:users)
+      @collection = User.find(params[:user]).photos.mostViews
+      user = User.find(params[:user])
+      @users = Array.new(@collection.length) { |x| user }
+      @locations = Location.joins(:photos).where("photos.user_id=#{params[:user]}").order("photos.views DESC")
     else
-      @collection = Location.find(params[:location]).photos.mostViews.includes(:photos,:locations,:users)
+      @collection = Location.find(params[:location]).photos.mostViews
+      location = Location.find(params[:location])
+      @locations = Array.new(@collection.length) { |x| location }
+      @user = User.joins(:photos).where("photos.location_id=#{params[:location]}").order("photos.views DESC")
     end
-    render json: @collection
+    render json: @collection.zip(@users,@locations)
   end
   def photo_params
     params.require(:photo).permit(:img_url,:caption)

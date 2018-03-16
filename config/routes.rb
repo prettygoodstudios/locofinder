@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources "report"
   get "/landing", to: "user#landing"
   get "/users/all", to: "user#index"
-  get "/collection_api", to: "user#collection_api"
+  get "/collection_api", to: "photo#collection_api"
   get "/geo_json_api", to: "location#geo_json_api"
   get "/my_location_api", to: "location#my_location_api"
   get "/user/show/:id", to: "user#show"
