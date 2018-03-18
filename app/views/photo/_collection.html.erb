@@ -19,13 +19,19 @@
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
   <% time2 = Time.now %>
-  <% puts "Ruby Logic Elapsed Time : " + (time1-time2).inspect %>
+  <% p_time = Time.now %>
+  <% e_time = Time.now %>
+  <% puts "Ruby Logic Elapsed Time : " + (time2-time1).inspect %>
   <% collection.zip(locos,us).each do |p,l,u| %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
+        <% p_i = Time.now %>
         <div class="img-holder img-holder-3">
           <img src="<%= p.img_url.url %>" />
         </div>
+        <% p_f = Time.now %>
+        <% p_time += (p_f-p_i) %>
+        <% e_i = Time.now %>
         <p>
           <%= image_collection_user(u)%>
           "<%= p.caption %>"
@@ -37,6 +43,8 @@
         <% end %>
         <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
         <br>
+        <% e_f = Time.now %>
+        <% e_time += (e_f-e_i) %>
       </div>
     <% elsif collumns == 2 %>
       <div class="six columns img-card img-card-2">
@@ -76,7 +84,11 @@
   <% end %>
   <% time3 = Time.now %>
   <% avg_time = ((time3-time2).to_f/collection.length.to_f).to_f %>
-  <% puts "Average Collection Image Render Time: " + avg_time.to_s %>
+  <% p_avg = (p_time.to_f/collection.length.to_f).to_f %>
+  <% e_avg = (e_time.to_f/collection.length.to_f).to_f %>
+  <% puts "Average Collection Item Render Time: " + avg_time.to_s %>
+  <% puts "Average Collection Photo Render Time: " + p_avg.to_s %>
+  <% puts "Average Collection Everything But Photo Render Time: " + e_avg.to_s %>
   <% if collection.length == 0 %>
     <p>Sorry there are currently no photos.</p>
   <% end %>
