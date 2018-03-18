@@ -49,8 +49,8 @@ module ApplicationHelper
       zoom = user.zoom.to_f
       t1 = Time.now
       #This Time Block Is Causing the Majority of the Performance Issues
-      finalWidth  = scaleRatio * user.profile_img.width * zoom
-      finalHeight = scaleRatio * user.profile_img.height * zoom
+      finalWidth  = scaleRatio * user.width * zoom
+      finalHeight = scaleRatio * user.height * zoom
       finalOffsetX = user.offsetX*scaleRatio
       finalOffsetY = user.offsetY*scaleRatio
       t2 = Time.now
