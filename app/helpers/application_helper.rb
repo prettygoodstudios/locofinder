@@ -48,12 +48,13 @@ module ApplicationHelper
     if user.profile_img.url != nil
       zoom = user.zoom.to_f
       t1 = Time.now
+      #This Time Block Is Causing the Majority of the Performance Issues
       finalWidth  = scaleRatio * user.profile_img.width * zoom
       finalHeight = scaleRatio * user.profile_img.height * zoom
       finalOffsetX = user.offsetX*scaleRatio
       finalOffsetY = user.offsetY*scaleRatio
       t2 = Time.now
-      puts "GPI Time Block 1: "+ (t1-t2).to_s
+      puts "GPI Time Block 1: "+ (t2-t1).to_s
       t3 = Time.now
       image = image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")
       t4 = Time.now
