@@ -10,6 +10,9 @@ class UserController < ActionController::Base
     @photos = @user.photos
   end
   def create
+    @user = User.find(current_user.id)
+    @user.update_attribute("width",@user.profile_img.width)
+    @user.update_attribute("height",@user.profile_img.height)
     UserMailer.verify_email(current_user.id).deliver!
   end
   def edit_profile_image
@@ -18,6 +21,8 @@ class UserController < ActionController::Base
   def update_profile_image
     @user = User.find(params[:user][:id])
     if @user.update_attributes(params.require(:user).permit(:profile_img,:width,:height,:zoom,:offsetX,:offsetY,:id))
+      @user.update_attribute("width",@user.profile_img.width)
+      @user.update_attribute("height",@user.profile_img.height)
       redirect_to "/user/show/#{@user.id}", alert: "Successfully updated profile picture."
     else
       redirect_to "/user/edit_profile/#{@user.id}", alert: @user.errors.first
