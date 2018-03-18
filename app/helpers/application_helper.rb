@@ -47,24 +47,14 @@ module ApplicationHelper
     image = ""
     if user.profile_img.url != nil
       zoom = user.zoom.to_f
-      t1 = Time.now
-      #This Time Block Is Causing the Majority of the Performance Issues
       finalWidth  = scaleRatio * user.width * zoom
       finalHeight = scaleRatio * user.height * zoom
       finalOffsetX = user.offsetX*scaleRatio
       finalOffsetY = user.offsetY*scaleRatio
-      t2 = Time.now
-      puts "GPI Time Block 1: "+ (t2-t1).to_s
-      t3 = Time.now
       image = image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")
-      t4 = Time.now
-      puts "GPI Time Block 2: "+ (t4-t3).to_s
     end
-    t5 = Time.now
     width = (scaleRatio.to_f*400.to_f).to_i
     content = "<div class='profile-img' style='#{'background: black;' if user.profile_img.url != nil}width: #{width}px !important;height: #{width}px !important;'>"+image+"</div>"
-    t6 = Time.now
-    puts "GPI Time Block 3: "+ (t6-t5).to_s
     content.html_safe
   end
 end

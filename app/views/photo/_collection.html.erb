@@ -7,8 +7,6 @@
   <% collection = collection.mostViews %>
 <% end %>
 <div class="row">
-  <% time1 = Time.new %>
-  <% puts "Ruby Logic Initial Time : " + time1.inspect %>
   <% if user == nil and location != nil %>
     <% locations = Location.find(location) %>
     <% locos = Array.new(collection.length) { |x|  locations } %>
@@ -18,36 +16,16 @@
     <% locos = Location.joins(:photos).where("photos.user_id=#{user}").order("photos.views DESC") %>
     <% us = Array.new(collection.length) { |x|  users } %>
   <% end %>
-  <% time2 = Time.now %>
-  <% p_time = Time.now %>
-  <% e_time = Time.now %>
-  <% u_time = Time.now %>
-  <% l_time = Time.now %>
-  <% p_time -= time2 %>
-  <% e_time -= time2 %>
-  <% u_time -= time2 %>
-  <% l_time -= time2 %>
-  <% puts "Ruby Logic Elapsed Time : " + (time2-time1).inspect %>
   <% collection.zip(locos,us).each do |p,l,u| %>
     <% if collumns == 3 %>
       <div class="four columns img-card img-card-3">
-        <% p_i = Time.now %>
         <div class="img-holder img-holder-3">
           <img src="<%= p.img_url.url %>" />
         </div>
-        <% p_f = Time.now %>
-        <% p_time += (p_f-p_i) %>
-        <% e_i = Time.now %>
         <p>
-          <% u_i = Time.now %>
           <%= image_collection_user(u)%>
-          <% u_f = Time.now %>
-          <% u_time += (u_f-u_i) %>
           "<%= p.caption %>"
-          <% l_i = Time.now %>
           <%= location_tag(l)%>
-          <% l_f = Time.now %>
-          <% l_time += (l_f-l_i) %>
           <%= link_to("Report Content", new_report_path({location: nil,photo: p.id, review: nil}), class: 'img-card-link') if signed_in? %>
         </p>
         <% if is_mine_or_admin(u) %>
@@ -55,8 +33,6 @@
         <% end %>
         <%= link_to "View - " + views_helper(p.views) + " Views" , photo_path(p), class:'button' %>
         <br>
-        <% e_f = Time.now %>
-        <% e_time += (e_f-e_i) %>
       </div>
     <% elsif collumns == 2 %>
       <div class="six columns img-card img-card-2">
@@ -94,17 +70,6 @@
       </div>
     <% end %>
   <% end %>
-  <% time3 = Time.now %>
-  <% avg_time = ((time3-time2).to_f/collection.length.to_f).to_f %>
-  <% p_avg = (p_time.to_f/collection.length.to_f).to_f %>
-  <% e_avg = (e_time.to_f/collection.length.to_f).to_f %>
-  <% u_avg = (u_time.to_f/collection.length.to_f).to_f %>
-  <% l_avg = (l_time.to_f/collection.length.to_f).to_f %>
-  <% puts "Average Collection Item Render Time: " + avg_time.to_s %>
-  <% puts "Average Collection Photo Render Time: " + p_avg.to_s %>
-  <% puts "Average Collection Everything But Photo Render Time: " + e_avg.to_s %>
-  <% puts "Average Collection Item User Tag Render Time: " + u_avg.to_s %>
-  <% puts "Average Collection Item Location Tag Render Time: " + l_avg.to_s %>
   <% if collection.length == 0 %>
     <p>Sorry there are currently no photos.</p>
   <% end %>
