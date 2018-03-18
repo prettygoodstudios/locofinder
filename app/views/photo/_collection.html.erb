@@ -74,6 +74,8 @@
       </div>
     <% end %>
   <% end %>
+  <% time3 = Time.now %>
+  <% puts "Average Collection Image Render Time: " + ((time3-time2).to_f/collection.length.to_f).to_f.to_i %>
   <% if collection.length == 0 %>
     <p>Sorry there are currently no photos.</p>
   <% end %>
