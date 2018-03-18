@@ -44,27 +44,13 @@ module ApplicationHelper
     content.html_safe
   end
   def generate_profile_img(user,scaleRatio)
-    zoom = user.zoom.to_f
-    if zoom == nil
-      zoom  = 0
-    end
-    finalWidth = 0
-    finalHeight = 0
-    if user.profile_img.url != nil
-      finalWidth  = scaleRatio * user.profile_img.width * zoom
-      finalHeight = scaleRatio * user.profile_img.height * zoom
-    end
-    finalOffsetX = 0
-    finalOffsetY = 0
-    if user.offsetX != nil
-      finalOffsetX = user.offsetX*scaleRatio
-      finalOffsetY = user.offsetY*scaleRatio
-    end
-    #These two lines can be uncommented and used for diagnostics
-    #puts "Width: #{finalWidth}, Height: #{finalHeight}, offSetX: #{user.offsetX*scaleRatio}, offsetY: #{user.offsetY*scaleRatio}"
-    #puts "Width: #{user.profile_img.width}, Height: #{user.profile_img.height}, offSetX: #{user.offsetX}, offsetY: #{user.offsetY}"
     image = ""
     if user.profile_img.url != nil
+      zoom = user.zoom.to_f
+      finalWidth  = scaleRatio * user.profile_img.width * zoom
+      finalHeight = scaleRatio * user.profile_img.height * zoom
+      finalOffsetX = user.offsetX*scaleRatio
+      finalOffsetY = user.offsetY*scaleRatio
       image = image_tag(user.profile_img.url, style: "width:#{finalWidth}px;height:#{finalHeight}px;margin-left:#{finalOffsetX}px;margin-top:#{finalOffsetY}px;", class: "#{'display-none' if user.profile_img.url == nil}")
     end
     width = (scaleRatio.to_f*400.to_f).to_i
