@@ -16,6 +16,9 @@ class ReportController < ActionController::Base
     @location = params[:location]
     @photo = params[:photo]
   end
+  def googleb644d22d0a6d8ad2
+    render :layout => false
+  end
   def create
     @report = Report.create(report_params)
     if @report.save

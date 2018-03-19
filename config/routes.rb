@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources "review"
   resources "photo"
   resources "report"
+  get "/googleb644d22d0a6d8ad2.html", to: "report#googleb644d22d0a6d8ad2"
   get "/landing", to: "user#landing"
   get "/users/all", to: "user#index"
   get "/collection_api", to: "photo#collection_api"
