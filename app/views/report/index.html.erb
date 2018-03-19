@@ -15,7 +15,7 @@
         <tr>
           <td colspan="3"><%= r.message %></td>
           <td><%= r.what_type %></td>
-          <td><%= link_to r.user.email, "/user/show/"+r.user.id.to_s %></td>
+          <td><%= link_to(r.user.email, "/user/show/"+r.user.id.to_s) if r.user != nil %></td>
           <td><%= link_to "View", r.link %></td>
           <td><%= link_to "Resolve", r %></td>
         </tr>
