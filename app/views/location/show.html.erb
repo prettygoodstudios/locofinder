@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'application' %>
 <div class="location-header" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= @location.photos.mostViews[0].img_url.url if @location.photos.length != 0%><%= 'https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTX283V4/lead_960.jpg?1457553386' if @location.photos.length == 0 %>);">
   <h1><%= @location.title %></h1>
 </div>
@@ -22,6 +23,7 @@
       <% end %>
     <% end %>
   </div>
-  <%= render partial: "photo/collection", locals: {collection: @location.photos, title: "Photos", collumns: 3, limit: nil, location: @location.id, user: nil} %>
+  <!-- <%= render partial: "photo/collection", locals: {collection: @location.photos, title: "Photos", collumns: 3, limit: nil, location: @location.id, user: nil} %> -->
+  <%= react_component("Collection",{ title: "Photos", location: @location.id.to_s, user: "", rootUrl: root_url, currentUser: current_user, collumns: 3, search: true  }) %>
 </div>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user} %>

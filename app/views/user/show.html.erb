@@ -1,8 +1,9 @@
+<%= javascript_pack_tag 'application' %>
 <div class="user-show-banner" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= @photos.mostViews[0].img_url.url if @photos.length != 0%><%= 'https://cdn.theatlantic.com/assets/media/img/mt/2016/03/RTX283V4/lead_960.jpg?1457553386' if @photos.length == 0 %>);">
   <%= large_profile_img(@user) %>
   <h1><%= @user.email %></h1>
   <p><%= @user.bio %></p>
 </div>
 <div class="container">
-  <%= render partial: "photo/collection", locals: { collection: @photos, title: "Photos", collumns: 3, limit: nil, user: @user.id, location: nil} %>
+  <%= react_component("Collection",{ title: "Photos", location: "", user: @user.id.to_s, rootUrl: root_url, currentUser: current_user, collumns: 3, search: true  }) %>
 </div>

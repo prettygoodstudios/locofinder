@@ -57,3 +57,5 @@ gem "figaro"
 gem 'hamburgers'
 gem "mini_magick"
 gem "platform-api"
+gem "webpacker"
+gem "react-rails"

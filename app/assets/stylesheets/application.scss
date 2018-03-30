@@ -41,6 +41,16 @@ html, body{
   margin-bottom: -7px;
 }
 /* Image collection card styles */
+.search-bar input{
+  border-radius: 30px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  width: 100%;
+  margin-right: -5%;
+}
+.search-bar {
+  margin-bottom: 20px;
+}
 .img-card{
   position: relative;
 }
