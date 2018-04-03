@@ -13,6 +13,7 @@ class Collection extends React.Component {
     }
   }
   componentDidMount(){
+    console.log("Hello Components!");
     var queryString = "";
     if (this.props.location != ""){
       queryString = "location="+this.props.location;
@@ -126,15 +127,15 @@ const ProfileImg = (props) => {
     image = <img src={props.profile_img.url} style={{width: finalWidth,height: finalHeight,marginLeft: finalOffsetX,marginTop: finalOffsetY}}/>;
   }
   return(
-    <div className="profile-img" style={{background: "black",width: displayWidth,height: displayWidth}}>
+    <span className="profile-img" style={{background: "black",width: displayWidth,height: displayWidth}}>
       {image}
-    </div>
+    </span>
   );
 }
 const SearchBar = (props) => {
   return(
     <div className="search-bar">
-      <input type="text" value={props.val} onChange={props.update} placeholder="Search!"/>
+      <input type="text" value={props.val} onChange={props.update} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
     </div>
   );
 }
@@ -184,4 +185,4 @@ Collection.propTypes = {
   collumns: PropTypes.number,
   search: PropTypes.bool
 };
-export default Collection
+export default Collection;
