@@ -16,7 +16,7 @@
     <%= f.hidden_field :width %>
     <%= f.hidden_field :zoom %>
     <script>
-      var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true});
+      var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true,smallImage: 'stretch'});
       $("#image-cropper").find(".cropit-preview");
       $(".edit_user").submit(function(e){
         console.log("Zoom: ",$("#image-cropper").cropit("zoom"));

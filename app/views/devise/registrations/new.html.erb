@@ -41,10 +41,12 @@
     <%= f.hidden_field :width %>
     <%= f.hidden_field :zoom %>
     <script>
-      var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true});
+      var imgPicker = $('#image-cropper').cropit({width: 400,height: 400,imageBackgroundBorderWidth: 1,freeMove: true,smallImage: 'stretch'});
       $("#image-cropper").find(".cropit-preview");
       $("#new_user").submit(function(e){
         console.log("Zoom: ",$("#image-cropper").cropit("zoom"));
+        console.log("Offset: ",$("#image-cropper").cropit("offset"));
+        console.log("Preview Size:",$("#image-cropper").cropit("previewSize"));
         $("#user_zoom").val($("#image-cropper").cropit("zoom"));
         $("#user_offsetX").val($("#image-cropper").cropit("offset").x);
         $("#user_offsetY").val($("#image-cropper").cropit("offset").y);
