@@ -247,7 +247,7 @@ DEPENDENCIES
   platform-api
   puma (~> 3.7)
   rails (~> 5.1.4)
-  react-rails
+  react-rails (~> 2.4.4)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

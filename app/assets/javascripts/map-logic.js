@@ -17,7 +17,7 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
       average_score = "";
     }
     var image = "<image class='popup-image' src='"+d[i].img_url+"'></image>"
-    var link = "<a href='"+ROOT_URL+d[i].url+"' class='button'>More Info</a>";
+    var link = "<a href='"+ROOT_URL+d[i].url+"' class='button' data-turbolinks='false'>More Info</a>";
     var popup = new mapboxgl.Popup().setHTML(title+address+average_score+image+link);
     marker.setPopup(popup);
   }
