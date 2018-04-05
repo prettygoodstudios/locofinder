@@ -12,7 +12,10 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
     var marker = new mapboxgl.Marker(el).setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
     var title = "<h3>"+d[i].title+"</h3>";
     var address = "<p>"+d[i].address+"</p>";
-    var average_score = "<p>Average Score: "+d[i].average_score+"</p>"
+    var average_score = "<p>Average Rating: "+d[i].average_score+"</p>"
+    if(d[i].average_score == 0){
+      average_score = "";
+    }
     var image = "<image class='popup-image' src='"+d[i].img_url+"'></image>"
     var link = "<a href='"+ROOT_URL+d[i].url+"' class='button'>More Info</a>";
     var popup = new mapboxgl.Popup().setHTML(title+address+average_score+image+link);
