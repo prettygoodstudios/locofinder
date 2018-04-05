@@ -13,8 +13,6 @@ class Collection extends React.Component {
     }
   }
   componentDidMount(){
-    console.log("Hello Components!");
-    console.log(this.props);
     var queryString = "";
     if (this.props.location != ""){
       queryString = "location="+this.props.location;
@@ -22,12 +20,15 @@ class Collection extends React.Component {
       queryString = "user="+this.props.user;
     }
     $.get(this.props.rootUrl+"collection_api?"+queryString).then(data => {
-      console.log(data);
       var users = [];
       var photos = [];
       var locations = [];
       var filteredArray = [];
-      for(var i = 0;i < data.length;i++){
+      var collectionLength = data.length;
+      if(this.props.limit != undefined && this.props.limit < data.length){
+        collectionLength = this.props.limit;
+      }
+      for(var i = 0;i < collectionLength;i++){
         photos.push(data[i][0]);
         users.push(data[i][1]);
         locations.push(data[i][2]);
