@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 class Collection extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +8,7 @@ class Collection extends React.Component {
       locations: [],
       photos: [],
       filteredArray: [],
+      loading: true,
       colls: (12/this.props.collumns),
       searchQuery: ''
     }
@@ -34,8 +35,8 @@ class Collection extends React.Component {
         locations.push(data[i][2]);
         filteredArray.push(data[i]);
       }
-      console.log(filteredArray);
       this.setState({
+        loading: false,
         users: users,
         photos: photos,
         locations: locations,
@@ -76,8 +77,9 @@ class Collection extends React.Component {
         </h1>
         }
         { this.props.search && this.state.users.length > 0 && <SearchBar val={this.state.searchQuery} newSearch={this.newSearch} update={this.handleSearchFormChange}/>}
-        { this.state.users.length == 0 && <p>There are no photos available.</p>}
+        { this.state.users.length == 0 && !this.state.loading && <p>There are no photos available.</p>}
         <div>
+          {this.state.loading && <center><div className="loader"></div></center> }
           {this.state.users.length > 0 && !this.props.search && <Grid photos={this.state.photos} users={this.state.users} locations={this.state.locations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
           {this.props.search && filtered.length > 0 && <Grid photos={fPhotos} users={fUsers} locations={fLocations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
         </div>
