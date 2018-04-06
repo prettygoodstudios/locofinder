@@ -9,7 +9,7 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
   for( var i = 0; i < d.length; i++ ){
     var el = document.createElement('div');
     el.className = 'marker';
-    var marker = new mapboxgl.Marker(el).setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
+    var marker = new mapboxgl.Marker(el,{ offset: [0, -35] }).setLngLat([d[i].coordinates[1],d[i].coordinates[0]]).addTo(map);
     var title = "<h3>"+d[i].title+"</h3>";
     var address = "<p>"+d[i].address+"</p>";
     var average_score = "<p>Average Rating: "+d[i].average_score+"</p>"
