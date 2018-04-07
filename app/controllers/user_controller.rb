@@ -1,7 +1,7 @@
 class UserController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:reset_password,:new_password,:update_profile_photo,:edit_profile_image]
+  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:new_password,:update_profile_photo,:edit_profile_image,:change_password]
   before_action :is_mine_or_admin, only: [:edit_profile_image, :update_profile_image]
   def index
     @users = User.all.index_sort
@@ -50,13 +50,32 @@ class UserController < ActionController::Base
     redirect_to location_index_path, alert: "Sent email verification."
   end
   def reset_password
-    token = rand(36**16).to_s(36)
-    @user.update_attribute("password",token)
-    UserMailer.reset_password(@user,token)
+    @user = User.where("email='#{params[:email]}'").first
+    if @user
+      token = rand(36**16).to_s(36)
+      @user.update_attribute("password",token)
+      UserMailer.reset_password(@user.id,token).deliver!
+      redirect_to location_index_path, alert: "Sent email containing instructions to reset password."
+    else
+      redirect_to "/users/password/new", alert: "Could not find email address."
+    end
   end
   def new_password
-    if sign_in(@user,password: token, email: @user.email)
-
+    if sign_in(@user,password: params[:token], email: @user.email)
+      @token = params[:token]
+    else
+      redirect_to location_index_path, alert: "You dont have permission to perform this action."
+    end
+  end
+  def change_password
+    if sign_in(@user,password: params[:token], email: @user.email)
+      if params[:password] == params[:password_confirmation]
+        @user.update_attribute("password",params[:password])
+        sign_in @user
+        redirect_to location_index_path, alert: "Successfully changed password."
+      else
+        redirect_to "/new_password/#{@user.id}?token=#{params[:token]}", alert: "Your password and password confirmation must match."
+      end
     else
       redirect_to location_index_path, alert: "You dont have permission to perform this action."
     end
