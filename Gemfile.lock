@@ -47,7 +47,7 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
-    carrierwave (1.1.0)
+    carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -232,7 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  carrierwave (~> 1.0)
+  carrierwave
   coffee-rails (~> 4.2)
   devise
   figaro
