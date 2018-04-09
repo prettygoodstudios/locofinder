@@ -11,6 +11,15 @@
     </div>
     <%= f.hidden_field :location, value: @location.id %>
     <%= f.hidden_field :user, value: current_user.id %>
-    <%= f.submit %>
+    <%= f.submit "Add Photo", id: 'photoSubmit' %>
   <% end %>
 </div>
+<div class="float-loader">
+  <center><h3>Uploading</h3></center>
+  <div class="loader"></div>
+</div>
+<script>
+  $("#photoSubmit").click(function(){
+    $(".float-loader").show();
+  });
+</script>
