@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223020033) do
+ActiveRecord::Schema.define(version: 20180409233722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20180223020033) do
     t.datetime "updated_at", null: false
     t.integer "location_id"
     t.integer "user_id"
+    t.integer "width"
+    t.integer "height"
+    t.float "zoom"
+    t.integer "offsetX"
+    t.integer "offsetY"
   end
 
   create_table "reports", force: :cascade do |t|

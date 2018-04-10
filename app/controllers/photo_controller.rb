@@ -11,6 +11,8 @@ class PhotoController < ActionController::Base
     @user.photos << @photo
     if @photo.save
       @photo.update_attribute("views",0)
+      @photo.update_attribute("width",@photo.img_url.width)
+      @photo.update_attribute("height",@photo.img_url.height)
       redirect_to @location, alert: "Successfully Posted!"
     else
       redirect_to new_photo_path+"/?user=#{@user.id}&location=#{@location.id}", alert: @photo.errors.first
@@ -46,7 +48,7 @@ class PhotoController < ActionController::Base
     render json: @collection.zip(@users,@locations)
   end
   def photo_params
-    params.require(:photo).permit(:img_url,:caption)
+    params.require(:photo).permit(:img_url,:caption,:width,:height,:zoom,:offsetX,:offsetY)
   end
   def set_photo
     @photo = Photo.find(params[:id])

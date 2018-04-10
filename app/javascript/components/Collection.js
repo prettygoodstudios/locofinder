@@ -29,7 +29,7 @@ class Collection extends React.Component {
       if(this.props.limit != undefined && this.props.limit < data.length){
         collectionLength = this.props.limit;
       }
-      for(var i = 0;i < collectionLength;i++){
+      for(var i = 0;i < collectionLength ;i++){
         photos.push(data[i][0]);
         users.push(data[i][1]);
         locations.push(data[i][2]);
@@ -96,7 +96,8 @@ const Grid = (props) => {
   const photoGrid = photoArray.map((photo,i) =>
     <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
       <div className={"img-holder img-holder-"+(12/props.colls)}>
-        <img src={photo.img_url.url} />
+        {photo.zoom == null && <img src={photo.img_url.url} style={{maxWidth: "200%"}}/>}
+        {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY}/>}
       </div>
       <br/>
       <p>
@@ -111,6 +112,16 @@ const Grid = (props) => {
     <div className="row">
       {photoGrid}
     </div>
+  );
+}
+const Photo = (props) => {
+  var scaleRatio = 0.625;
+  var finalWidth = props.width*props.zoom*scaleRatio;
+  var finalHeight = props.height*props.zoom*scaleRatio;
+  var finalOffsetX = props.offsetX*scaleRatio;
+  var finalOffsetY = props.offsetY*scaleRatio;
+  return(
+    <img style={{width: finalWidth,height: finalHeight,marginLeft: finalOffsetX,marginTop: finalOffsetY}} src={props.url}/>
   );
 }
 const UserTag = (props) => {
