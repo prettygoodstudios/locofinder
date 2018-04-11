@@ -35,9 +35,7 @@ class LocationSearch extends React.Component {
         return location.address.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || location.title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
       }
     );
-    if (filtered.length > 5 ){
-      filtered = filtered.slice(4);
-    }
+    if (filtered.length > 5) filtered.length = 5;
     let results = filtered.map((location) =>
       <div className="location-search-result">
         <h3><a href={this.props.rootUrl+"location/"+location.id} data-turbolinks="false">{location.title}</a></h3>
