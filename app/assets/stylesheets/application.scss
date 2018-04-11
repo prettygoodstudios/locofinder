@@ -241,7 +241,7 @@ footer a:hover{
 /* End of Modal Styles */
 /* Map Styles */
 .create-button{
-  position: relative;
+  position: absolute;
   left: 75px;
   top: 10px;
   background-color: $primary-color !important;
@@ -251,7 +251,7 @@ footer a:hover{
   background-color: $blue-blob-color !important;
 }
 .map-alert{
-  position: relative;
+  position: absolute;
   left: 75px;
   top: 10px;
   border-radius: 20px;
@@ -261,10 +261,10 @@ footer a:hover{
   z-index: 999;
 }
 #map{
-  margin-top: -20px;
+  top: -20px;
   width: 100%;
   height: 80vh;
-  margin-bottom: -20px;
+  margin-bottom: -40px;
 }
 .signed-in{
   margin-top:  -70px !important;
@@ -288,7 +288,50 @@ footer a:hover{
   border-radius: 0%;
   cursor: pointer;
 }
+.map-container{
+  position: relative;
+}
 /* End of Map Styles */
+/* Location Search Styles */
+.location-search{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 400px;
+  z-index: 998;
+}
+.location-search input{
+  width: 100%;
+  border-radius: 30px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.location-search-result{
+  width: 380px;
+  background-color: white;
+  color: $dark-text-color;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid $light-text-color;
+  padding: 10px;
+}
+.location-search-result h3{
+  margin-bottom: 0px;
+  font-size: 1.2em !important;
+}
+.location-search-result p{
+  margin-bottom: 0px;
+  font-size: 0.8em !important;
+}
+.location-search-result a{
+  color: $dark-text-color;
+  text-decoration: none;
+}
+.location-search-result a:hover{
+  color: $primary-color;
+  text-decoration: none;
+}
+/* End of Location Search Styles */
 /* User partial Styles */
 .user-banner{
   background-color: $primary-color;
@@ -550,6 +593,9 @@ footer a:hover{
   }
   .white-review-background{
     font-size: 0.72em !important;
+  }
+  .location-search{
+    display: none;
   }
 }
 /*Non Mobile Media Query*/
