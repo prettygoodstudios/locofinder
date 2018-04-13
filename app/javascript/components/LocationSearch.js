@@ -28,6 +28,35 @@ class LocationSearch extends React.Component {
     });
     console.log(this.state.searchQuery);
   };
+  sortByPoints = (arr,searchQuery) =>{
+    let retVal = arr.sort(function(a,b){
+      var titleA = a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var addressA = a.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var pointsA = 0;
+      if(titleA){
+        pointsA += 2;
+      }
+      if(addressA){
+        pointsA++;
+      }
+      var titleB = b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var addressB = b.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var pointsB = 0;
+      if(titleB){
+        pointsB += 2;
+      }
+      if(addressB){
+        pointsB++;
+      }
+      if (pointsA > pointsB) {
+        return -1;
+      }
+      if (pointsA < pointsB) {
+        return 1;
+      }
+    });
+    return retVal;
+  }
   render () {
     console.log(this.state.locations);
     let filtered = this.state.locations.filter(
@@ -35,6 +64,7 @@ class LocationSearch extends React.Component {
         return location.address.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || location.title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
       }
     );
+    filtered = this.sortByPoints(filtered,this.state.searchQuery);
     if (filtered.length > 7) filtered.length = 7;
     let results = filtered.map((location) =>
       <div className="location-search-result">
