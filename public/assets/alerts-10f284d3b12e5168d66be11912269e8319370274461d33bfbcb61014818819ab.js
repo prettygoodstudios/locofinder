@@ -12,9 +12,7 @@ $( document ).on('turbolinks:load', function() {
       $("#toggle").removeClass("is-active");
     }
   });
-  var content = $.trim( $('.modal-body').text() ).length;
-  console.log(content);
-  if(content != 0){
+  if($(".modal-body").html != ""){
     console.log("Showwing");
     $(".modal").show();
   }

@@ -1,0 +1,253 @@
+/* line 1, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-content {
+  height: 75vh;
+}
+
+/* line 5, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-parent {
+  overflow: hidden;
+  position: relative;
+  background-color: #9013FE;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+/* line 12, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.card-area {
+  height: 300px;
+  background-color: #ECECEC;
+}
+
+/* line 16, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card {
+  top: 40px;
+  bottom: 40px;
+  position: absolute;
+  width: 40%;
+}
+
+/* line 22, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > img {
+  max-width: 100%;
+  min-height: 100%;
+}
+
+/* line 26, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > h1 {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 32, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card > p {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+/* line 39, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 43, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.svg-text {
+  float: left;
+  position: absolute;
+  max-width: 50%;
+  top: 100px;
+  left: 175px;
+}
+
+/* line 50, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.right-blob {
+  float: right;
+}
+
+/* line 53, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.left-blob {
+  float: left;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* line 58, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.left-landing {
+  left: 5%;
+}
+
+/* line 61, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.right-landing {
+  right: 5%;
+}
+
+@media only screen and (max-width: 500px) {
+  /* line 65, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-blob {
+    position: absolute !important;
+    bottom: 0px !important;
+    left: -150px !important;
+  }
+
+  /* line 70, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-blob {
+    float: none !important;
+    right: -250px !important;
+    position: absolute !important;
+  }
+
+  /* line 75, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .svg-text {
+    float: none !important;
+    position: absolute !important;
+    top: 50px !important;
+    left: 20px !important;
+    max-width: 90% !important;
+  }
+
+  /* line 82, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card {
+    width: 100% !important;
+    position: relative !important;
+    top: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+  }
+
+  /* line 90, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card p {
+    top: 60px !important;
+    font-size: 0.8em !important;
+  }
+
+  /* line 94, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    padding-top: 20px !important;
+    height: auto !important;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+  /* line 100, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card {
+    width: 100% !important;
+    position: relative !important;
+    top: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+  }
+
+  /* line 108, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card img {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* line 112, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card p {
+    top: 60px !important;
+    font-size: 1.2em !important;
+  }
+
+  /* line 116, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .svg-text {
+    float: none !important;
+    position: absolute !important;
+    top: 50px !important;
+    left: 50px !important;
+    max-width: 50% !important;
+  }
+
+  /* line 123, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    padding-top: 20px !important;
+    height: auto !important;
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 900px) {
+  /* line 129, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > img {
+    max-width: none !important;
+    min-height: 100%;
+    width: 130% !important;
+  }
+
+  /* line 134, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > h1 {
+    width: 130% !important;
+  }
+
+  /* line 137, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > p {
+    width: 120% !important;
+    left: 5% !important;
+  }
+
+  /* line 141, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-landing {
+    left: -5% !important;
+  }
+
+  /* line 144, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-landing {
+    right: 5% !important;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  /* line 149, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > img {
+    max-width: none !important;
+    min-height: 100%;
+    width: 200% !important;
+  }
+
+  /* line 154, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > h1 {
+    position: absolute;
+    top: 50px !important;
+    text-align: center;
+    width: 200% !important;
+  }
+
+  /* line 160, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card > p {
+    position: absolute;
+    top: 140px !important;
+    left: 10% !important;
+    width: 180% !important;
+    text-align: center;
+    font-size: 1.2em !important;
+    line-height: 3.0 !important;
+  }
+
+  /* line 169, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    height: 600px !important;
+  }
+
+  /* line 172, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-landing {
+    left: -40% !important;
+  }
+
+  /* line 175, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-landing {
+    right: 0% !important;
+  }
+
+  /* line 178, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-blob {
+    width: 20%;
+  }
+
+  /* line 181, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-blob {
+    width: 20%;
+  }
+}
