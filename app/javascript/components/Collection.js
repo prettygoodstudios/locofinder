@@ -55,12 +55,63 @@ class Collection extends React.Component {
     });
     this.newSearch();
   };
+  sortByPoints = (arr,searchQuery) =>{
+    let retVal = arr.sort(function(a,b){
+      var captionA = a[0].caption.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var emailA = a[1].email.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var addressA = (a[2].city+" "+a[2].state+" "+a[2].country).toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var titleA = a[2].title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var pointsA = 0;
+      if(captionA){
+        pointsA += 3;
+      }
+      if(emailA){
+        pointsA += 2;
+      }
+      if(titleA){
+        pointsA += 1;
+      }
+      if(addressA){
+        pointsA += 1;
+      }
+      var captionB = b[0].caption.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var emailB = b[1].email.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var addressB = (b[2].city+" "+b[2].state+" "+b[2].country).toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var titleB = b[2].title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+      var pointsB = 0;
+      if(captionB){
+        pointsB += 3;
+      }
+      if(emailB){
+        pointsB += 2;
+      }
+      if(titleB){
+        pointsB += 1;
+      }
+      if(addressB){
+        pointsB += 1;
+      }
+      if(pointsA == pointsB){
+        if(a[0].views > b[0].views){
+          return -1;
+        }else{
+          return 1;
+        }
+      }else if (pointsA > pointsB) {
+        return -1;
+      }else if (pointsA < pointsB) {
+        return 1;
+      }
+    });
+    return retVal;
+  }
   render () {
     let filtered = this.state.filteredArray.filter(
       (photo) => {
-        return photo[0].caption.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || photo[1].email.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || photo[2].title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
+        return photo[0].caption.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || photo[1].email.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || photo[2].title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || (photo[2].city+" "+photo[2].state+" "+photo[2].country+" ").toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
       }
     );
+    filtered = this.sortByPoints(filtered,this.state.searchQuery);
     let fUsers = [];
     let fPhotos = [];
     let fLocations = [];
