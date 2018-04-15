@@ -1,0 +1,51 @@
+<div class="container">
+  <h1>Admin Panel</h1>
+  <h3>Some Quick Links</h3>
+  <%= link_to "Reported Content", report_index_path %>
+  <h3>Top Users</h3>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th colspan="2">Email</th>
+        <th>Photos</th>
+        <th>Views</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% i = 0 %>
+      <% @top_users.each do |u| %>
+        <% i += 1 %>
+        <tr>
+          <td><%= i.to_s %></td>
+          <td colspan="2"><%= link_to u.email, "user/show/"+u.id.to_s %></td>
+          <td><%= u.photos.length %></td>
+          <td><%= u.cumulative_views %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h3>Top Photos</h3>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th colspan="2">Caption</th>
+        <th>User</th>
+        <th>Views</th>
+      <tr>
+    </thead>
+    <tbody>
+      <% i = 0 %>
+      <% @top_photos.each do |p| %>
+        <% i += 1 %>
+        <tr>
+          <td><%= i.to_s %></td>
+          <td colspan="2"><%= link_to p.caption, p %></td>
+          <td><%= link_to User.find(p.user_id).email, "user/show/"+p.user_id.to_s %></td>
+          <td><%= p.views %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

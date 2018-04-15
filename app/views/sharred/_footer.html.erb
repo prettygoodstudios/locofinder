@@ -10,7 +10,7 @@
         <center><p>Miguel Rust & Jack Leonard &copy2018</p></center>
         <% if signed_in? %>
           <% if current_user.role == "admin" %>
-            <center><%= link_to "Admin", report_index_path %></center>
+            <center><%= link_to "Admin", "/admin" %></center>
           <% end %>
         <% end %>
       </div>
