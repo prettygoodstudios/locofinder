@@ -26,15 +26,7 @@
     <div class="review-card">
       <div class="review-card-header">
         <%= small_profile_img(User.find(r.user_id)) %><%= User.find(r.user_id).email %>
-        <div class="radial-score radial-score-review" style="<%= 'display: none;' if r.score == 0 %>">
-          <div class="radial-background">
-          </div>
-          <div class="radial-ring" style="<%= 'background-color: white;' if r.score > 5 %>">
-          </div>
-          <div class="radial-cutout" style="background-image: linear-gradient(<%= 90 + r.score * 0.1 * 360 %>deg, <%= 'transparent  50%, white 50%' if r.score < 6 %><%= '#CAFDF5  50%, transparent 50%' if r.score > 5 %>), linear-gradient(90deg,<%=  'white 50%, transparent 50%' if r.score < 6 %><%=  'transparent 50%, #CAFDF5 50%' if r.score > 5 %>);">
-          </div>
-          <p><%= r.score %></p>
-        </div>
+        <%= render partial: "sharred/radial_score", locals: {review: true, score: r.score} %>
       </div>
       <div class="review-card-body">
         <p>

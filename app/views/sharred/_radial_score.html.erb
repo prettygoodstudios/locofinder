@@ -1,0 +1,9 @@
+<div class="radial-score <%= 'radial-score-review' if review %>" style="<%= 'display: none;' if score == 0 %>">
+  <div class="radial-background">
+  </div>
+  <div class="radial-ring" style="<%= 'background-color: white;' if score > 5 %>">
+  </div>
+  <div class="radial-cutout" style="background-image: linear-gradient(<%= 90 + score * 0.1 * 360 %>deg, <%= 'transparent  50%, white 50%' if score < 6 %><%= '#CAFDF5  50%, transparent 50%' if score > 5 %>), linear-gradient(90deg,<%=  'white 50%, transparent 50%' if score < 6 %><%=  'transparent 50%, #CAFDF5 50%' if score > 5 %>);">
+  </div>
+  <p><%= score %></p>
+</div>
