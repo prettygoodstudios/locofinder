@@ -5,6 +5,11 @@ class ReportController < ActionController::Base
   before_action :is_logged_in, only: [:new,:create]
   before_action :set_report, only: [:show,:destroy,:report_destroy]
   def index
+    Report.all.each do |r|
+      if  r.location_id == nil and r.photo_id == nil and r.review_id == nil
+        r.destroy
+      end
+    end
     @reports = Report.all
   end
   def show
