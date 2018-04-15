@@ -26,11 +26,14 @@
     <div class="review-card">
       <div class="review-card-header">
         <%= small_profile_img(User.find(r.user_id)) %><%= User.find(r.user_id).email %>
-        <div class="review-score">
-
-          <div class="review-score-value" style="width:<%= r.score*10  if r.score != 0 %><%= '0'  if r.score == 0 %>%;">
+        <div class="radial-score radial-score-review" style="<%= 'display: none;' if r.score == 0 %>">
+          <div class="radial-background">
           </div>
-          <p><%= r.score %>/10</p>
+          <div class="radial-ring" style="<%= 'background-color: white;' if r.score > 5 %>">
+          </div>
+          <div class="radial-cutout" style="background-image: linear-gradient(<%= 90 + r.score * 0.1 * 360 %>deg, <%= 'transparent  50%, white 50%' if r.score < 6 %><%= '#CAFDF5  50%, transparent 50%' if r.score > 5 %>), linear-gradient(90deg,<%=  'white 50%, transparent 50%' if r.score < 6 %><%=  'transparent 50%, #CAFDF5 50%' if r.score > 5 %>);">
+          </div>
+          <p><%= r.score %></p>
         </div>
       </div>
       <div class="review-card-body">

@@ -5,11 +5,23 @@
 <div class="container">
   <div class="row">
     <p><%= @location.address + ", " + @location.city + ", " + @location.state + ", " + @location.country %></p>
+    <!--
     <div class="review-score white-review-background" style="<%= 'display: none;' if @location.average_score == 0 %>">
       <div class="review-score-value" style="width:<%= @location.average_score*10  if @location.average_score != 0 %><%= '0'  if @location.average_score == 0 %>%;<%= 'display:none;' if @location.average_score == 0 %>">
       </div>
       <p><%= @location.average_score %>/10</p>
     </div>
+    -->
+    <div class="radial-score" style="<%= 'display: none;' if @location.average_score == 0 %>">
+      <div class="radial-background">
+      </div>
+      <div class="radial-ring" style="<%= 'background-color: white;' if @location.average_score > 5 %>">
+      </div>
+      <div class="radial-cutout" style="background-image: linear-gradient(<%= 90 + @location.average_score * 0.1 * 360 %>deg, <%= 'transparent  50%, white 50%' if @location.average_score < 6 %><%= '#CAFDF5  50%, transparent 50%' if @location.average_score > 5 %>), linear-gradient(90deg,<%=  'white 50%, transparent 50%' if @location.average_score < 6 %><%=  'transparent 50%, #CAFDF5 50%' if @location.average_score > 5 %>);">
+      </div>
+      <p><%= @location.average_score %></p>
+    </div>
+    <br />
     <% if signed_in? %>
       <% if is_mine_or_admin(@location.user_id.to_i)%>
         <%= link_to "Edit", edit_location_path(@location), class: "button" %>
