@@ -1,15 +1,11 @@
 class ReportController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
+  before_action :remove_old_reports, only: [:index,:show]
   before_action :is_admin, only: [:index,:show,:destroy]
   before_action :is_logged_in, only: [:new,:create]
   before_action :set_report, only: [:show,:destroy,:report_destroy]
   def index
-    Report.all.each do |r|
-      if  r.location_id == nil and r.photo_id == nil and r.review_id == nil
-        r.destroy
-      end
-    end
     @reports = Report.all
   end
   def show
@@ -70,6 +66,17 @@ class ReportController < ActionController::Base
       end
     else
       redirect_to location_index_path, alert: "You must be an admin to access this content."
+    end
+  end
+  def remove_old_reports
+    Report.all.each do |r|
+      if r.what_type == "location"
+        r.destroy if Location.where("id=#{r.location_id}").length == 0
+      elsif r.what_type == "review"
+        r.destroy if Review.where("id=#{r.review_id}").length == 0
+      elsif r.what_type == "photo"
+        r.destroy if Photo.where("id=#{r.photo_id}").length == 0
+      end
     end
   end
 end
