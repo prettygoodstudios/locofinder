@@ -36,8 +36,11 @@ html, body{
 .show-image{
   width: 100%;
 }
-.show-image-desc .profile-img{
+.show-image-desc {
+}
+.profile-img{
   margin-bottom: -7px;
+  margin-right: 2px;
 }
 /* Image collection card styles */
 .search-bar input{
@@ -338,12 +341,21 @@ footer a:hover{
   color: $light-text-color;
   padding: 20px;
   margin-bottom: 20px;
+  display: flex;
 }
 .user-banner .profile-img{
   margin-bottom: -13px;
+  flex-basis: 50px;
+  min-width: 50px;
 }
 .user-banner h3{
-  display: inline;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  height: 50px;
 }
 .user-show-banner{
   margin-top: -20px;
@@ -389,6 +401,17 @@ footer a:hover{
 }
 .profile-img> img{
   background-color: $dark-text-color;
+}
+.profile-link-wrapper{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  a{
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 .display-none{
   display: none !important;
@@ -559,6 +582,13 @@ footer a:hover{
   100% { transform: rotate(360deg); }
 }
 /*Mobile Media Query*/
+@media only screen and(max-width: 800px){
+  .user-banner{
+    h3{
+      font-size: 1.5em;
+    }
+  }
+}
 @media only screen and (max-width: 500px){
   .nav ul{
     display: none;
