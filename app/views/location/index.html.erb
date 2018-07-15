@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <%= javascript_pack_tag 'application' %>
-  <%= react_component("LocationSearch",{ rootUrl: root_url }) %>
+  <%= react_component("LocationSearch",{ rootUrl: !Rails.env.production? ? root_url :  'https://geofoc.us/' }) %>
   <!-- This is for the Mapbox JS API !-->
   <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= !Rails.env.production? ? root_url :  'https://geofoc.us/'%>';</script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>

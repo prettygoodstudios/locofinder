@@ -30,6 +30,6 @@
     <% end %>
   </div>
   <!-- <%= render partial: "photo/collection", locals: {collection: @location.photos, title: "Photos", collumns: 3, limit: nil, location: @location.id, user: nil} %> -->
-  <%= react_component("Collection",{ title: "Photos", location: @location.id.to_s, user: "", rootUrl: root_url, currentUser: current_user, collumns: 3, search: true  }) %>
+  <%= react_component("Collection",{ title: "Photos", location: @location.id.to_s, user: "", rootUrl: !Rails.env.production? ? root_url :  'https://geofoc.us/', currentUser: current_user, collumns: 3, search: true  }) %>
 </div>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user} %>

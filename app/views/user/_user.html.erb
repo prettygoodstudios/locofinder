@@ -4,4 +4,4 @@
 </div>
 <!-- This is the Rails Partial based collection renderer. -->
 <!-- <%= render partial: "photo/collection", locals: {collection: user.photos, title: "", collumns: user.collumns, limit: 6, location: nil, user: user.id} %> -->
-<%= react_component("Collection",{ title: "", location: "", user: user.id.to_s, rootUrl: root_url, currentUser: current_user, limit: 6, collumns: user.collumns, search: false }) %>
+<%= react_component("Collection",{ title: "", location: "", user: user.id.to_s, rootUrl: !Rails.env.production? ? root_url :  'https://geofoc.us/', currentUser: current_user, limit: 6, collumns: user.collumns, search: false }) %>

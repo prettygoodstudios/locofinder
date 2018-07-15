@@ -5,5 +5,5 @@
   <p><%= @user.bio %></p>
 </div>
 <div class="container">
-  <%= react_component("Collection",{ title: "Photos", location: "", user: @user.id.to_s, rootUrl: root_url, currentUser: current_user, collumns: 3, search: true  }) %>
+  <%= react_component("Collection",{ title: "Photos", location: "", user: @user.id.to_s, rootUrl: !Rails.env.production? ? root_url :  'https://geofoc.us/', currentUser: current_user, collumns: 3, search: true  }) %>
 </div>
