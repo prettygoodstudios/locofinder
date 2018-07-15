@@ -59,7 +59,7 @@ class LocationController < ActionController::Base
   def my_location_api
     my_ip = nil
     if Rails.env.production?
-      my_ip = request.remote_ip
+      my_ip = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
     else
       my_ip = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
     end
