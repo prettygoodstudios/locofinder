@@ -63,7 +63,8 @@ class LocationController < ActionController::Base
     else
       my_ip = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
     end
-    @my_location = { latitude: Geocoder.search(my_ip.to_s).first.latitude, longitude: Geocoder.search(my_ip.to_s).first.longitude}
+    my_location = Geocoder.search(my_ip.to_s).first
+    @my_location = { latitude: my_location.latitude, longitude: my_location.longitude}
     render json: @my_location
   end
   def geo_json_api
