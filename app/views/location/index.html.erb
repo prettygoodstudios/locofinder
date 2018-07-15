@@ -13,7 +13,7 @@
   <%= javascript_pack_tag 'application' %>
   <%= react_component("LocationSearch",{ rootUrl: root_url }) %>
   <!-- This is for the Mapbox JS API !-->
-  <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= root_url %>';</script>
+  <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= !Rails.env.production? ? root_url :  'https://geofoc.us/'%>';</script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
   <div id='map' class="<%= 'signed-in' if signed_in? %> <%= class2 %>"></div>
