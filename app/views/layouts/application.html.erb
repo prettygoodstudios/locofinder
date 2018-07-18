@@ -22,8 +22,8 @@
   <body>
     <div class="push">
       <%= render partial: "sharred/nav" %>
-      <div class="modal" style="<%= 'background-color: rgba(0,0,0,0.0); display: none;' if alert == nil  %>">
-        <div class="modal-content" style="<%= 'display:none' if alert == nil %>">
+      <div class="modal" style="<%= 'background-color: rgba(0,0,0,0.0); display: none;' if (alert == nil && !devise_controller?) || (devise_controller? && !resource.errors.any? && alert == nil) %>">
+        <div class="modal-content" style="<%= 'display:none' if (alert == nil && !devise_controller?) || (devise_controller? && !resource.errors.any? && alert == nil)  %>">
           <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Alert</h2>
@@ -31,6 +31,7 @@
           <div class="modal-body">
             <%= alert[1] if alert != nil and !(alert.is_a? String) %>
             <%= alert if alert.is_a? String %>
+            <%= render 'sharred/devise_errors', object: resource if devise_controller? %>
           </div>
         </div>
       </div>
