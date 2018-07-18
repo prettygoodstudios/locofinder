@@ -10,35 +10,29 @@
   margin-bottom:-20px;
 }
 .card-area{
-  height: 300px;
   background-color: #ECECEC;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 40px 1fr 40px;
+  grid-template-columns: 40px [card1-s] 1fr [card1-e card2-s] 1fr [card2-e] 40px;
+  grid-column-gap: 40px;
 }
 .landing-card{
-  top: 40px;
-  bottom: 40px;
-  position: absolute;
-  width: 40%;
-}
-.landing-card > img{
-  max-width: 100%;
-  min-height: 100%;
-}
-.landing-card > h1 {
-  position: absolute;
-  top: 0px;
-  text-align: center;
-  width: 100%;
-}
-.landing-card > p {
-  position: absolute;
-  top: 70px;
-  left: 20px;
-  right: 20px;
-  text-align: center;
-}
-.landing-card-row{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  grid-row: 2/3;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99999999;
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
 }
 .svg-text{
   float: left;
@@ -56,10 +50,10 @@
   bottom: 0px;
 }
 .left-landing{
-  left: 5%;
+  grid-column: card1-s/card1-e;
 }
 .right-landing{
-  right: 5%
+  grid-column: card2-s/card2-e;
 }
 @media only screen and (max-width: 500px){
   .left-blob{
@@ -79,40 +73,9 @@
     left: 20px !important;
     max-width: 90% !important;
   }
-  .landing-card{
-    width: 100% !important;
-    position: relative !important;
-    top: 0px !important;
-    left: 0px !important;
-    right: 0px !important;
-    bottom: 0px !important;
-  }
-  .landing-card p{
-    top: 60px !important;
-    font-size: 0.8em !important;
-  }
-  .card-area{
-    padding-top: 20px !important;
-    height: auto !important;
-  }
 }
 @media only screen and (max-width: 900px) and (min-width: 500px){
-  .landing-card{
-    width: 100% !important;
-    position: relative !important;
-    top: 0px !important;
-    left: 0px !important;
-    right: 0px !important;
-    bottom: 0px !important;
-  }
-  .landing-card img{
-    max-width: none !important;
-    width: 100% !important;
-  }
-  .landing-card p{
-    top: 60px !important;
-    font-size: 1.2em !important;
-  }
+
   .svg-text{
     float: none !important;
     position: absolute !important;
@@ -126,59 +89,30 @@
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 900px) {
-  .landing-card > img{
-    max-width: none !important;
-    min-height: 100%;
-    width: 130% !important;
-  }
-  .landing-card > h1 {
-    width: 130% !important;
-  }
-  .landing-card > p {
-    width: 120% !important;
-    left: 5% !important;
-  }
-  .left-landing{
-    left: -5% !important;
-  }
-  .right-landing{
-    right: 5% !important;
-  }
+
 }
 @media only screen and (min-width: 1900px){
-  .landing-card > img{
-    max-width: none !important;
-    min-height: 100%;
-    width: 200% !important;
-  }
-  .landing-card > h1 {
-    position: absolute;
-    top: 50px !important;
-    text-align: center;
-    width: 200% !important;
-  }
-  .landing-card > p {
-    position: absolute;
-    top: 140px !important;
-    left: 10% !important;
-    width: 180% !important;
-    text-align: center;
-    font-size: 1.2em !important;
-    line-height: 3.0 !important;
-  }
-  .card-area{
-    height: 600px !important;
-  }
-  .left-landing{
-    left: -40% !important;
-  }
-  .right-landing{
-    right: 0% !important;
-  }
   .left-blob{
     width: 20%;
   }
   .right-blob{
     width: 20%;
+  }
+}
+@media only screen and (max-width: 800px){
+  .card-area{
+    grid-template-columns: 40px [card-s] 1fr [card-e] 40px;
+    grid-column-gap: 0px;
+    grid-template-rows: 40px [card1-s] 1fr [card1-e card2-s] 1fr [card2-e] 40px;
+    grid-row-gap: 40px;
+  }
+  .landing-card{
+    grid-column: card-s/card-e;
+  }
+  .left-landing{
+    grid-row: card1-s/card1-e;
+  }
+  .right-landing{
+    grid-row: card2-s/card2-e;
   }
 }

@@ -526,6 +526,13 @@ footer a:hover{
   width: 400px;
   display: block;
 }
+.footer-wrapper{
+  display: flex;
+  justify-content: center;
+  .footer-section{
+
+  }
+}
 /* Location Header Styles */
 .location-header{
   margin-top: -20px;
