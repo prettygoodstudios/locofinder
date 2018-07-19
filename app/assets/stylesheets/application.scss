@@ -609,6 +609,15 @@ footer a:hover{
     font-size: 1.25em;
   }
 }
+@media only screen and (max-width: 1000px) and (min-width: 500px){
+  .img-card{
+    .button{
+      font-size: 0.5em;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
 @media only screen and (max-width: 500px){
   .nav{
     display: grid;
@@ -747,4 +756,8 @@ footer a:hover{
       font-size: 1.0s em;
     }
   }
+}
+.profile-email{
+  display: inline;
+  overflow-wrap: break-word;
 }

@@ -187,7 +187,7 @@ const UserTag = (props) => {
   return(
       <a href={props.rootUrl+"user/show/"+props.id} className="img-card-link" data-turbolinks="false">
         <ProfileImg scaleRatio={0.0625} profile_img={props.profile_img} userWidth={props.width} userHeight={props.height} zoom={props.zoom} offsetX={props.offsetX} offsetY={props.offsetY}/>
-        {props.email}
+        <span className="profile-email">{props.email}</span>
       </a>
   );
 }
