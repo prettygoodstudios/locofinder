@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :locations
   mount_uploader :profile_img, ProfileUploader
   serialize :profile_img, JSON
-  validate :has_profile, :has_bio
+  validate :has_profile, :has_bio, :has_display
   def has_a_review location
     found = false
     reviews.each do |r|
@@ -57,6 +57,11 @@ class User < ApplicationRecord
   def has_profile
     if profile_img == nil
       errors.add(:profile_img, "You must upload a profile image.")
+    end
+  end
+  def has_display
+    if display == nil || display.length < 3
+      errors.add(:display,"Your display name must be atleast 3 characters long.")
     end
   end
 end

@@ -609,10 +609,19 @@ footer a:hover{
     font-size: 1.25em;
   }
 }
-@media only screen and (max-width: 1000px) and (min-width: 500px){
+@media only screen and (max-width: 1000px) and (min-width: 800px){
   .img-card{
     .button{
       font-size: 0.5em;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 670px) and (min-width: 550px){
+  .img-card{
+    .button{
+      font-size: 0.8em;
       padding-left: 10px;
       padding-right: 10px;
     }

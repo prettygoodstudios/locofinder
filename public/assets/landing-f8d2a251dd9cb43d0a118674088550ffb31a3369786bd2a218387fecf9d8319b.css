@@ -1,0 +1,156 @@
+/* line 1, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-content {
+  height: 75vh;
+}
+
+/* line 5, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-parent {
+  overflow: hidden;
+  position: relative;
+  background-color: #9013FE;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+/* line 12, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.card-area {
+  background-color: #ECECEC;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 40px 1fr 40px;
+  grid-template-columns: 40px [card1-s] 1fr [card1-e card2-s] 1fr [card2-e] 40px;
+  grid-column-gap: 40px;
+}
+
+/* line 20, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card {
+  grid-row: 2/3;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99999999;
+}
+/* line 30, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card h1 {
+  text-align: center;
+}
+/* line 33, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.landing-card p {
+  text-align: center;
+}
+
+/* line 37, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.svg-text {
+  float: left;
+  position: absolute;
+  max-width: 50%;
+  top: 100px;
+  left: 175px;
+}
+
+/* line 44, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.right-blob {
+  float: right;
+}
+
+/* line 47, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.left-blob {
+  float: left;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* line 52, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.left-landing {
+  grid-column: card1-s/card1-e;
+}
+
+/* line 55, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+.right-landing {
+  grid-column: card2-s/card2-e;
+}
+
+@media only screen and (max-width: 500px) {
+  /* line 59, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    grid-template-columns: 20px [card-s] 1fr [card-e] 20px !important;
+  }
+
+  /* line 62, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-blob {
+    position: absolute !important;
+    bottom: 0px !important;
+    left: -150px !important;
+  }
+
+  /* line 67, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-blob {
+    float: none !important;
+    right: -250px !important;
+    position: absolute !important;
+  }
+
+  /* line 72, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .svg-text {
+    float: none !important;
+    position: absolute !important;
+    top: 50px !important;
+    left: 20px !important;
+    max-width: 90% !important;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+  /* line 82, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .svg-text {
+    float: none !important;
+    position: absolute !important;
+    top: 50px !important;
+    left: 50px !important;
+    max-width: 50% !important;
+  }
+
+  /* line 89, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    padding-top: 20px !important;
+    height: auto !important;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  /* line 98, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-blob {
+    width: 20%;
+  }
+
+  /* line 101, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-blob {
+    width: 20%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  /* line 106, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .card-area {
+    grid-template-columns: 40px [card-s] 1fr [card-e] 40px;
+    grid-column-gap: 0px;
+    grid-template-rows: 40px [card1-s] 1fr [card1-e card2-s] 1fr [card2-e] 40px;
+    grid-row-gap: 40px;
+  }
+
+  /* line 112, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .landing-card {
+    grid-column: card-s/card-e;
+  }
+
+  /* line 115, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .left-landing {
+    grid-row: card1-s/card1-e;
+  }
+
+  /* line 118, /Users/admin/railsProjects/locofinder/app/assets/stylesheets/landing.scss */
+  .right-landing {
+    grid-row: card2-s/card2-e;
+  }
+}

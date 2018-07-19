@@ -3,8 +3,13 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: 'profile-form') do |f| %>
     <div class="field">
+      <%= f.label :display, "Display Name" %><br />
+      <%= f.text_field :display, autofocus: true %>
+    </div>
+
+    <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
