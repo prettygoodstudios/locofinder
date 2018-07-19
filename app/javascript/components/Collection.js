@@ -147,7 +147,7 @@ const Grid = (props) => {
   const photoGrid = photoArray.map((photo,i) =>
     <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
       <div className={"img-holder img-holder-"+(12/props.colls)}>
-        {photo.zoom == null && <img src={photo.img_url.url} style={{maxWidth: "200%"}}/>}
+        {photo.zoom == null && <img src={photo.img_url.url} />}
         {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY}/>}
       </div>
       <br/>
@@ -171,6 +171,14 @@ const Photo = (props) => {
   var finalHeight = props.height*props.zoom*scaleRatio;
   var finalOffsetX = props.offsetX*scaleRatio;
   var finalOffsetY = props.offsetY*scaleRatio;
+  let totWidth = window.innerWidth * 0.85;
+  let diff = totWidth - (finalWidth - finalOffsetX);
+  console.log("Total Width",totWidth);
+  console.log(diff);
+  if(finalWidth - finalOffsetX < totWidth && window.innerWidth < 550){
+    finalOffsetX +=  totoWidth - (finalWidth - finalOffsetX);
+    console.log("Total Width",totWidth);
+  }
   return(
     <img style={{width: finalWidth,height: finalHeight,marginLeft: finalOffsetX,marginTop: finalOffsetY}} src={props.url}/>
   );
