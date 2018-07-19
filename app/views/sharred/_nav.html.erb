@@ -1,10 +1,12 @@
 <div class="nav">
   <h1><%= link_to (image_tag("https://s3-us-west-2.amazonaws.com/staticgeofocus/Asset+6%404x.png",width:"50px",height:"56px", style: "margin-bottom:-20px; margin-right:10px;")+"Geo<span style='font-weight:lighter !important;'>Focus</span>".html_safe).html_safe, root_path + "?see=true" %></h1>
-  <button class="hamburger hamburger--vortex toggle" id="toggle" type="button">
-    <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
-    </span>
-  </button>
+  <div class="toggle-wrapper">
+    <button class="hamburger hamburger--vortex toggle" id="toggle" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+  </div>
   <ul>
     <li><a href="/users/all" data-turbolinks="false">Users</a></li>
     <%=authentication_helper%>

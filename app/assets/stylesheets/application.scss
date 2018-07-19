@@ -114,6 +114,7 @@ tr{
 }
 /* Start of Navbar Styles */
 .nav{
+  display: block;
   background-color: $primary-color;
   color: $light-text-color;
   padding:20px;
@@ -146,8 +147,16 @@ tr{
   color: $link-highlight-color;
   text-decoration: none;
 }
+.toggle-wrapper{
+  grid-row: 1;
+  grid-column: toggle-s/toggle-e;
+  position: relative;
+  height: 100%;
+}
 .toggle{
-  float: right;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 #toggle:hover{
   color: $light-text-color;
@@ -600,7 +609,23 @@ footer a:hover{
   }
 }
 @media only screen and (max-width: 500px){
+  .nav{
+    display: grid;
+    grid-template-columns: [s title-s] 1fr [title-e toggle-s] 40px [toggle-e e];
+    grid-template-rows: 70px 1fr;
+  }
+  .nav h1{
+    margin: 0;
+    position: relative;
+    a{
+      position: absolute;
+      top: 50%;
+      transform: translate(0,-50%);
+    }
+  }
   .nav ul{
+    grid-row: 2;
+    grid-column: s/e;
     display: none;
   }
   .nav li {
@@ -705,7 +730,20 @@ footer a:hover{
   .toggle{
     display: none !important;
   }
+  .nav{
+    display: block;
+  }
+  .toggle-wrapper{
+    display: none;
+  }
   .nav li>a{
     font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 304px){
+  .nav{
+    h1{
+      font-size: 1.5em;
+    }
   }
 }

@@ -56,6 +56,9 @@
   grid-column: card2-s/card2-e;
 }
 @media only screen and (max-width: 500px){
+  .card-area{
+    grid-template-columns: 20px [card-s] 1fr [card-e] 20px !important; 
+  }
   .left-blob{
     position: absolute !important;
     bottom: 0px !important;

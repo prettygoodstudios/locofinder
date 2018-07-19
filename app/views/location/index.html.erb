@@ -16,6 +16,6 @@
   <script type="text/javascript" charset="utf-8">var ROOT_URL = '<%= !Rails.env.production? ? root_url :  'https://geofoc.us/'%>';</script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
-  <div id='map' class="<%= 'signed-in' if signed_in? %> <%= class2 %>"></div>
+  <div id='map' class="<%= class2 %>"></div>
   <%= javascript_include_tag "map-logic" %>
 </div>
