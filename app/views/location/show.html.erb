@@ -13,7 +13,10 @@
     </div>
     -->
     <% if @location.average_score != 0 %>
-      <%= render partial: "sharred/radial_score", locals: {review: false, score: @location.average_score} %>
+      <div class="location-radial-score-wrapper">
+        <%= render partial: "sharred/radial_score", locals: {review: false, score: @location.average_score} %>
+        <h1>Average Review</h1>
+      </div>
     <% end %>
     <br />
     <% if signed_in? %>

@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from 'react-lazyload';
 import PropTypes from "prop-types";
 class Collection extends React.Component {
   constructor(props) {
@@ -160,9 +161,11 @@ const Grid = (props) => {
   );
   console.log(photoArray);
   return(
-    <div className="row">
-      {photoGrid}
-    </div>
+    <LazyLoad offset={100}>
+      <div className="row">
+        {photoGrid}
+      </div>
+    </LazyLoad>
   );
 }
 const Photo = (props) => {
