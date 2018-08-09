@@ -563,8 +563,10 @@ footer a:hover{
   font-size: 4em;
   left:0px;
   right:0px;
-  top: 40%;
+  top: 50%;
   text-align: center;
+  margin: 0px !important;
+  transform: translate(0,-50%);
 }
 /*Content Loader Spinner Styles*/
 .loader {
