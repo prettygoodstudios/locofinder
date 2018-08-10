@@ -144,9 +144,9 @@ const Grid = (props) => {
   if (props.limit != undefined && props.limit != null){
     photoArray.slice(0,props.limit);
   }
-  
+  const placeholderDiv =  <div key={Math.floor(Math.random()*500000)} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}></div>;
   const photoGrid = photoArray.map((photo,i) =>
-      <LazyLoad offset={100} height={700}>
+      <LazyLoad offset={100} placeholder={placeholderDiv}>
         <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
           <div className={"img-holder img-holder-"+(12/props.colls)}>
             {photo.zoom == null && <img src={photo.img_url.url} />}
