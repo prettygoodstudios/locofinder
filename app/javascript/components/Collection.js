@@ -144,40 +144,28 @@ const Grid = (props) => {
   if (props.limit != undefined && props.limit != null){
     photoArray.slice(0,props.limit);
   }
-  console.log(photoArray);
+  
   const photoGrid = photoArray.map((photo,i) =>
-      <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
-        <div className={"img-holder img-holder-"+(12/props.colls)}>
-          {photo.zoom == null && <img src={photo.img_url.url} />}
-          {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY}/>}
+      <LazyLoad offset={100} height={700}>
+        <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
+          <div className={"img-holder img-holder-"+(12/props.colls)}>
+            {photo.zoom == null && <img src={photo.img_url.url} />}
+            {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY}/>}
+          </div>
+          <br/>
+          <p>
+            <UserTag profileImg={props.users[i].profile_img} width={props.users[i].width} height={props.users[i].height} zoom={props.users[i].zoom} offsetX={props.users[i].offsetX} offsetY={props.users[i].offsetY} rootUrl={props.rootUrl} id={props.users[i].id} display={props.users[i].display} /> "{photo.caption}" <a href={props.rootUrl+"location/"+props.locations[i].id} className="img-card-link" data-turbolinks="false"><img src="https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png" style={{width: 20, height: 20, display: 'inline'}} />{props.locations[i].title}</a> { props.currentUser != null && props.currentUser.verified && <a href={props.rootUrl+"report/new?photo"+photo.id} className="img-card-link">Report Content</a> }
+          </p>
+          { (props.currentUser != null ) &&  (props.currentUser.id == props.users[i].id || props.currentUser.role == 'admin') && <a href={props.rootUrl+"photo/"+photo.id} data-method="delete" data-turbolinks="true" className="button delete-button">Delete</a>}
+          <a href={props.rootUrl+"photo/"+photo.id} className="button">View - {photo.views} Views</a>
         </div>
-        <br/>
-        <p>
-          <UserTag profileImg={props.users[i].profile_img} width={props.users[i].width} height={props.users[i].height} zoom={props.users[i].zoom} offsetX={props.users[i].offsetX} offsetY={props.users[i].offsetY} rootUrl={props.rootUrl} id={props.users[i].id} display={props.users[i].display} /> "{photo.caption}" <a href={props.rootUrl+"location/"+props.locations[i].id} className="img-card-link" data-turbolinks="false"><img src="https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png" style={{width: 20, height: 20, display: 'inline'}} />{props.locations[i].title}</a> { props.currentUser != null && props.currentUser.verified && <a href={props.rootUrl+"report/new?photo"+photo.id} className="img-card-link">Report Content</a> }
-        </p>
-        { (props.currentUser != null ) &&  (props.currentUser.id == props.users[i].id || props.currentUser.role == 'admin') && <a href={props.rootUrl+"photo/"+photo.id} data-method="delete" data-turbolinks="true" className="button delete-button">Delete</a>}
-        <a href={props.rootUrl+"photo/"+photo.id} className="button">View - {photo.views} Views</a>
-      </div>
+      </LazyLoad>
   );
-  const first6 = photoGrid.slice(0, 6);
-  let photoSections = [];
-  const remainingPhotos = photoGrid.length - 6;
-  for (let i = 0; i < Math.ceil(remainingPhotos/3); i++){
-    const photoSection = photoGrid.slice(i*3+6,i*3+9);
-    photoSections.push(photoSection);
-  }
-  console.log(photoArray);
+
   return(
     <LazyLoad offset={100}>
       <div className="row" style={props.style}>
-        {first6}
-        {photoSections.map((ps, i) => {
-          return(
-            <LazyLoad offset={100} key={i}>
-              {ps}
-            </LazyLoad>
-          )
-        })}
+        {photoGrid}
       </div>
     </LazyLoad>
   );
