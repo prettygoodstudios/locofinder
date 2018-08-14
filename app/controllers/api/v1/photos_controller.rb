@@ -1,5 +1,5 @@
 class Api::V1::PhotosController < ApiController
-  before_action :is_authencticated
+  before_action :is_authencticated, only: [:create]
 
   def show
     @photo = Photo.find(params[:id])
