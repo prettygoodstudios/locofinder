@@ -10,6 +10,7 @@ class User < ApplicationRecord
   mount_uploader :profile_img, ProfileUploader
   serialize :profile_img, JSON
   validate :has_profile, :has_bio, :has_display
+  
   def has_a_review location
     found = false
     reviews.each do |r|
@@ -19,11 +20,18 @@ class User < ApplicationRecord
     end
     return found
   end
+
   def self.index_sort
     users = select{ |u| u.has_photos }
     users.sort_by!{ |u| u.cumulative_views }.reverse!
     users.first(10)
   end
+
+  def self.authenticate_via_token email, token
+    user = User.where("email = '#{email}'").first
+    user.authentication_token == token
+  end
+
   def has_photos
     retVal = false
     if photos.length != 0

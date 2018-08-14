@@ -23,4 +23,15 @@ Rails.application.routes.draw do
   delete "/report_destroy/:id", to: "report#report_destroy"
   get "/user/edit_profile/:id", to: "user#edit_profile_image"
   post "/user/update_profile", to: "user#update_profile_image"
+  namespace :api do
+    namespace :v1 do
+      resources :sessions
+      resources :locations
+      resources :photos
+      resources :users
+
+      post "/sessions/authenticate", to: "sessions#authenticate"
+
+    end
+  end
 end
