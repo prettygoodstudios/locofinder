@@ -9,7 +9,12 @@ class Api::V1::LocationsController < ApiController
   end
 
   def show
-    render json:  { location: @location, photos: @location.photos }
+    ph = @location.photos.mostViews
+    users = User.joins(:photos).where("photos.location_id = #{@location.id}").order("photos.views DESC")
+    @photos = ph.zip(users).map do |p, u|
+      { id: p.id, zoom: p.zoom, offsetX: p.offsetX, offsetY: p.offsetY, width: p.width, height: p.height, caption: p.caption, user_id: p.user_id, img_url: p.img_url.url, views: p.views, user_display: u.display, user_profile: u.profile_img.url}
+    end
+    render json:  { location: @location, photos: @photos }
   end
 
   def create

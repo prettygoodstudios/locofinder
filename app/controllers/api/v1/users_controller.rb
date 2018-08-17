@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApiController
 
   def show
     @user = User.find(params[:id])
-    render json: { user: @user, photos: @user.photos }
+    render json: { user: @user, photos: @user.photos.mostViews }
   end
 
   private
