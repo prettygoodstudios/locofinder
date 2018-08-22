@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApiController
     user = User.where("email = '#{params[:email]}'").first
     if user&.valid_password?(params[:password])
       user.update_attribute("authentication_token",Devise.friendly_token)
-      render json: user.as_json(only: [:id, :email, :authentication_token, :display]), status: :created
+      render json: user.as_json(only: [:id, :email, :authentication_token, :display, :profile_img]), status: :created
     else
       head(:unauthorized)
     end
@@ -14,7 +14,7 @@ class Api::V1::SessionsController < ApiController
     if User.authenticate_via_token params[:email], params[:token]
       user = User.where("email = '#{params[:email]}'").first
       user.update_attribute("authentication_token",Devise.friendly_token)
-      render json: user.as_json(only: [:id, :email, :authentication_token, :display]), status: :created
+      render json: user.as_json(only: [:id, :email, :authentication_token, :display, :profile_img]), status: :created
     else
       head(:unauthorized)
     end
