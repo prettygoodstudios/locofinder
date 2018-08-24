@@ -3,7 +3,14 @@ class Api::V1::PhotosController < ApiController
 
   def show
     @photo = Photo.find(params[:id])
-    render json: @photo
+    @user = User.find(@photo.user_id)
+    render json: {
+      photo: @photo,
+      user: {
+        email: @user.email,
+        display: @user.display
+      }
+    }
   end
 
   def create
