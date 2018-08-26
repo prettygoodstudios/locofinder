@@ -4,11 +4,21 @@ class Api::V1::PhotosController < ApiController
   def show
     @photo = Photo.find(params[:id])
     @user = User.find(@photo.user_id)
+    @location = Location.find(@photo.location_id)
     render json: {
       photo: @photo,
       user: {
         email: @user.email,
-        display: @user.display
+        display: @user.display,
+        profile_img: @user.profile_img,
+        user_zoom: @user.zoom,
+        user_width: @user.width,
+        user_height: @user.height,
+        user_offsetX: @user.offsetX,
+        user_offsetY: @user.offsetY
+      },
+      location: {
+        title: @location.title
       }
     }
   end
