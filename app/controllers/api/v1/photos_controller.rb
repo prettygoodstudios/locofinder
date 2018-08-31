@@ -3,6 +3,7 @@ class Api::V1::PhotosController < ApiController
 
   def show
     @photo = Photo.find(params[:id])
+    @photo.update_attribute("views", @photo.views+1)
     @user = User.find(@photo.user_id)
     @location = Location.find(@photo.location_id)
     render json: {

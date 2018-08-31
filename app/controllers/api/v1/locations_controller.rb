@@ -20,7 +20,12 @@ class Api::V1::LocationsController < ApiController
   def create
     @location = @user.locations.create(location_params)
     if @location.save
-      render json: @location
+      ph = @location.photos.mostViews
+      users = User.joins(:photos).where("photos.location_id = #{@location.id}").order("photos.views DESC")
+      @photos = ph.zip(users).map do |p, u|
+        { id: p.id, zoom: p.zoom, offsetX: p.offsetX, offsetY: p.offsetY, width: p.width, height: p.height, caption: p.caption, user_id: p.user_id, img_url: p.img_url.url, views: p.views, user_display: u.display, user_profile: u.profile_img.url, user_zoom: u.zoom, user_width: u.width, user_height: u.height, user_offsetX: u.offsetX, user_offsetY: u.offsetY}
+      end
+      render json:  { location: @location, photos: @photos }
     else
       render json: @location.errors
     end
