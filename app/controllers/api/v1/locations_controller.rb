@@ -27,7 +27,7 @@ class Api::V1::LocationsController < ApiController
       end
       render json:  { location: @location, photos: @photos }
     else
-      render json: @location.errors
+      render json: { errors: @location.errors }
     end
   end
 
