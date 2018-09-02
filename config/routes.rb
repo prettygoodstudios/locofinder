@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :locations
       resources :photos
       resources :users
+      resources :reviews
 
       post "/sessions/authenticate", to: "sessions#authenticate"
 
