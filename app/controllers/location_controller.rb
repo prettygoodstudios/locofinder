@@ -10,7 +10,9 @@ class LocationController < ActionController::Base
     @locations = Location.all
   end
   def show
-    @reviews = @location.reviews.all
+    reviews = Review.find_by_sql("SELECT r.*  FROM reviews r JOIN users u ON r.user_id = u.id WHERE r.location_id=#{@location.id} ORDER BY r.id DESC")
+    users = User.find_by_sql("SELECT u.*  FROM users u JOIN reviews r ON r.user_id = u.id WHERE r.location_id=#{@location.id} ORDER BY r.id DESC")
+    @reviews = reviews.zip(users)
     @review = Review.new
     @friendly_address = ""
     @location.address.split(" ").each do |m|
