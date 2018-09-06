@@ -1,7 +1,7 @@
 <div class="container">
   <hr>
   <br>
-  <% if signed_in? and current_user.verified and user.has_a_review(location.id) %>
+  <% if signed_in? and current_user.verified and current_user.has_a_review(location.id) %>
     <h3>Submit A Review</h3>
     <h5>User: <%= current_user.email %></h5>
     <%= form_for(review, url: review_index_path ) do |f| %>
