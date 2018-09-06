@@ -34,7 +34,7 @@ class Api::V1::PhotosController < ApiController
       @photo.update_attribute("height",@photo.img_url.height)
       render json: @photo
     else
-      render json: { errors: ["Could not save photo."]}
+      render json: { errors: @photo.errors}
     end
   end
 
