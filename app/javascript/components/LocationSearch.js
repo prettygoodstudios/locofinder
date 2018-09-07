@@ -17,7 +17,6 @@ class LocationSearch extends React.Component {
       this.setState({
         locations: locos
       });
-      console.log(this.state.locations);
     });
   }
   handleSearchFormChange = (event) =>{
@@ -26,28 +25,29 @@ class LocationSearch extends React.Component {
     this.setState({
       searchQuery: target.value
     });
-    console.log(this.state.searchQuery);
   };
-  sortByPoints = (arr,searchQuery) =>{
+  sortByPoints = (arr, sQ) =>{
     let retVal = arr.sort(function(a,b){
-      var titleA = a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-      var addressA = a.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-      var pointsA = 0;
-      if(titleA){
-        pointsA += 2;
-      }
-      if(addressA){
-        pointsA++;
-      }
-      var titleB = b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-      var addressB = b.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-      var pointsB = 0;
-      if(titleB){
-        pointsB += 2;
-      }
-      if(addressB){
-        pointsB++;
-      }
+      let pointsB = 0;
+      let pointsA = 0;
+      sQ.split(" ").forEach((searchQuery) => {
+        var titleA = a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+        var addressA = a.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+        if(titleA){
+          pointsA += 2;
+        }
+        if(addressA){
+          pointsA++;
+        }
+        var titleB = b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+        var addressB = b.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+        if(titleB){
+          pointsB += 2;
+        }
+        if(addressB){
+          pointsB++;
+        }
+      });
       if (pointsA > pointsB) {
         return -1;
       }
@@ -57,14 +57,27 @@ class LocationSearch extends React.Component {
     });
     return retVal;
   }
+
+  subQuery = (sQ, location) => {
+    return location.address.toLowerCase().indexOf(sQ.toLowerCase()) !== -1 || location.title.toLowerCase().indexOf(sQ.toLowerCase()) !== -1;
+  }
+
   render () {
-    console.log(this.state.locations);
-    let filtered = this.state.locations.filter(
+    const {locations, searchQuery} = this.state;
+
+    let filtered = locations.filter(
       (location) => {
-        return location.address.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 || location.title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1;
+        const searchTerms = searchQuery.split(" ");
+        let found = false;
+        searchTerms.forEach((t) => {
+          if(this.subQuery(t, location)){
+            found = true;
+          }
+        });
+        return found;
       }
     );
-    filtered = this.sortByPoints(filtered,this.state.searchQuery);
+    filtered = this.sortByPoints(filtered, searchQuery);
     if (filtered.length > 7) filtered.length = 7;
     let results = filtered.map((location) =>
       <div className="location-search-result">
@@ -74,8 +87,8 @@ class LocationSearch extends React.Component {
     );
     return (
       <div className="location-search">
-        <input type="text" value={this.state.searchQuery} onChange={this.handleSearchFormChange} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
-        { this.state.searchQuery != "" && results }
+        <input type="text" value={searchQuery} onChange={this.handleSearchFormChange} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
+        { searchQuery != "" && results }
       </div>
     );
   }
