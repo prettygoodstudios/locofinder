@@ -30,24 +30,56 @@ class LocationSearch extends React.Component {
     let retVal = arr.sort(function(a,b){
       let pointsB = 0;
       let pointsA = 0;
-      sQ.split(" ").forEach((searchQuery) => {
-        var titleA = a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-        var addressA = a.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-        if(titleA){
-          pointsA += 2;
-        }
-        if(addressA){
-          pointsA++;
-        }
-        var titleB = b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-        var addressB = b.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
-        if(titleB){
-          pointsB += 2;
-        }
-        if(addressB){
-          pointsB++;
+      let termMatchesA = 0;
+      let termMatchesB = 0;
+      sQ.split(" ").forEach((searchQ) => {
+        const searchQuery = searchQ.trim();
+        if(searchQuery != ""){
+          let titleA = a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+          let addressA = a.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+          if(titleA){
+            pointsA += 2;
+          }
+          if(addressA){
+            pointsA++;
+          }
+          a.title.toLowerCase().split(" ").forEach((t) => {
+            const tA = t.trim();
+            if(tA == searchQuery){
+              termMatchesA++;
+            }
+          });
+          a.address.toLowerCase().split(" ").forEach((a) => {
+            const aA = a.trim();
+            if(aA == searchQuery){
+              termMatchesA++;
+            }
+          });
+
+          let titleB = b.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+          let addressB = b.address.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+          b.title.toLowerCase().split(" ").forEach((t) => {
+            const tB = t.trim();
+            if(tB == searchQuery){
+              termMatchesB++;
+            }
+          });
+          b.address.toLowerCase().split(" ").forEach((a) => {
+            const aB = a.trim();
+            if(aB == searchQuery){
+              termMatchesB++;
+            }
+          });
+          if(titleB){
+            pointsB += 2;
+          }
+          if(addressB){
+            pointsB++;
+          }
         }
       });
+      pointsA += termMatchesA;
+      pointsB += termMatchesB;
       if (pointsA > pointsB) {
         return -1;
       }
@@ -59,7 +91,7 @@ class LocationSearch extends React.Component {
   }
 
   subQuery = (sQ, location) => {
-    return location.address.toLowerCase().indexOf(sQ.toLowerCase()) !== -1 || location.title.toLowerCase().indexOf(sQ.toLowerCase()) !== -1;
+    return sQ.trim() == "" ? false : location.address.toLowerCase().indexOf(sQ.toLowerCase().trim()) !== -1 || location.title.toLowerCase().indexOf(sQ.toLowerCase().trim()) !== -1;
   }
 
   render () {
