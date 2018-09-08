@@ -157,6 +157,9 @@ tr{
   grid-column: toggle-s/toggle-e;
   position: relative;
   height: 100%;
+  button:focus{
+    background-color: transparent !important;
+  }
 }
 .toggle{
   position: absolute;
@@ -173,6 +176,7 @@ tr{
 .user-tab{
   float: right !important;
   margin: 0px !important;
+  height: 60px;
 }
 .user-tab>ul{
   position: absolute;
@@ -691,6 +695,7 @@ footer a:hover{
   .user-tab{
     float: none !important;
     position: relative !important;
+    height: auto !important;
   }
   .user-tab>ul{
     top: 0px !important;
