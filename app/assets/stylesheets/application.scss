@@ -49,6 +49,10 @@ html, body{
   padding-right: 20px !important;
   width: 100%;
   margin-right: -5%;
+  &:focus{
+    outline: none !important;
+    border-color: $primary-color !important;
+  }
 }
 .search-bar {
   margin-bottom: 20px;
@@ -318,6 +322,10 @@ footer a:hover{
   border-radius: 30px !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
+  &:focus{
+    outline: none !important;
+    border-color: $primary-color !important;
+  }
 }
 .location-search-result{
   width: 380px;
@@ -327,6 +335,14 @@ footer a:hover{
   border-radius: 10px;
   border: 1px solid $light-text-color;
   padding: 10px;
+  text-decoration: none;
+  &:focus{
+    outline: none;
+  }
+  &:hover{
+    border-color: $primary-color !important;
+    color: $primary-color !important;
+  }
 }
 .location-search-result h3{
   margin-bottom: 0px;
