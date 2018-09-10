@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :reviews
 
       post "/sessions/authenticate", to: "sessions#authenticate"
+      post "/sessions/create_user", to: "sessions#create_user"
 
     end
   end

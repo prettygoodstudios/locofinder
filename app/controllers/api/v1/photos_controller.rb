@@ -32,7 +32,24 @@ class Api::V1::PhotosController < ApiController
       @photo.update_attribute("views",0)
       @photo.update_attribute("width",@photo.img_url.width)
       @photo.update_attribute("height",@photo.img_url.height)
-      render json: @photo
+      @user = User.find(@photo.user_id)
+      @location = Location.find(@photo.location_id)
+      render json: {
+        photo: @photo,
+        user: {
+          email: @user.email,
+          display: @user.display,
+          profile_img: @user.profile_img,
+          user_zoom: @user.zoom,
+          user_width: @user.width,
+          user_height: @user.height,
+          user_offsetX: @user.offsetX,
+          user_offsetY: @user.offsetY
+        },
+        location: {
+          title: @location.title
+        }
+      }
     else
       render json: { errors: @photo.errors}
     end

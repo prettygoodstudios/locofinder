@@ -31,10 +31,10 @@ class Api::V1::SessionsController < ApiController
   end
 
   def create_user
-    @user = User.create(display: params[:display], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.create(display: params[:display], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], profile_img: params[:profile_img], offsetX: params[:offsetX], offsetY: params[:offsetY], zoom: params[:zoom])
     if @user.save
       @user.update_attribute("authentication_token",Devise.friendly_token)
-      render json: @user
+      render json: @user.as_json(only: [:id, :email, :authentication_token, :display, :profile_img]), status: :created
     else
       render json: {errors: @user.errors}
     end
