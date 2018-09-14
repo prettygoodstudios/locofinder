@@ -3,8 +3,7 @@ class Api::V1::SessionsController < ApiController
   def create
     user = User.where("email = '#{params[:email]}'").first
     if user&.valid_password?(params[:password])
-      user.update_attribute("authentication_token",Devise.friendly_token)
-      render json: user.as_json(only: [:id, :email, :authentication_token, :display, :profile_img]), status: :created
+      render_user user
     else
       head(:unauthorized)
     end
@@ -13,8 +12,7 @@ class Api::V1::SessionsController < ApiController
   def authenticate
     if User.authenticate_via_token params[:email], params[:token]
       user = User.where("email = '#{params[:email]}'").first
-      user.update_attribute("authentication_token",Devise.friendly_token)
-      render json: user.as_json(only: [:id, :email, :authentication_token, :display, :profile_img]), status: :created
+      render_user user
     else
       head(:unauthorized)
     end
@@ -41,6 +39,11 @@ class Api::V1::SessionsController < ApiController
   end
 
   private
+
+    def render_user user
+      session = Session.create({user_id: user.id, authentication_token: Devise.friendly_token, created_at: DateTime.now})
+      render json: { id: user.id, email: user.email, display: user.display, profile_img: user.profile_img, authentication_token: session.authentication_token}, status: :created
+    end
 
     def user_params
       params.permit(:display, :email, :password, :password_confirmation, :session)

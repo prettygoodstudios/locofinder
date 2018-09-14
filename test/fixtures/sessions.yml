@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  authentication_token: MyString
+  created_at: 2018-09-13 18:06:11
+
+two:
+  user_id: 1
+  authentication_token: MyString
+  created_at: 2018-09-13 18:06:11

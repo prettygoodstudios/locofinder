@@ -7,10 +7,11 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :locations
+  has_many :sessions
   mount_uploader :profile_img, ProfileUploader
   serialize :profile_img, JSON
   validate :has_profile, :has_bio, :has_display
-  
+
   def has_a_review location
     found = false
     reviews.each do |r|
@@ -28,8 +29,9 @@ class User < ApplicationRecord
   end
 
   def self.authenticate_via_token email, token
-    user = User.where("email = '#{email}'").first
-    user.authentication_token == token
+    session = Session.where("authentication_token = '#{token}' AND age(created_at) < '0 years 0 months 1 days'").first
+    user = session ? User.find(session.user_id) : false
+    user.email == email if user
   end
 
   def has_photos
