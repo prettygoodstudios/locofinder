@@ -52,6 +52,7 @@ html, body{
   &:focus{
     outline: none !important;
     border-color: $primary-color !important;
+    color: $primary-color !important;
   }
 }
 .search-bar {
@@ -74,6 +75,7 @@ html, body{
 }
 .img-holder{
   overflow: hidden;
+  border-radius: 20px;
 }
 .img-holder-3{
   height: 250px;
@@ -338,6 +340,7 @@ footer a:hover{
   &:focus{
     outline: none !important;
     border-color: $primary-color !important;
+    color: $primary-color !important;
   }
 }
 .location-search-result{
@@ -381,6 +384,7 @@ footer a:hover{
   padding: 20px;
   margin-bottom: 20px;
   display: flex;
+  border-radius: 20px;
 }
 .user-banner .profile-img{
   margin-bottom: -13px;
