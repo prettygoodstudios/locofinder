@@ -1,0 +1,29 @@
+@import "variables";
+
+footer{
+  z-index: 999;
+  margin-top: 20px;
+  background-color: $primary-color;
+  color: $light-text-color;
+}
+footer p{
+  margin: 0.67em 0;
+}
+footer a{
+  color: $light-text-color;
+  text-decoration: none;
+}
+footer a:hover{
+  color: $link-highlight-color;
+}
+.footer-wrapper{
+  display: flex;
+  justify-content: center;
+  .footer-section{
+
+  }
+}
+.push{
+  min-height: 90vh;
+  margin-bottom: 20px;
+}

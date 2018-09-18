@@ -28,7 +28,7 @@ $( document ).on('turbolinks:load', function() {
     if (window.innerWidth < 500 && lastWidth > 500){
       $(".nav ul").hide();
       $(".hamburger").removeClass("is-active");
-      $(".user-tab ul").css("display", "block");
+      $(".user-tab>ul").css("display", "block");
       show = true;
     }else if (window.innerWidth > 500){
       $(".nav ul").css("display","inline");
