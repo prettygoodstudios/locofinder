@@ -807,6 +807,18 @@ footer a:hover{
   .nav{
     h1{
       font-size: 1.0s em;
+      a {
+        span{
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 350px){
+  .location-radial-score-wrapper{
+    h1{
+      font-size: 1.2em !important;
     }
   }
 }

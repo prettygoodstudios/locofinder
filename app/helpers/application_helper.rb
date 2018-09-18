@@ -57,4 +57,8 @@ module ApplicationHelper
     content = "<div class='profile-img' style='#{'background: black;' if user.profile_img.url != nil}width: #{width}px !important;height: #{width}px !important;'>"+image+"</div>"
     content.html_safe
   end
+
+  def generate_logo_text
+    return "<span style='font-weight: 700 !important'>Geo</span><span style='font-weight:200 !important;'>Focus</span>".html_safe
+  end
 end
