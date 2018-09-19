@@ -1,0 +1,120 @@
+@import "variables";
+
+/*Barchart Styles*/
+.bar-chart{
+  display: grid;
+  grid-template-columns: [yl-s] 30px [yl-e y-s] 50px [y-e b-s] 1fr [b-e];
+  grid-template-rows: [t-s] 50px [t-e b-s] 1fr [b-e x-s] 50px [x-e xl-s] 30px [xl-e];
+  &__title{
+    grid-column: b-s/b-e;
+    grid-row: t-s/t-e;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: $dark-text-color;
+  }
+  &__y-label{
+    grid-column: yl-s/yl-e;
+    grid-row: b-s/b-e;
+    writing-mode: vertical-lr;
+	  transform-origin: left top 0;
+    font-size: 25px;
+    height: 100%;
+    text-align: center;
+    width: 30px;
+    color: $dark-text-color;
+    text-align: center;
+  }
+  &__x-label{
+    grid-column: b-s/b-e;
+    grid-row: xl-s/xl-e;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    color: $dark-text-color;
+    align-self: self-end;
+  }
+  &__x-axis{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    grid-column: b-s/b-e;
+    grid-row: x-s/x-e;
+    .bar-chart{
+      &__tick{
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        width: 100%;
+        &__mark{
+          height: 10px;
+          width: 1px;
+          background-color: $dark-text-color;
+        }
+        &__label{
+          font-size: 8px;
+          line-height: 8px;
+          text-align: center;
+          color: $dark-text-color;
+          text-overflow: ellipsis;
+          word-wrap: break-word;
+          width: 100%;
+          padding: 0px 10px 0px 10px;
+        }
+      }
+    }
+  }
+  &__y-axis{
+    grid-column: y-s/y-e;
+    grid-row: b-s/b-e;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .bar-chart{
+      &__tick{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        &__mark{
+          height: 1px;
+          width: 10px;
+          background-color: $dark-text-color;
+        }
+        &__label{
+          font-size: 15px;
+          color: $dark-text-color;
+        }
+      }
+      &__offset{
+        height: 25px;
+        width: 50px;
+      }
+    }
+  }
+  &__bars{
+    grid-column: b-s/b-e;
+    grid-row: b-s/b-e;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    border-left: 1px solid $dark-text-color;
+    border-bottom: 1px solid $dark-text-color;
+    height: 100%;
+    .bar-chart{
+      &__bar{
+        background-color: $primary-color;
+        width: 100%;
+      }
+      &__bar:nth-child(2n+1){
+        background-color: $blue-blob-color;
+      }
+    }
+  }
+}
+/*End of Barchart Styles*/

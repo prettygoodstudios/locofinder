@@ -26,6 +26,7 @@
     </tbody>
   </table>
   <h3>Top Photos</h3>
+  <%= render partial: "sharred/barchart", locals: {title: "Top Photos Graph", x_label: "Photos", y_label: "Views",values: @top_photos.map { |p| p.views }, labels: @top_photos.map { |p| p.caption}}%>
   <table class="u-full-width">
     <thead>
       <tr>
