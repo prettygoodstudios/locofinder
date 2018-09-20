@@ -1,4 +1,4 @@
-<% intervals = ((values.max - values.min)/5).ceil + 1 %>
+<% intervals = ((values.max - values.min).to_f/5.to_f).ceil + 1 %>
 <div class="bar-chart">
   <div class="bar-chart__title"><%= title %></div>
   <div class="bar-chart__x-label"><%= x_label %></div>
