@@ -58,6 +58,7 @@
     .img-card-3:nth-child(2n){
       margin-left: 4% !important;
     }
+
 }
 /* For devices larger than 550px */
 @media (min-width: 550px) {
@@ -135,7 +136,7 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue";
   color: #222; }
 
 
