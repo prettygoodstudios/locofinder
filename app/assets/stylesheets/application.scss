@@ -14,7 +14,13 @@
  *= require_self
  */
 
-
+@font-face {
+ font-family:'Avenir Light';
+ src:font-url('avenirheavy.ttf');
+ font-weight: normal;
+ src:font-url('avenirlight.ttf');
+ font-weight: lighter;
+}
 @import "variables";
 @import "img-card";
 @import "nav";
@@ -29,6 +35,7 @@
 
 html, body{
   overflow-x: hidden;
+  font-family:'Avenir Light' !important;
   background-color: $light-text-color;
 }
 .field{
