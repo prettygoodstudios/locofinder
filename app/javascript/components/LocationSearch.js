@@ -119,7 +119,7 @@ class LocationSearch extends React.Component {
     );
     return (
       <div className="location-search">
-        <input type="text" value={searchQuery} onChange={this.handleSearchFormChange} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
+        <input type="text" value={searchQuery} onChange={this.handleSearchFormChange} placeholder="&#xF002; Search" style={{fontFamily: "Avenir Light ,FontAwesome"}}/>
         { searchQuery != "" && results }
       </div>
     );

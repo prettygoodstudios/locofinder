@@ -254,7 +254,7 @@ const ProfileImg = (props) => {
 const SearchBar = (props) => {
   return(
     <div className="search-bar">
-      <input type="text" value={props.val} onChange={props.update} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
+      <input type="text" value={props.val} onChange={props.update} placeholder="&#xF002; Search" style={{fontFamily: "Avenir Light ,FontAwesome"}}/>
     </div>
   );
 }
