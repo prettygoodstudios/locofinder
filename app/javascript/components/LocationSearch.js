@@ -112,7 +112,7 @@ class LocationSearch extends React.Component {
     filtered = this.sortByPoints(filtered, searchQuery);
     if (filtered.length > 7) filtered.length = 7;
     let results = filtered.map((location) =>
-      <a href={this.props.rootUrl+"location/"+location.id} className="location-search-result" data-turbolinks="false">
+      <a href={this.props.rootUrl+"location/"+location.slug} className="location-search-result" data-turbolinks="false">
         <h3>{location.title}</h3>
         <p>{location.address}</p>
       </a>

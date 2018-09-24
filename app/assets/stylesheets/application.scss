@@ -15,11 +15,12 @@
  */
 
 @font-face {
- font-family:'Avenir Light';
- src:font-url('avenirheavy.ttf');
- font-weight: normal;
+ font-family: 'Avenir Light';
  src:font-url('avenirlight.ttf');
- font-weight: lighter;
+}
+@font-face {
+ font-family: 'Avenir Heavy';
+ src:font-url('avenirheavy.ttf');
 }
 @import "variables";
 @import "img-card";

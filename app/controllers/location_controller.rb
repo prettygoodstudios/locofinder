@@ -77,13 +77,13 @@ class LocationController < ActionController::Base
       if l.photos.length > 0
         img_url = l.photos.mostViews.first.img_url.url
       end
-      temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address,coordinates: [l.latitude,l.longitude]}
+      temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address, coordinates: [l.latitude,l.longitude], slug: l.slug}
       @geo_json.push temp
     end
     render json: @geo_json
   end
   def set_location
-    @location = Location.find(params[:id])
+    @location = Location.where("slug = '#{params[:id]}'").first
   end
   def send_initial_email_verification_email
     if signed_in?

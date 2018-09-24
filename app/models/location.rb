@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
   geocoded_by :full_address do |object, results|
     if results.present?
      object.latitude = results.first.latitude
@@ -16,6 +18,15 @@ class Location < ApplicationRecord
   def full_address
     addressArray = [address, city, state, country]
     addressArray.compact.join(", ")
+  end
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :city],
+      [:title, :address, :city],
+      [:title, :address, :city, :state]
+    ]
   end
 
   def average_score
