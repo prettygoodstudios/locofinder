@@ -43,7 +43,7 @@ class PhotoController < ActionController::Base
       @collection = Location.find(params[:location]).photos.mostViews
       location = Location.find(params[:location])
       @locations = Array.new(@collection.length) { |x| location }
-      @users   = User.joins(:photos).where("photos.location_id=#{params[:location]}").order("photos.views DESC")
+      @users = User.joins(:photos).where("photos.location_id=#{params[:location]}").order("photos.views DESC")
     end
     render json: @collection.zip(@users,@locations)
   end
@@ -51,7 +51,7 @@ class PhotoController < ActionController::Base
     params.require(:photo).permit(:img_url,:caption,:width,:height,:zoom,:offsetX,:offsetY)
   end
   def set_photo
-    @photo = Photo.find(params[:id])
+    @photo = Photo.where("slug = '#{params[:id]}'").first
   end
   def is_logged_in
     if !signed_in?
@@ -62,7 +62,7 @@ class PhotoController < ActionController::Base
   end
   def is_mine_or_admin
     if signed_in?
-      if current_user.id != Photo.find(params[:id]).user_id
+      if current_user.id != @photo.user_id
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
       elsif !current_user.verified and current_user.role != "admin"
         redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."

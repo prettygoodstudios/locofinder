@@ -1,16 +1,27 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  extend FriendlyId
   require "mini_magick"
+  friendly_id :slug_candidates, use: :slugged
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews, dependent: :destroy
   has_many :photos, dependent: :destroy
+  has_many :reports, dependent: :destroy
   has_many :locations
   mount_uploader :profile_img, ProfileUploader
   serialize :profile_img, JSON
   validate :has_profile, :has_bio, :has_display
-  
+
+  def slug_candidates
+    [
+      :display,
+      [:display, :email],
+      [:display, :email, :bio]
+    ]
+  end
+
   def has_a_review location
     found = false
     reviews.each do |r|

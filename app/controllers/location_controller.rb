@@ -59,14 +59,8 @@ class LocationController < ActionController::Base
     params.require(:location).permit(:title,:city,:address,:state,:country,:id)
   end
   def my_location_api
-    my_ip = nil
-    if Rails.env.production?
-      my_ip = request.remote_ip
-    else
-      my_ip = Net::HTTP.get(URI.parse('http://checkip.amazonaws.com/')).squish
-    end
-    location = Geocoder.search(my_ip.to_s).first
-    @my_location = { latitude: location.latitude, longitude: location.longitude}
+    location = JSON.parse(open("http://ip-api.com/json").read)
+    @my_location = { latitude: location["lat"], longitude: location["lon"]}
     render json: @my_location
   end
   def geo_json_api
@@ -107,7 +101,7 @@ class LocationController < ActionController::Base
   end
   def is_mine_or_admin
     if signed_in?
-      if current_user.id != Location.find(params[:id]).user_id.to_i and current_user.role != "admin"
+      if @location.user_id.to_i != current_user.id.to_i and current_user.role != "admin"
         redirect_to location_index_path, alert: "You must own or be an admin to access this content."
       elsif !current_user.verified
         redirect_to "/user/disabled_account/#{current_user.id}", alert: "You must verify you email to perform this action."

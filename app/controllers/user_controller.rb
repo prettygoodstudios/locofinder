@@ -1,7 +1,7 @@
 class UserController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:new_password,:update_profile_photo,:edit_profile_image,:change_password]
+  before_action :set_user, only: [:show,:enable_account,:send_email_verification,:new_password,:update_profile_photo,:edit_profile_image,:change_password, :update_profile_image]
   before_action :is_mine_or_admin, only: [:edit_profile_image, :update_profile_image]
   def index
     @users = User.all.index_sort
@@ -19,13 +19,12 @@ class UserController < ActionController::Base
 
   end
   def update_profile_image
-    @user = User.find(params[:user][:id])
     if @user.update_attributes(params.require(:user).permit(:profile_img,:width,:height,:zoom,:offsetX,:offsetY,:id))
       @user.update_attribute("width",@user.profile_img.width)
       @user.update_attribute("height",@user.profile_img.height)
-      redirect_to "/user/show/#{@user.id}", alert: "Successfully updated profile picture."
+      redirect_to "/user/show/#{@user.slug}", alert: "Successfully updated profile picture."
     else
-      redirect_to "/user/edit_profile/#{@user.id}", alert: @user.errors.first
+      redirect_to "/user/edit_profile/#{@user.slug}", alert: @user.errors.first
     end
   end
   def landing
@@ -81,11 +80,11 @@ class UserController < ActionController::Base
     end
   end
   def set_user
-    @user = User.find(params[:id])
+    @user = User.where("slug = '#{params[:id]}'").length != 0 ? User.where("slug = '#{params[:id]}'").first : (User.where("id= '#{params[:id]}'").length == 0 ? User.where("slug = '#{params[:user][:id]}'").first  : User.where("id = '#{params[:id]}'").first )
   end
   def is_mine_or_admin
     if signed_in?
-      if current_user.id != params[:id].to_i and current_user.role != "admin"
+      if current_user.id != @user.id and current_user.role != "admin"
         if params[:user] != nil
           if current_user.id != params[:user][:id].to_i
             redirect_to location_index_path, alert: "You must own or be an admin to access this content."

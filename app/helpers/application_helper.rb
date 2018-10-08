@@ -1,8 +1,8 @@
 module ApplicationHelper
   def authentication_helper
     if signed_in?
-      content = "<li class='desktop-user-email'>"+link_to(current_user.display, "/user/show/#{current_user.id}", data: { turbolinks: false })+"</li><li>"+ (link_to 'Edit Account', edit_user_registration_path)+"</li><li>" + (link_to'Sign Out', destroy_user_session_path, method: :delete) +"</li>"
-      li = "<li class='user-tab'>#{small_profile_img(User.find(current_user.id))}#{link_to(User.find(current_user.id).email,'/user/show/'+current_user.id.to_s,class: 'mobile-user-email')}<ul>#{content}</ul></li>"
+      content = "<li class='desktop-user-email'>"+link_to(current_user.display, "/user/show/#{current_user.slug}", data: { turbolinks: false })+"</li><li>"+ (link_to 'Edit Account', edit_user_registration_path)+"</li><li>" + (link_to'Sign Out', destroy_user_session_path, method: :delete) +"</li>"
+      li = "<li class='user-tab'>#{small_profile_img(User.find(current_user.id))}#{link_to(User.find(current_user.id).email,'/user/show/'+current_user.slug.to_s,class: 'mobile-user-email')}<ul>#{content}</ul></li>"
       li.html_safe
     else
       content = "<li>"+link_to("Sign In", new_user_session_path)+"</li>"
@@ -39,7 +39,7 @@ module ApplicationHelper
   end
   def image_collection_user(user)
     image = generate_profile_img(user, 0.0625)
-    link = link_to user.display, "/user/show/#{user.id}", class: "img-card-link", data: { turbolinks: false }
+    link = link_to user.display, "/user/show/#{user.slug}", class: "img-card-link", data: { turbolinks: false }
     content = image+link
     content.html_safe
   end
