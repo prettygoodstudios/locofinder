@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
       post "/sessions/authenticate", to: "sessions#authenticate"
       post "/sessions/create_user", to: "sessions#create_user"
+      post "/sessions/edit_user", to: "sessions#edit_user"
 
     end
   end
