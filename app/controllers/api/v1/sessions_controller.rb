@@ -32,6 +32,8 @@ class Api::V1::SessionsController < ApiController
     @user = User.create(display: params[:display], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], profile_img: params[:profile_img], offsetX: params[:offsetX], offsetY: params[:offsetY], zoom: params[:zoom], bio: params[:bio])
     if @user.save
       @user.update_attribute("authentication_token",Devise.friendly_token)
+      @user.update_attribute("width",@user.profile_img.width)
+      @user.update_attribute("height",@user.profile_img.height)
       render_user @user
     else
       render json: {errors: @user.errors}
@@ -41,12 +43,17 @@ class Api::V1::SessionsController < ApiController
   def edit_user
     @user = User.find(params[:id])
     if @user&.valid_password?(params[:current_password])
-      set_password = params[:password] ? params[:password] : params[:current_password]
+      set_password = params[:password] != "" ? params[:password] : params[:current_password]
       profile_img = params[:profile_img] ? params[:profile_img] : @user.profile_img
       zoom = params[:zoom] ? params[:zoom] : @user.zoom
       offsetX = params[:offsetX] ? params[:offsetX] : @user.offsetX
       offsetY = params[:offsetY] ? params[:offsetY] : @user.offsetY
       if @user.update_attributes({display: params[:display], bio: params[:bio], email: params[:email], password: set_password, profile_img: profile_img})
+        @user.update_attribute("width",@user.profile_img.width)
+        @user.update_attribute("height",@user.profile_img.height)
+        @user.update_attribute("offsetX", offsetX)
+        @user.update_attribute("offsetY", offsetY)
+        @user.update_attribute("zoom", zoom)
         render_user @user
       else
         render json: {errors: @user.errors}
