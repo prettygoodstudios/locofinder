@@ -29,6 +29,12 @@ class Api::V1::LocationsController < ApiController
     end
   end
 
+  def search
+    query = params[:query].downcase
+    @locations = Location.where("LOWER(title) LIKE '%#{query}%' OR LOWER(address) LIKE '%#{query}%' OR LOWER(city) LIKE '%#{query}%' OR LOWER(state) LIKE '%#{query}%' OR LOWER(country) LIKE '%#{query}%'")
+    render json: @locations
+  end
+
   private
 
     def location_params

@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       post "/sessions/create_user", to: "sessions#create_user"
       post "/sessions/edit_user", to: "sessions#edit_user"
 
+      get "/locations/find/search", to: "locations#search"
+
     end
   end
 end
