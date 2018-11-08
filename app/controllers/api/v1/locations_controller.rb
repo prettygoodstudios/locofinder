@@ -1,5 +1,6 @@
 class Api::V1::LocationsController < ApiController
   before_action :is_authencticated, only: [:create, :update]
+  before_action :is_verified, only: [:create, :update]
   before_action :set_location, only: [:show, :update]
   before_action :is_mine, only: [:update]
 
@@ -47,6 +48,12 @@ class Api::V1::LocationsController < ApiController
         head(:unauthorized)
       else
         @user = User.where("email = '#{params[:email]}'").first
+      end
+    end
+
+    def is_verified
+      if !@user.verified
+        head(:unauthorized)
       end
     end
 

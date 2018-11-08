@@ -34,6 +34,7 @@ class Api::V1::SessionsController < ApiController
       @user.update_attribute("authentication_token",Devise.friendly_token)
       @user.update_attribute("width",@user.profile_img.width)
       @user.update_attribute("height",@user.profile_img.height)
+      UserMailer.verify_email(@user.id).deliver!
       render_user @user
     else
       render json: {errors: @user.errors}

@@ -1,5 +1,6 @@
 class Api::V1::PhotosController < ApiController
   before_action :is_authencticated, only: [:create]
+  before_action :is_verified, only: [:create]
 
   def show
     @photo = Photo.find(params[:id])
@@ -67,6 +68,12 @@ class Api::V1::PhotosController < ApiController
         head(:unauthorized)
       else
         @user = User.where("email = '#{params[:email]}'").first
+      end
+    end
+
+    def is_verified
+      if !@user.verified
+        head(:unauthorized)
       end
     end
 

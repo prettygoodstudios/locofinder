@@ -2,6 +2,7 @@ class Api::V1::ReviewsController < ApiController
   before_action :is_authencticated, only: [:update, :create]
   before_action :set_review, only: [:update]
   before_action :is_mine, only: [:update]
+  before_action :is_verified, only: [:update, :create]
 
   def update
     if @review.update_attributes(review_params)
@@ -57,6 +58,12 @@ class Api::V1::ReviewsController < ApiController
         head(:unauthorized)
       else
         @user = User.where("email = '#{params[:email]}'").first
+      end
+    end
+
+    def is_verified
+      if !@user.verified
+        head(:unauthorized)
       end
     end
 
