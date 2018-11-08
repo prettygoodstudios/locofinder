@@ -34,12 +34,12 @@ class UserController < ActionController::Base
   def enable_account
     if @user.token == params[:token]
       @user.update_attribute("verified",true)
+      redirect_to location_index_path, alert: "Your account has been verified."
     elsif !@user.verified
       redirect_to "", alert: "Incorrect token email verification failed."
     else
       redirect_to location_index_path, alert: "You have already verified your email."
     end
-    redirect_to location_index_path, alert: "Your account has been verified."
   end
   def disabled_account
   end

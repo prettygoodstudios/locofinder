@@ -34,6 +34,7 @@ class Api::V1::SessionsController < ApiController
       @user.update_attribute("authentication_token",Devise.friendly_token)
       @user.update_attribute("width",@user.profile_img.width)
       @user.update_attribute("height",@user.profile_img.height)
+      @user.update_attribute("token",rand(36**16).to_s(36))
       UserMailer.verify_email(@user.id).deliver!
       render_user @user
     else
@@ -68,7 +69,7 @@ class Api::V1::SessionsController < ApiController
 
     def render_user user
       session = Session.create({user_id: user.id, authentication_token: Devise.friendly_token, created_at: DateTime.now})
-      render json: { id: user.id, email: user.email, display: user.display, bio: user.bio, profile_img: user.profile_img, authentication_token: session.authentication_token}, status: :created
+      render json: { id: user.id, email: user.email, display: user.display, bio: user.bio, profile_img: user.profile_img, authentication_token: session.authentication_token, verified: user.verified}, status: :created
     end
 
     def user_params

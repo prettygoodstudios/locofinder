@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
   default from: 'info@geofoc.us'
   def verify_email(user)
     @user = User.find(user)
+    @token = @user.token
     @root_url = "https://geofocus.herokuapp.com/"
     mail(to: @user.email, subject: 'Geofocus Email Verification')
   end
