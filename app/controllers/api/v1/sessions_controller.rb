@@ -61,7 +61,7 @@ class Api::V1::SessionsController < ApiController
         render json: {errors: @user.errors}
       end
     else
-      render json: {errors: ["Incorrect current password."]}
+      render json: {errors: {current_password:  "is incorrect"}}
     end
   end
 

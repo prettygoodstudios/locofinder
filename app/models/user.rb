@@ -61,17 +61,17 @@ class User < ApplicationRecord
   end
   def has_bio
     if bio == ""
-      errors.add(:bio,"You must have a bio.");
+      errors.add(:bio,"is missing");
     end
   end
   def has_profile
     if profile_img == nil
-      errors.add(:profile_img, "You must upload a profile image.")
+      errors.add(:profile_img, "is missing")
     end
   end
   def has_display
     if display == nil || display.length < 3
-      errors.add(:display,"Your display name must be atleast 3 characters long.")
+      errors.add(:display,"must be atleast 3 characters long")
     end
   end
 end
