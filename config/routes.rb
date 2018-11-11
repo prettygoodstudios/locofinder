@@ -30,10 +30,12 @@ Rails.application.routes.draw do
       resources :photos
       resources :users
       resources :reviews
+      resources :reports
 
       post "/sessions/authenticate", to: "sessions#authenticate"
       post "/sessions/create_user", to: "sessions#create_user"
       post "/sessions/edit_user", to: "sessions#edit_user"
+      post "/users/password/reset", to: "users#reset_password"
 
       get "/locations/find/search", to: "locations#search"
 
