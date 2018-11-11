@@ -1,6 +1,6 @@
 class Api::V1::ReportsController < ApiController
   before_action :is_authencticated, only: [:create]
-  
+
   def create
     @report = Report.create(report_params)
     if @report.save
@@ -14,7 +14,7 @@ class Api::V1::ReportsController < ApiController
   private
 
     def report_params
-      params.permit(:message,:user_id,:location_id,:review_id)
+      params.permit(:message, :location_id, :review_id, :photo_id)
     end
 
     def is_authencticated
