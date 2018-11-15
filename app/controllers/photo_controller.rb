@@ -1,7 +1,7 @@
 class PhotoController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'application'
-  before_action :set_photo, only: [:destroy,:show]
+  before_action :set_photo, only: [:destroy, :show]
   before_action :is_mine_or_admin, only: [:destroy]
   before_action :is_logged_in, only: [:new, :create]
   def create

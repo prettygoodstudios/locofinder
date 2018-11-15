@@ -15,17 +15,14 @@ class User < ApplicationRecord
   serialize :profile_img, JSON
   validate :has_profile, :has_bio, :has_display
 
-<<<<<<< HEAD
-=======
+
   def slug_candidates
     [
       :display,
-      [:display, :email],
-      [:display, :email, :bio]
+      [:display, :bio]
     ]
   end
 
->>>>>>> master
   def has_a_review location
     found = false
     reviews.each do |r|
