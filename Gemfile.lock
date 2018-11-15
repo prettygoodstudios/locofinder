@@ -90,6 +90,8 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
+    friendly_id (5.2.4)
+      activerecord (>= 4.0.0)
     geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -237,6 +239,7 @@ DEPENDENCIES
   devise
   figaro
   fog-aws
+  friendly_id (~> 5.2.0)
   geocoder
   hamburgers
   jbuilder (~> 2.5)

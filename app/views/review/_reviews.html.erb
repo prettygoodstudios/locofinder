@@ -1,7 +1,7 @@
 <div class="container">
   <hr>
   <br>
-  <% if signed_in? and current_user.verified and user.has_a_review(location.id) %>
+  <% if signed_in? and current_user.verified and !current_user.has_a_review(location.id) %>
     <h3>Submit A Review</h3>
     <h5>User: <%= current_user.email %></h5>
     <%= form_for(review, url: review_index_path ) do |f| %>
@@ -18,7 +18,7 @@
       <br>
       <%= f.submit "Post Review!" %>
     <% end %>
-  <% elsif signed_in? and  user.has_a_review(location.id) %>
+  <% elsif signed_in? and  !user.has_a_review(location.id) %>
     <p>You must verify your email to write a review.</p>
   <% end %>
   <h3>Reviews</h3>

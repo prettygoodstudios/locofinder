@@ -59,3 +59,4 @@ gem "mini_magick"
 gem "platform-api"
 gem "webpacker"
 gem 'react-rails', '~> 2.4.4'
+gem 'friendly_id', '~> 5.2.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+

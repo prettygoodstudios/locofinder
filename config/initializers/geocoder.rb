@@ -2,12 +2,20 @@ Geocoder.configure(
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   lookup: :google,            # name of geocoding service (symbol)
+<<<<<<< HEAD
   ip_lookup: :freegeoip,
+=======
+  ip_lookup: :freegeoip,      # name of IP address geocoding service (symbol)
+>>>>>>> master
   # language: :en,              # ISO-639 language code
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
+<<<<<<< HEAD
    api_key: ENV["geocode_api_key"] ,               # API key for geocoding service,               # API key for geocoding service
+=======
+  api_key: ENV["geocode_api_key"] ,               # API key for geocoding service
+>>>>>>> master
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
   # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
 

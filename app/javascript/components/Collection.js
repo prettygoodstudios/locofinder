@@ -154,10 +154,10 @@ const Grid = (props) => {
           </div>
           <br/>
           <p>
-            <UserTag profileImg={props.users[i].profile_img} width={props.users[i].width} height={props.users[i].height} zoom={props.users[i].zoom} offsetX={props.users[i].offsetX} offsetY={props.users[i].offsetY} rootUrl={props.rootUrl} id={props.users[i].id} display={props.users[i].display} /> "{photo.caption}" <a href={props.rootUrl+"location/"+props.locations[i].id} className="img-card-link" data-turbolinks="false"><img src="https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png" style={{width: 20, height: 20, display: 'inline'}} />{props.locations[i].title}</a> { props.currentUser != null && props.currentUser.verified && <a href={props.rootUrl+"report/new?photo"+photo.id} className="img-card-link">Report Content</a> }
+            <UserTag profileImg={props.users[i].profile_img} width={props.users[i].width} height={props.users[i].height} zoom={props.users[i].zoom} offsetX={props.users[i].offsetX} offsetY={props.users[i].offsetY} rootUrl={props.rootUrl} id={props.users[i].slug} display={props.users[i].display} /> { photo.caption ? `"${photo.caption}"` : ""} <a href={props.rootUrl+"location/"+props.locations[i].slug} className="img-card-link" data-turbolinks="false"><img src="https://s3-us-west-2.amazonaws.com/staticgeofocus/70+by+70.png" style={{width: 20, height: 20, display: 'inline'}} />{props.locations[i].title}</a> { props.currentUser != null && props.currentUser.verified && <a href={props.rootUrl+"report/new?photo="+photo.id} className="img-card-link">Report Content</a> }
           </p>
-          { (props.currentUser != null ) &&  (props.currentUser.id == props.users[i].id || props.currentUser.role == 'admin') && <a href={props.rootUrl+"photo/"+photo.id} data-method="delete" data-turbolinks="true" className="button delete-button">Delete</a>}
-          <a href={props.rootUrl+"photo/"+photo.id} className="button">View - {photo.views} Views</a>
+          { (props.currentUser != null ) &&  (props.currentUser.id == props.users[i].id || props.currentUser.role == 'admin') && <a href={props.rootUrl+"photo/"+photo.slug} data-method="delete" data-turbolinks="true" className="button delete-button">Delete</a>}
+          <a href={props.rootUrl+"photo/"+photo.slug} className="button">View - {photo.views} Views</a>
         </div>
       </LazyLoad>
   );
@@ -188,7 +188,6 @@ class Photo extends React.Component{
 
   updateDimensions = () => {
     const props = this.props;
-    console.log("My props",props);
     var scaleRatio = 0.625;
     var finalWidth = props.width*props.zoom*scaleRatio;
     var finalHeight = props.height*props.zoom*scaleRatio;
@@ -202,9 +201,6 @@ class Photo extends React.Component{
       }
     }
     let diff = totWidth - (finalWidth - Math.abs(finalOffsetX));
-    console.log("Total Width",totWidth);
-    console.log("Real Width", finalWidth - finalOffsetX);
-    console.log(diff);
     if(diff > 0){
       //finalOffsetX +=  totWidth - (finalWidth - finalOffsetX);
       const scaleY = 250/(finalHeight-Math.abs(finalOffsetY));
@@ -214,7 +210,6 @@ class Photo extends React.Component{
       finalOffsetY *= scaleUp;
       finalWidth *= scaleUp;
       finalHeight *= scaleUp;
-      console.log("Final Width", finalWidth - finalOffsetX);
     }
     this.setState({
       finalWidth,
@@ -244,7 +239,6 @@ const ProfileImg = (props) => {
   const displayWidth = props.scaleRatio*400;
   var image = "";
   if(props.profile_img.url != undefined){
-    console.log(props);
     const finalWidth = props.scaleRatio * props.userWidth * parseFloat(props.zoom);
     const finalHeight = props.scaleRatio * props.userHeight * parseFloat(props.zoom);
     const finalOffsetX = props.offsetX * props.scaleRatio;
@@ -260,7 +254,7 @@ const ProfileImg = (props) => {
 const SearchBar = (props) => {
   return(
     <div className="search-bar">
-      <input type="text" value={props.val} onChange={props.update} placeholder="&#xF002; Search" style={{fontFamily: "Helvetica ,FontAwesome"}}/>
+      <input type="text" value={props.val} onChange={props.update} placeholder="&#xF002; Search" style={{fontFamily: "Avenir Heavy ,FontAwesome"}}/>
     </div>
   );
 }

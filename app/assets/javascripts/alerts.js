@@ -28,11 +28,23 @@ $( document ).on('turbolinks:load', function() {
     if (window.innerWidth < 500 && lastWidth > 500){
       $(".nav ul").hide();
       $(".hamburger").removeClass("is-active");
+      $(".user-tab>ul").css("display", "block");
       show = true;
     }else if (window.innerWidth > 500){
       $(".nav ul").css("display","inline");
       $(".hamburger").removeClass("is-active");
+      $(".user-tab ul").css("display", "none");
     }
     lastWidth = window.innerWidth;
+  });
+  $(".user-tab").hover( function() {
+    if (window.innerWidth > 500){
+      $(".user-tab ul").css("display", "block");
+    }
+  });
+  $(".user-tab").mouseleave(function() {
+    if (window.innerWidth > 500){
+      $(".user-tab ul").css("display", "none");
+    }
   });
 });

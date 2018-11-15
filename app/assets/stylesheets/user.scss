@@ -1,0 +1,116 @@
+@import "variables";
+
+.user-banner{
+  background-color: $primary-color;
+  color: $light-text-color;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  border-radius: 20px;
+}
+.user-banner .profile-img{
+  margin-bottom: -13px;
+  flex-basis: 50px;
+  min-width: 50px;
+}
+.user-banner h3{
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  height: 50px;
+}
+.user-show-banner{
+  margin-top: -20px;
+  position: relative;
+  display: block;
+  height: 400px;
+  background-repeat: no-repeat !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+  margin-bottom: 50px;
+}
+.user-show-banner>h1{
+  color: $light-text-color;
+  position: absolute;
+  font-size: 2em;
+  left: 230px;
+  right:0px;
+  bottom: 20px;
+}
+.user-show-banner>p{
+  position: absolute;
+  color: $light-text-color;
+  left: 230px;
+  font-size: 1em;
+  bottom: -15px;
+}
+.user-show-banner>.profile-img{
+  position: absolute;
+  left: 20px;
+  bottom: -40px;
+}
+.profile-img{
+  display: inline-block;
+  background: url('https://png.icons8.com/android/1600/user.png');
+  background-size: cover;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-img> img{
+  background-color: $dark-text-color;
+}
+.profile-link-wrapper{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  a{
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.display-none{
+  display: none !important;
+}
+
+/* Media Queries */
+
+@media only screen and(max-width: 800px){
+  .user-banner{
+    h3{
+      font-size: 1.5em;
+    }
+  }
+}
+@media only screen and (max-width: 500px){
+  .user-banner h3{
+    font-size: 1.0em !important
+  }
+  .user-show-banner>h1{
+    font-size: 1.5em !important;
+    left: 20px !important;
+    left: 20px !important;
+    bottom: 20px;
+  }
+  .user-show-banner>p{
+    left: 20px !important;
+    font-size: 1em;
+    bottom: -15px;
+  }
+  .user-show-banner>.profile-img{
+    position: absolute;
+    left: 50% !important;
+    margin-left: -100px !important;
+    top: 50px !important;
+    bottom: auto !important;
+  }
+}

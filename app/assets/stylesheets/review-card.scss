@@ -1,0 +1,155 @@
+@import "variables";
+
+.review-card{
+  background-color: $primary-color;
+  color: $light-text-color;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.review-card-header{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+.review-card-header .profile-img{
+  margin-bottom: -18px;
+  margin-right: 5px;
+}
+.review-card-body a{
+  color: $light-text-color;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.review-card-body a:hover{
+  color: $blue-blob-color !important;
+}
+.review-score p{
+  position: absolute;
+  top: 3px;
+  right: 50px;
+}
+.review-score{
+  margin-top: 20px;
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: $light-text-color;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: right;
+  color: $primary-color;
+}
+.white-review-background{
+  background-color: $primary-color !important;
+  color: $light-text-color !important;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+.review-score-value{
+  height: 30px;
+  border-radius: 15px;
+  background-color: $blue-blob-color;
+  text-align: right;
+  padding-right: 5px;
+}
+.location-radial-score-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h1{
+    margin-left: 1rem;
+  }
+}
+.radial-score{
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.radial-background{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 10px;
+  top: 10px;
+  border-radius: 50%;
+  z-index: 2;
+  background-color: $primary-color;
+}
+.radial-ring{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: $blue-blob-color;
+}
+.radial-cutout{
+  position: absolute;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+}
+.radial-score p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-size: 2.0em;
+  color: $light-text-color;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+.radial-score-review{
+  float: right;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 350px){
+  .location-radial-score-wrapper{
+    h1{
+      font-size: 1.2em !important;
+    }
+  }
+}
+
+@media only screen and(max-width: 800px){
+  .review-card-header{
+    font-size: 1.25em;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .review-card-header{
+    font-size: 0.75em !important;
+  }
+  .review-score p{
+    top: 7px !important;
+    right: 20px !important;
+    font-size: 1.5em !important;
+  }
+  .white-review-background{
+    font-size: 0.72em !important;
+  }
+  .radial-score-review{
+    margin-top: 20px;
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .radial-score-review .radial-cutout{
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .radial-score-review .radial-ring{
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .radial-score-review .radial-background{
+    width: 60px;
+    height: 60px;
+  }
+}

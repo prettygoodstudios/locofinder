@@ -1,8 +1,19 @@
 class Photo < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
   belongs_to :location
+  belongs_to :user
   mount_uploader :img_url, PictureUploader
   serialize :img_url, JSON
   validate :caption,:img_url,:has_caption, :has_photo
+
+  def slug_candidates
+    [
+      :caption,
+      [:caption, :img_url]
+    ]
+  end
+
   def is_mine user
     if user_id == user
       return true
