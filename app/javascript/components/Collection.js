@@ -150,7 +150,7 @@ const Grid = (props) => {
         <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
           <div className={"img-holder img-holder-"+(12/props.colls)}>
             {photo.zoom == null && <img src={photo.img_url.url} />}
-            {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY}/>}
+            {photo.zoom != null && <Photo url={photo.img_url.url} width={photo.width} height={photo.height} zoom={photo.zoom} offsetX={photo.offsetX} offsetY={photo.offsetY} colls={props.colls}/>}
           </div>
           <br/>
           <p>
@@ -188,15 +188,17 @@ class Photo extends React.Component{
 
   updateDimensions = () => {
     const props = this.props;
+    const colls = 12/props.colls;
     var scaleRatio = 0.625;
     var finalWidth = props.width*props.zoom*scaleRatio;
     var finalHeight = props.height*props.zoom*scaleRatio;
     var finalOffsetX = props.offsetX*scaleRatio;
     var finalOffsetY = props.offsetY*scaleRatio;
     let totWidth = window.innerWidth * 0.85;
-    if(window.innerWidth > 550){
+    console.log("My Colls", colls);
+    if(window.innerWidth > 550 && colls != 1){
       totWidth = (window.innerWidth*0.8-window.innerWidth*0.04)/2;
-      if(window.innerWidth > 800){
+      if(window.innerWidth > 800 &&  colls != 2){
         totWidth = (window.innerWidth*0.8-window.innerWidth*0.08)/3;
       }
     }
