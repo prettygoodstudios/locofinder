@@ -2,7 +2,7 @@
   <div class="container">
     <div class="footer-wrapper">
       <div class="footer-section">
-        <h1><%= link_to (image_tag("https://s3-us-west-2.amazonaws.com/staticgeofocus/Asset+6%404x.png",width:"50px",height:"56px", style: "margin-bottom:-20px; margin-right:10px;")+generate_logo_text).html_safe, root_path + "?see=true" %></h1>
+        <h1><%= link_to (image_tag("https://s3-us-west-2.amazonaws.com/staticgeofocus/Asset+6%404x.png",width:"50px",height:"56px", style: "margin-bottom:-20px; margin-right:10px;")+generate_logo_text).html_safe, root_path + "?see=true", data: { turbolinks: false } %></h1>
         <p>Version 1.0</p>
         <p>Miguel Rust & Jack Leonard &copy2018</p>
         <% if signed_in? %>
