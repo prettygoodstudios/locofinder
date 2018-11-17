@@ -23,12 +23,7 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
   }
 });
 
-function getIpLocation(obj) {
-  //const {location, city, country} = obj;
-  //const {latitude, longitude} = location;
-  map.flyTo({center: [obj.location.longitude, obj.location.latitude], zoom: 9});
-}
-
-geoip2.insights(getIpLocation, function(e) {
-  console.log("Get Location Error", e);
+$.get("http://ip-api.com/json").then(function(d) {
+    //console.log(d);
+    map.flyTo({center: [d.lon, d.lat], zoom: 9});
 });
