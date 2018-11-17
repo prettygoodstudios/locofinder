@@ -23,7 +23,7 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
   }
 });
 
-$.get("http://ip-api.com/json").then(function(d) {
-    //console.log(d);
-    map.flyTo({center: [d.lon, d.lat], zoom: 9});
+$.get("https://geoip-db.com/json/").then(function(d) {
+    var l = JSON.parse(d);
+    map.flyTo({center: [l.longitude, l.latitude], zoom: 9});
 });
