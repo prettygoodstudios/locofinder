@@ -194,7 +194,7 @@ class Photo extends React.Component{
     var finalHeight = props.height*props.zoom*scaleRatio;
     var finalOffsetX = props.offsetX*scaleRatio;
     var finalOffsetY = props.offsetY*scaleRatio;
-    let totWidth = window.innerWidth * 0.85;
+    let totWidth = window.innerWidth - 40;
     console.log("My Colls", colls);
     if(window.innerWidth > 550 && colls != 1){
       totWidth = (window.innerWidth*0.8-window.innerWidth*0.04)/2;
