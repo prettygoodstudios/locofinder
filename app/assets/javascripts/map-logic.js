@@ -22,6 +22,13 @@ $.get(ROOT_URL+"geo_json_api").then(function(d) {
     marker.setPopup(popup);
   }
 });
-$.get(ROOT_URL+"my_location_api").then(function(d){
-  map.flyTo({center: [d.longitude, d.latitude], zoom: 9});
+
+function getIpLocation(obj) {
+  //const {location, city, country} = obj;
+  //const {latitude, longitude} = location;
+  map.flyTo({center: [obj.location.longitude, obj.location.latitude], zoom: 9});
+}
+
+geoip2.insights(getIpLocation, function(e) {
+  console.log("Get Location Error", e);
 });
