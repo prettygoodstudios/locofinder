@@ -1,5 +1,5 @@
 <div class="container">
-  <% form_url = (!Rails.env.production?) ? 'https://geofoc.us/user/update_profile' : (root_url + 'user/update_profile')  %> 
+  <% form_url = (Rails.env.production?) ? 'https://geofoc.us/user/update_profile' : (root_url + 'user/update_profile')  %> 
   <%= form_for(@user, url: form_url, class:'edit-profile-image', method: :post) do |f| %>
     <h1>Edit my Profile Picture</h1>
     <div id="image-cropper">
