@@ -91,8 +91,8 @@
     </script>
     <br />
     <%= f.submit "Update Profile Picture", id: "submitProfile" %>
-    <%= link_to "Keep My Old Profile Picture", "/user/show/"+@user.slug.to_s, class: 'button', method: "get" %>
   <% end %>
+  <%= link_to "Keep My Old Profile Picture", "/user/show/"+@user.slug.to_s, class: 'button', method: "get" %>
   <div class="float-loader">
     <center><h3>Uploading</h3></center>
     <div class="loader"></div>
