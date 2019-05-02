@@ -1,4 +1,5 @@
 class UserController < ActionController::Base
+  protect_from_forgery with: :exception
   layout 'application'
   before_action :set_user, only: [:show,:enable_account,:send_email_verification,:new_password,:update_profile_photo,:edit_profile_image,:change_password, :update_profile_image]
   before_action :is_mine_or_admin, only: [:edit_profile_image, :update_profile_image]
@@ -79,7 +80,7 @@ class UserController < ActionController::Base
     end
   end
   def set_user
-    @user = User.where("slug = '#{params[:id]}'").length != 0 ? User.where("slug = '#{params[:id]}'").first : (User.where("id= '#{params[:id]}'").length == 0 ? User.where("slug = '#{params[:user][:id]}'").first  : User.where("id = '#{params[:id]}'").first )
+    @user = User.where("slug = '#{params[:id]}'").length != 0 ? User.where("slug = '#{params[:id]}'").first : (User.where("slug = '#{params[:id]}'").length == 0 ? User.where("slug = '#{params[:user][:id]}'").first  : User.where("slug = '#{params[:id]}'").first )
   end
   def is_mine_or_admin
     if signed_in?
