@@ -32,6 +32,8 @@ $(document).on('turbolinks:load', function(){
       console.log("Hello World 2");
       console.log(data);
       map.flyTo({center: [data.longitude, data.latitude], zoom: 9});
+    }).catch(function(e){
+      console.log("Error Fetching Coordinates", e);
     });
   });
 });
