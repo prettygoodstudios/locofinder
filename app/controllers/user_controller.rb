@@ -1,6 +1,4 @@
 class UserController < ActionController::Base
-  protect_from_forgery with: :exception
-  skip_before_filter :verify_authenticity_token  
   layout 'application'
   before_action :set_user, only: [:show,:enable_account,:send_email_verification,:new_password,:update_profile_photo,:edit_profile_image,:change_password, :update_profile_image]
   before_action :is_mine_or_admin, only: [:edit_profile_image, :update_profile_image]

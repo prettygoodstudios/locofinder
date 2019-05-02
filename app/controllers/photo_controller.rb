@@ -1,6 +1,4 @@
 class PhotoController < ActionController::Base
-  protect_from_forgery with: :exception
-  skip_before_filter :verify_authenticity_token  
   layout 'application'
   before_action :set_photo, only: [:destroy, :show]
   before_action :is_mine_or_admin, only: [:destroy]
