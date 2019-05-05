@@ -4,12 +4,12 @@ $( document ).on('turbolinks:load', function() {
   $("#toggle").click(function(){
     if(show){
       show = false;
-      $(".nav ul").show();
+      $(".nav ul").addClass("is-open");
       $("#toggle").addClass("is-active");
     }else{
       show = true;
-      $(".nav ul").hide();
       $("#toggle").removeClass("is-active");
+      $(".nav ul").removeClass("is-open");
     }
   });
   var content = $.trim( $('.modal-body').text() ).length;
@@ -26,12 +26,13 @@ $( document ).on('turbolinks:load', function() {
   });
   $(window).resize(function(){
     if (window.innerWidth < 500 && lastWidth > 500){
-      $(".nav ul").hide();
+      $(".nav ul").removeClass("is-open");
       $(".hamburger").removeClass("is-active");
       $(".user-tab>ul").css("display", "block");
       show = true;
     }else if (window.innerWidth > 500){
       $(".nav ul").css("display","inline");
+      $(".nav ul").removeClass("is-open");
       $(".hamburger").removeClass("is-active");
       $(".user-tab ul").css("display", "none");
     }

@@ -93,6 +93,10 @@
 
 /* Media Queries for Navbar */
 
+.is-open{
+  left: 0 !important;
+}
+
 @media only screen and (max-width: 500px){
   .nav{
     display: grid;
@@ -111,31 +115,58 @@
   .nav ul{
     grid-row: 2;
     grid-column: s/e;
-    display: none;
+    display: flex;
+    position: fixed;
+    left: -500px;
+    top: 0;
+    height: 100%;
+    z-index: 99999;
+    background-color: $light-text-color;
+    padding-right: 20px;
+    transition: left 2s ease;
+    flex-direction: column;
   }
   .nav li {
     display: block !important;
+
+    a{
+      color: $dark-text-color;
+      &:hover{
+        color: $primary-color;
+      }
+    }
   }
+
   ul{
     .user-tab{
+      background-color: $light-text-color;
       float: none !important;
       position: relative !important;
       height: auto !important;
       padding-left: 20px;
+      border-radius: 0px;
       .mobile-user-email{
         font-size: 0.8em;
         display: inline !important;
+        color: $dark-text-color;
       }
       ul{
         top: 0px !important;
         position: relative !important;
-        display: none;
+        display: block;
         list-style: none;
         background-color: $primary-color;
         margin: 0px !important;
+        background-color: $light-text-color;
       }
       li{
         display: block;
+        a{
+          color: $dark-text-color;
+          &:hover{
+            color: $primary-color;
+          }
+        }
       }
       .desktop-user-email{
         display: none !important;
