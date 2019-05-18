@@ -131,11 +131,14 @@ class Collection extends React.Component {
           {this.props.title}
         </h1>
         }
-        { this.props.search && this.state.users.length > 0 && <SearchBar val={this.state.searchQuery} newSearch={this.newSearch} update={this.handleSearchFormChange}/>}
-        { this.state.users.length == 0 && !this.state.loading && <p>There are no photos available.</p>}
-        { this.props.search && this.state.users.length > 0 && filtered.length === 0 && this.state.searchQuery != "" && <p>Sorry nothing matched your query.</p>}
-        {this.state.users.length > 0 && !this.props.search && <Grid photos={this.state.photos} users={this.state.users} locations={this.state.locations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
-        {this.props.search && filtered.length > 0 && <Grid photos={fPhotos} users={fUsers} locations={fLocations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit} style={{marginTop: this.state.loading ? "700px" : "0px"}}></Grid>}
+        <div>
+          {this.state.loading && <center><div className="loader"></div><br /></center> }
+          { this.props.search && this.state.users.length > 0 && <SearchBar val={this.state.searchQuery} newSearch={this.newSearch} update={this.handleSearchFormChange}/>}
+          { this.state.users.length == 0 && !this.state.loading && <p>There are no photos available.</p>}
+          { this.props.search && this.state.users.length > 0 && filtered.length === 0 && this.state.searchQuery != "" && <p>Sorry nothing matched your query.</p>}
+          {this.state.users.length > 0 && !this.props.search && <Grid photos={this.state.photos} users={this.state.users} locations={this.state.locations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
+          {this.props.search && filtered.length > 0 && <Grid photos={fPhotos} users={fUsers} locations={fLocations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit} style={{marginTop: this.state.loading ? "700px" : "0px"}}></Grid>}
+        </div>
       </div>
     );
   }
