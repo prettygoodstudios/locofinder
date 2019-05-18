@@ -71,12 +71,13 @@
 .user-tab>ul{
   position: absolute;
   right: 0px;
-  top: 60px;
+  top: -360px;
   z-index: 999;
   display: none;
   list-style: none;
   background-color: $primary-color;
   border-radius: 0px 0px 0px 10px;
+  transition: 2s ease;
 }
 .mobile-user-email{
   display: none;
@@ -87,6 +88,7 @@
 .user-tab:hover{
   ul{
     display: block;
+    top: 60px;
   }
 }
 /*End of User Tab Styles*/

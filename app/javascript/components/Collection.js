@@ -1,6 +1,9 @@
 import React from "react";
 import LazyLoad from 'react-lazyload';
 import PropTypes from "prop-types";
+
+import Photo from "./Photo";
+
 class Collection extends React.Component {
   constructor(props) {
     super(props);
@@ -130,11 +133,9 @@ class Collection extends React.Component {
         }
         { this.props.search && this.state.users.length > 0 && <SearchBar val={this.state.searchQuery} newSearch={this.newSearch} update={this.handleSearchFormChange}/>}
         { this.state.users.length == 0 && !this.state.loading && <p>There are no photos available.</p>}
-        <div>
-          {this.state.loading && <center><div className="loader"></div><br /></center> }
-          {this.state.users.length > 0 && !this.props.search && <Grid photos={this.state.photos} users={this.state.users} locations={this.state.locations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
-          {this.props.search && filtered.length > 0 && <Grid photos={fPhotos} users={fUsers} locations={fLocations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit} style={{marginTop: this.state.loading ? "700px" : "0px"}}></Grid>}
-        </div>
+        { this.props.search && this.state.users.length > 0 && filtered.length === 0 && this.state.searchQuery != "" && <p>Sorry nothing matched your query.</p>}
+        {this.state.users.length > 0 && !this.props.search && <Grid photos={this.state.photos} users={this.state.users} locations={this.state.locations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit}></Grid>}
+        {this.props.search && filtered.length > 0 && <Grid photos={fPhotos} users={fUsers} locations={fLocations} rootUrl={this.props.rootUrl} currentUser={this.props.currentUser} colls={this.state.colls} limit={this.props.limit} style={{marginTop: this.state.loading ? "700px" : "0px"}}></Grid>}
       </div>
     );
   }
@@ -170,65 +171,7 @@ const Grid = (props) => {
     </LazyLoad>
   );
 }
-class Photo extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      finalWidth: 0,
-      finalHeight: 0,
-      finalOffsetX: 0,
-      finalOffsetY: 0
-    }
-  }
 
-  componentDidMount(){
-    this.updateDimensions();
-    window.addEventListener("resize", () =>  this.updateDimensions());
-  }
-
-  updateDimensions = () => {
-    const props = this.props;
-    const colls = 12/props.colls;
-    var scaleRatio = 0.625;
-    var finalWidth = props.width*props.zoom*scaleRatio;
-    var finalHeight = props.height*props.zoom*scaleRatio;
-    var finalOffsetX = props.offsetX*scaleRatio;
-    var finalOffsetY = props.offsetY*scaleRatio;
-    let totWidth = window.innerWidth - 40;
-    console.log("My Colls", colls);
-    if(window.innerWidth > 550 && colls != 1){
-      totWidth = (window.innerWidth*0.8-window.innerWidth*0.04)/2;
-      if(window.innerWidth > 800 &&  colls != 2){
-        totWidth = (window.innerWidth*0.8-window.innerWidth*0.08)/3;
-      }
-    }
-    let diff = totWidth - (finalWidth - Math.abs(finalOffsetX));
-    if(diff > 0){
-      //finalOffsetX +=  totWidth - (finalWidth - finalOffsetX);
-      const scaleY = 250/(finalHeight-Math.abs(finalOffsetY));
-      const scaleX = totWidth/(finalWidth-Math.abs(finalOffsetX));
-      const scaleUp =  scaleY > scaleX ? scaleY : scaleX;
-      finalOffsetX *= scaleUp;
-      finalOffsetY *= scaleUp;
-      finalWidth *= scaleUp;
-      finalHeight *= scaleUp;
-    }
-    this.setState({
-      finalWidth,
-      finalHeight,
-      finalOffsetX,
-      finalOffsetY
-    });
-  }
-
-  render(){
-    const {finalWidth, finalHeight, finalOffsetX, finalOffsetY} = this.state;
-    const {props} = this;
-    return(
-      <img style={{width: finalWidth,height: finalHeight,marginLeft: finalOffsetX,marginTop: finalOffsetY}} src={props.url}/>
-    );
-  }
-}
 const UserTag = ({rootUrl, id, profileImg, display, width, height, zoom, offsetX, offsetY}) => {
   return(
       <a href={rootUrl+"user/show/"+id} className="img-card-link" data-turbolinks="false">
