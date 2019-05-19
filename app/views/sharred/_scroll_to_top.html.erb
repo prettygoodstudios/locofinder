@@ -1,0 +1,24 @@
+<div class="scroll-to-top" id="scrollToTop">
+    <div class="scroll-to-top__carot">
+    </div>
+</div>
+<script>
+    const scrollToTopWidget = document.querySelector("#scrollToTop");
+
+    window.onscroll = (e) => {
+        const {pageY} = e;
+        if(pageY > window.innerHeight*0.25){
+            scrollToTopWidget.className = "scroll-to-top scroll-to-top-show";
+        }else{
+            scrollToTopWidget.className = "scroll-to-top";
+        }
+    }
+
+    scrollToTopWidget.addEventListener("click", () => {
+        window.scroll({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+</script>

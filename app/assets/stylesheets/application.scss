@@ -91,3 +91,40 @@ tr{
   margin: 0px !important;
   transform: translate(0,-50%);
 }
+
+//Scroll To Top Widget Styles
+
+.scroll-to-top{
+  position: fixed;
+  background-color: $primary-color;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity ease 1s;
+
+  &__carot{
+    width: 20px;
+    height: 20px;
+    border-width: 5px 0px 0px 5px;
+    margin-top: 10px;
+    border-color: $light-text-color;
+    transform: rotate(45deg);
+    border-style: solid;
+  }
+
+  &:hover{
+    background-color: $dark-text-color;
+    cursor: grab;
+  }
+}
+
+.scroll-to-top-show{
+  opacity: 1;
+}

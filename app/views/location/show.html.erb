@@ -36,3 +36,4 @@
   <%= react_component("Collection",{ title: "Photos", location: @location.id.to_s, user: "", rootUrl: !Rails.env.production? ? root_url :  'https://geofoc.us/', currentUser: current_user, collumns: 3, search: true  }) %>
 </div>
 <%= render partial: "review/reviews", locals: {review: @review, reviews: @reviews, location: @location, user: current_user ? User.find(current_user.id) : {}} %>
+<%= render partial: "sharred/scroll_to_top" %>
