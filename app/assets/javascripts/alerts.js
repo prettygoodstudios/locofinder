@@ -1,4 +1,4 @@
-let lastTouchPosX = 10000;
+var lastTouchPosX = 10000;
 
 $( document ).on('turbolinks:load', function() {
   var show = true;
@@ -15,13 +15,12 @@ $( document ).on('turbolinks:load', function() {
     }
   });
 
-  document.addEventListener("touchstart", (e) => {
+  document.addEventListener("touchstart", function(e){
     lastTouchPosX = e.touches[0].clientX;
   });
 
-  document.addEventListener("touchmove", (e) => {
-    const touchX = e.touches[0].clientX;
-    console.log(touchX - lastTouchPosX, lastTouchPosX);
+  document.addEventListener("touchmove", function(e){
+    var touchX = e.touches[0].clientX;
     if(lastTouchPosX < 50 && touchX - lastTouchPosX > 50 && show && window.innerWidth < 500){
       show = false;
       $(".nav ul").addClass("is-open");
@@ -36,9 +35,7 @@ $( document ).on('turbolinks:load', function() {
   });
 
   var content = $.trim( $('.modal-body').text() ).length;
-  console.log(content);
   if(content != 0){
-    console.log("Showwing");
     $(".modal").show();
   }
   $(window).click(function(){
