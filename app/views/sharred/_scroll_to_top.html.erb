@@ -5,13 +5,20 @@
 <script>
     const scrollToTopWidget = document.querySelector("#scrollToTop");
 
-    window.onscroll = (e) => {
-        const {pageY} = e;
-        if(pageY > window.innerHeight*0.25){
+    const determineWheterToShow = () => {
+        if(window.scrollY > window.innerHeight*0.25){
             scrollToTopWidget.className = "scroll-to-top scroll-to-top-show";
         }else{
             scrollToTopWidget.className = "scroll-to-top";
         }
+    }
+
+    window.onload = () => {
+        determineWheterToShow();
+    }
+
+    window.onscroll = () => {
+        determineWheterToShow();
     }
 
     scrollToTopWidget.addEventListener("click", () => {

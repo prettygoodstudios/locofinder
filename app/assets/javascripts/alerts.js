@@ -1,3 +1,5 @@
+let lastTouchPosX = 10000;
+
 $( document ).on('turbolinks:load', function() {
   var show = true;
   var lastWidth = window.innerWidth;
@@ -12,6 +14,27 @@ $( document ).on('turbolinks:load', function() {
       $(".nav ul").removeClass("is-open");
     }
   });
+
+  document.addEventListener("touchstart", (e) => {
+    lastTouchPosX = e.touches[0].clientX;
+  });
+
+  document.addEventListener("touchmove", (e) => {
+    const touchX = e.touches[0].clientX;
+    console.log(touchX - lastTouchPosX, lastTouchPosX);
+    if(lastTouchPosX < 50 && touchX - lastTouchPosX > 50 && show && window.innerWidth < 500){
+      show = false;
+      $(".nav ul").addClass("is-open");
+      $("#toggle").addClass("is-active");
+      lastTouchPosX = 10000;
+    }else if(lastTouchPosX < 200 && touchX - lastTouchPosX < -50 && !show && window.innerWidth < 500){
+      show = true;
+      $(".nav ul").removeClass("is-open");
+      $("#toggle").removeClass("is-active");
+      lastTouchPosX = 10000;
+    }
+  });
+
   var content = $.trim( $('.modal-body').text() ).length;
   console.log(content);
   if(content != 0){
