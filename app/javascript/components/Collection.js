@@ -148,7 +148,26 @@ const Grid = (props) => {
   if (props.limit != undefined && props.limit != null){
     photoArray.slice(0,props.limit);
   }
-  const placeholderDiv =  <div key={Math.floor(Math.random()*500000)} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}></div>;
+  const placeholderDiv =  (
+    <div key={Math.floor(Math.random()*500000)} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
+          <div className={"img-placeholder img-holder img-holder-"+(12/props.colls)}>
+            <div class="lds-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+    </div>
+  );
   const photoGrid = photoArray.map((photo,i) =>
       <LazyLoad offset={100} placeholder={placeholderDiv}>
         <div key={photo.id} className={parseDigitToString(props.colls)+" columns img-card img-card-"+(12/props.colls)}>
@@ -167,11 +186,11 @@ const Grid = (props) => {
   );
 
   return(
-    <LazyLoad offset={100}>
+    
       <div className="row" style={props.style}>
         {photoGrid}
       </div>
-    </LazyLoad>
+
   );
 }
 
