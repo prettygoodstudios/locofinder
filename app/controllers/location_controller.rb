@@ -68,10 +68,21 @@ class LocationController < ActionController::Base
     @geo_json = []
     @locations.each do |l|
       img_url = ""
+      offSetX = nil
+      offSetY = nil
+      zoom = nil
+      width = nil
+      height = nil
       if l.photos.length > 0
-        img_url = l.photos.mostViews.first.img_url.url
+        photo = l.photos.mostViews.first
+        img_url = photo.img_url.url
+        offsetX = photo.offsetX
+        offsetY = photo.offsetY
+        zoom = photo.zoom
+        width = photo.width
+        height = photo.height
       end
-      temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address, coordinates: [l.latitude,l.longitude], slug: l.slug}
+      temp = { title: l.title , id: l.id, url: location_path(l), average_score: l.average_score, img_url: img_url , address: l.full_address, coordinates: [l.latitude,l.longitude], slug: l.slug, offsetX: offsetX, offsetY: offsetY, zoom: zoom, width: width, height: height}
       @geo_json.push temp
     end
     render json: @geo_json
