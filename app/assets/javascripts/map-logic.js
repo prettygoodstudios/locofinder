@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
         var height = d[i].height*scaleRatio;
         image = "<image class='popup-image' src='"+d[i].img_url+"' style='margin-left:"+marginLeft+"px; margin-top:"+marginTop+"px; width: "+width+"px; height: "+height+"px;'></image>";
       }
-      var imageWrapper = d[i].img_url ?  "<div style='width: 200px; height: 200px; overflow: hidden; margin: auto auto 20px auto;'>"+image+"</div>" : "";
+      var imageWrapper = d[i].img_url ?  "<div style='width: "+(d[i].offsetX ? 200 : 300)+"px; height: 200px; overflow: hidden; margin: auto auto 20px auto;'>"+image+"</div>" : "";
       var link = "<a href='"+ROOT_URL+d[i].url+"' class='button' data-turbolinks='false'>More Info</a>";
       var popup = new mapboxgl.Popup().setHTML(title+address+average_score+imageWrapper.toString()+link);
       marker.setPopup(popup);
