@@ -18,7 +18,7 @@
         <% i += 1 %>
         <tr>
           <td><%= i.to_s %></td>
-          <td colspan="2"><%= link_to u.email, "user/show/"+u.id.to_s %></td>
+          <td colspan="2"><%= link_to u.email, "user/show/"+u.slug %></td>
           <td><%= u.photos.length %></td>
           <td><%= u.cumulative_views %></td>
         </tr>
@@ -43,7 +43,7 @@
         <tr>
           <td><%= i.to_s %></td>
           <td colspan="2"><%= link_to p.caption, p %></td>
-          <td><%= link_to User.find(p.user_id).email, "user/show/"+p.user_id.to_s %></td>
+          <td><%= link_to User.find(p.user_id).email, "user/show/"+User.find(p.user_id).slug %></td>
           <td><%= p.views %></td>
         </tr>
       <% end %>

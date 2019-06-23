@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Resolve Reported Content</h1>
   <hr>
-  <p>User: <%= link_to(@report.user.email, "/user/show/#{@report.user.id}") if @report.user != nil %></p>
+  <p>User: <%= link_to(@report.user.email, "/user/show/#{@report.user.slug}") if @report.user != nil %></p>
   <%= link_to "View all Reported Content", report_index_path, class: 'button' %>
   <%= link_to "View", @report.link, class: 'button' %>
   <% if @report.what_type == "location" %>
