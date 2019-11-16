@@ -93,7 +93,7 @@ GEM
     erubis (2.7.0)
     excon (0.68.0)
     execjs (2.7.0)
-    ffi (1.11.2)
+    ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
     fog-aws (3.5.2)
@@ -277,6 +277,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   devise
+  ffi (= 1.9.18)
   figaro
   fog-aws
   friendly_id (~> 5.2.0)
