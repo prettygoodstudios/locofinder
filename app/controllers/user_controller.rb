@@ -19,7 +19,7 @@ class UserController < ActionController::Base
 
   end
   def update_profile_image
-    if @user.update_attributes(params.require(:user).permit(:profile_img,:width,:height,:zoom,:offsetX,:offsetY,:id))
+    if @user.update_attributes(params.require(:user).permit(:profile_img,:width,:height,:zoom,:offsetX,:offsetY))
       @user.update_attribute("width",@user.profile_img.width)
       @user.update_attribute("height",@user.profile_img.height)
       redirect_to "/user/show/#{@user.slug}", alert: "Successfully updated profile picture."
