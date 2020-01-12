@@ -45,7 +45,7 @@ class ReportController < ActionController::Base
     redirect_to report_index_path, alert: "Deleted item and resolved report."
   end
   def report_params
-    params.require(:report).permit(:message,:user_id,:location_id,:review_id)
+    params.require(:report).permit(:message, :user_id, :location_id, :review_id, :photo_id)
   end
   def set_report
     @report = Report.find(params[:id])
