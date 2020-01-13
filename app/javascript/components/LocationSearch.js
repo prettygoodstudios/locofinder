@@ -5,6 +5,7 @@ class LocationSearch extends React.Component {
     super(props);
     this.state = {
       locations: [],
+      filteredLocations: [],
       searchQuery: ""
     }
   }
@@ -20,11 +21,28 @@ class LocationSearch extends React.Component {
     });
   }
   handleSearchFormChange = (event) =>{
+    const {searchQuery, locations} = this.state;
     const target = event.target;
     const value = target.value;
+    let filtered = locations.filter(
+      (location) => {
+        const searchTerms = searchQuery.split(" ");
+        let found = false;
+        searchTerms.forEach((t) => {
+          if(this.subQuery(t, location)){
+            found = true;
+          }
+        });
+        return found;
+      }
+    );
+    filtered = this.sortByPoints(filtered, searchQuery);
+    if (filtered.length > 7) filtered.length = 7;
     this.setState({
-      searchQuery: target.value
+      searchQuery: value,
+      filteredLocations: filtered
     });
+    console.log("filtered:", filtered);
   };
   sortByPoints = (arr, sQ) =>{
     let retVal = arr.sort(function(a,b){
@@ -95,23 +113,8 @@ class LocationSearch extends React.Component {
   }
 
   render () {
-    const {locations, searchQuery} = this.state;
-
-    let filtered = locations.filter(
-      (location) => {
-        const searchTerms = searchQuery.split(" ");
-        let found = false;
-        searchTerms.forEach((t) => {
-          if(this.subQuery(t, location)){
-            found = true;
-          }
-        });
-        return found;
-      }
-    );
-    filtered = this.sortByPoints(filtered, searchQuery);
-    if (filtered.length > 7) filtered.length = 7;
-    let results = filtered.map((location) =>
+    const {filteredLocations, searchQuery} = this.state;
+    let results = filteredLocations.map((location) =>
       <a href={this.props.rootUrl+"location/"+location.slug} className="location-search-result" data-turbolinks="false">
         <h3>{location.title}</h3>
         <p>{location.address}</p>
