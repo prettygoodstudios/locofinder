@@ -6,7 +6,8 @@ class LocationSearch extends React.Component {
     this.state = {
       locations: [],
       filteredLocations: [],
-      searchQuery: ""
+      searchQuery: "",
+      selectedLocation: -1
     }
   }
   componentDidMount(){
@@ -19,14 +20,39 @@ class LocationSearch extends React.Component {
         locations: locos
       });
     });
+    const searchBar = document.querySelector(".location-search");
+    searchBar.addEventListener("keydown", (e) => {
+      const {selectedLocation, filteredLocations} = this.state;
+      switch(e.key){
+        case "ArrowUp":
+          if(selectedLocation > -1){
+            this.setState({
+              selectedLocation: selectedLocation-1
+            });
+          }
+          break;
+        case "ArrowDown":
+          if(selectedLocation < filteredLocations.length-1){
+            this.setState({
+              selectedLocation: selectedLocation+1
+            });
+          }
+          break;
+        case "Enter":
+          if(selectedLocation != -1) window.location = this.props.rootUrl+"location/"+filteredLocations[selectedLocation].slug;
+          break;
+        default:
+          break;
+      }
+    });
   }
   handleSearchFormChange = (event) =>{
-    const {searchQuery, locations} = this.state;
+    const {searchQuery, locations, selectedLocation, filteredLocations} = this.state;
     const target = event.target;
     const value = target.value;
     let filtered = locations.filter(
       (location) => {
-        const searchTerms = searchQuery.split(" ");
+        const searchTerms = value.split(" ");
         let found = false;
         searchTerms.forEach((t) => {
           if(this.subQuery(t, location)){
@@ -40,10 +66,23 @@ class LocationSearch extends React.Component {
     if (filtered.length > 7) filtered.length = 7;
     this.setState({
       searchQuery: value,
-      filteredLocations: filtered
+      filteredLocations: filtered,
+      selectedLocation: this.areResultsEquivalent(filtered, filteredLocations) ? selectedLocation : -1
     });
-    console.log("filtered:", filtered);
   };
+
+  areResultsEquivalent = (res1, res2) => {
+    if(res1.length != res2.length){
+      return false;
+    }
+    res1.forEach((r1, i) => {
+      if(r1.url != res2[i].url){
+        return false;
+      }
+    });
+    return true;
+  }
+
   sortByPoints = (arr, sQ) =>{
     let retVal = arr.sort(function(a,b){
       let pointsB = 0;
@@ -113,13 +152,16 @@ class LocationSearch extends React.Component {
   }
 
   render () {
-    const {filteredLocations, searchQuery} = this.state;
-    let results = filteredLocations.map((location) =>
-      <a href={this.props.rootUrl+"location/"+location.slug} className="location-search-result" data-turbolinks="false">
-        <h3>{location.title}</h3>
-        <p>{location.address}</p>
-      </a>
-    );
+    const {filteredLocations, searchQuery, selectedLocation} = this.state;
+    let results = filteredLocations.map((location, i) => {
+      const selectedClass = i == selectedLocation ? " selected-search-result" : "";
+      return(
+        <a href={this.props.rootUrl+"location/"+location.slug} className={"location-search-result"+selectedClass} data-turbolinks="false">
+          <h3>{location.title}</h3>
+          <p>{location.address}</p>
+        </a>
+      );
+    });
     return (
       <div className="location-search">
         <input type="text" value={searchQuery} onChange={this.handleSearchFormChange} placeholder="&#xF002; Search" style={{fontFamily: "Avenir Heavy ,FontAwesome"}}/>

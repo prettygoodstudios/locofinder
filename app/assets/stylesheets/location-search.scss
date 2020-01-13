@@ -48,9 +48,13 @@
   color: $dark-text-color;
   text-decoration: none;
 }
-.location-search-result a:hover{
+.location-search-result a:hover, .selected-search-result{
   color: $primary-color;
   text-decoration: none;
+}
+.selected-search-result{
+  border-color: $primary-color !important;
+  color: $primary-color !important;
 }
 
 /* Media Queries */
