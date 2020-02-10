@@ -102,6 +102,7 @@
     <%= f.submit "Add Photo", id: 'photoSubmit' %>
   <% end %>
 </div>
+<div class="float-loader-background"></div>
 <div class="float-loader">
   <center><h3>Uploading</h3></center>
   <div class="loader"></div>
@@ -109,5 +110,6 @@
 <script>
   $("#photoSubmit").click(function(){
     $(".float-loader").show();
+    $(".float-loader-background").show();
   });
 </script>

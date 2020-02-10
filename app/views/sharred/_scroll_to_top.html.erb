@@ -13,12 +13,20 @@
         }
     }
 
+    const determineIfAtFooter = () => {
+        if(window.scrollMaxY - window.scrollY < 300){
+            console.log("At Footer!");
+            scrollToTopWidget.className = "scroll-to-top scroll-to-top-show scroll-to-top-footer";
+        }
+    }
+
     window.onload = () => {
         determineWheterToShow();
     }
 
     window.onscroll = () => {
         determineWheterToShow();
+        determineIfAtFooter();
     }
 
     scrollToTopWidget.addEventListener("click", () => {

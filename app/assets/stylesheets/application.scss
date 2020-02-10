@@ -122,8 +122,22 @@ tr{
   }
 
   &:hover{
-    background-color: $dark-text-color;
+    background-color: white;
+    .scroll-to-top__carot{
+      border-color: $primary-color;
+    }
     cursor: grab;
+  }
+}
+
+.scroll-to-top-footer{
+  background-color: $blue-blob-color !important;
+  
+  .scroll-to-top__carot{
+    border-color: $primary-color !important;
+  }
+  &:hover{
+    background-color: white !important;
   }
 }
 
