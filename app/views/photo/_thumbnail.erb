@@ -1,0 +1,124 @@
+<div>
+    <canvas id="new-image-cropper" width="400px" height="400px"></canvas>
+    <input type="range" min="0" max="400" value="100" class="slider" id="new-image-cropper-zoom">
+    <input type="file" id="new-image-cropper-selector">
+</div>
+<script>
+    var newImageCropper = document.getElementById('new-image-cropper');
+    var context = newImageCropper.getContext("2d");
+    var dpr = window.devicePixelRatio || 1;
+    // Get the size of the canvas in CSS pixels.
+    var rect = newImageCropper.getBoundingClientRect();
+    newImageCropper.width = rect.width * dpr;
+    newImageCropper.height = rect.height * dpr;
+    context.scale(dpr, dpr);
+    var cropperImage = null;
+    var cropperX = 0;
+    var cropperY = 0;
+    var cropperZoom = 1;
+    var startMouseX = 0;
+    var startMouseY = 0;
+    var cursorDown = false;
+    var minCropperZoom = 0;
+    var cropperZoomInput = document.getElementById("new-image-cropper-zoom");
+
+    context.fillStyle = "white";
+    context.fillRect(0, 0, newImageCropper.width, newImageCropper.height);
+
+    function loadImage(e){
+        var reader = new FileReader();
+        reader.onload = function(event){
+            context.imageSmoothingEnabled = false;
+            cropperImage = new Image();
+            cropperImage.onload = function(){
+                cropperX = 0;
+                cropperY = 0;
+                if(cropperImage.width > cropperImage.height){
+                  cropperZoom = 400/cropperImage.height;
+                }else{
+                  cropperZoom = 400/cropperImage.width;
+                }
+                minCropperZoom = cropperZoom;
+                cropperZoomInput.value = 0;
+                document.getElementById("new-image-cropper-zoom").value = minCropperZoom;
+                renderCropper();
+            }
+            cropperImage.src = event.target.result;
+        }
+        reader.readAsDataURL(e.target.files[0]); 
+    }
+
+    function renderCropper(){
+      context.fillStyle = "white";
+      context.fillRect(0, 0, newImageCropper.width, newImageCropper.height);
+      context.drawImage(cropperImage, cropperX, cropperY, cropperImage.width*cropperZoom, cropperImage.height*cropperZoom);
+    }
+
+    document.getElementById("new-image-cropper-selector").addEventListener( "change", (e) => {
+      loadImage(e);
+    });
+
+    newImageCropper.addEventListener("mousedown", (e) => {
+      startMouseX = e.clientX;
+      startMouseY = e.clientY;
+      cursorDown = true;
+    });
+
+    function verticalBounds(dx, dy, zoom){
+      var topBound = cropperY+dy+zoom*cropperImage.height > 400;
+      var bottomBound = cropperY+dy <= 0;
+      return topBound && bottomBound;
+    }
+
+    function horizontalBounds(dx, dy, zoom){
+      var leftBound = cropperX+dx+zoom*cropperImage.width > 400;
+      var rightBound = cropperX+dx <= 0;
+      return leftBound && rightBound;
+    }
+
+
+    function inBounds(dx, dy, zoom){
+      return horizontalBounds(dx, dy, zoom) && verticalBounds(dx, dy, zoom);
+    }
+
+    newImageCropper.addEventListener("mousemove", (e) => {
+      if(cursorDown && cropperImage){
+        if(horizontalBounds(e.clientX - startMouseX, e.clientY - startMouseY, cropperZoom)) cropperX += e.clientX - startMouseX;
+        if(verticalBounds(e.clientX - startMouseX, e.clientY - startMouseY, cropperZoom)) cropperY += e.clientY - startMouseY;
+        startMouseX = e.clientX;
+        startMouseY = e.clientY;
+        renderCropper();
+      }
+    });
+
+    document.addEventListener("mouseup", (e) => {
+      cursorDown = false;
+    });
+
+    newImageCropper.addEventListener("scroll", (e) => {
+      console.log(e);
+    });
+
+    cropperZoomInput.addEventListener("input", (e) => {
+      if(inBounds(0, 0, e.target.value/100+minCropperZoom)){
+        var deltaZoom = e.target.value/100+minCropperZoom-cropperZoom;
+        cropperZoom = e.target.value/100+minCropperZoom;
+        if(cropperX - deltaZoom*cropperImage.width*0.5 <= 0) cropperX -= deltaZoom*cropperImage.width*0.5;
+        if(cropperY - deltaZoom*cropperImage.height*0.5 <= 0) cropperY -= deltaZoom*cropperImage.height*0.5;
+        renderCropper();
+      }else if(e.target.value/100+minCropperZoom > minCropperZoom){
+        cropperZoom = e.target.value/100+minCropperZoom;
+        if(cropperZoom - minCropperZoom < 0.03){
+          cropperZoom = minCropperZoom;
+        }
+        console.log(cropperZoom);
+        console.log(minCropperZoom);
+        console.log(!horizontalBounds(0, 0, cropperZoom));
+        console.log(!verticalBounds(0, 0, cropperZoom));
+        if(!horizontalBounds(0, 0, cropperZoom)) cropperX = 400-cropperImage.width*cropperZoom;
+        if(!verticalBounds(0, 0, cropperZoom)) cropperY = 400-cropperImage.height*cropperZoom;
+        renderCropper();
+      }
+      cropperZoomInput.value = cropperZoom*100-minCropperZoom*100;
+    });
+</script>
