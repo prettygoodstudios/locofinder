@@ -109,6 +109,7 @@ class LocationController < ActionController::Base
           reports.each do |r|
             r.update_attribute("location_id", location_one.id)
           end
+          location_two.destroy!
           redirect_to location_path(location_one, alert: "Successfully merged locations")
         else 
           redirect_to "/location/admin/merge", alert: "You must select two valid locations"
