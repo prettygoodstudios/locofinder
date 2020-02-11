@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Select Locations to merge</h1>
+    <%= form_tag(url: "/location/admin/merge", method: "post") do |f|%>
+        <label for="locationOne">Location One</label>
+        <%= select("location_one", "location_one", @locations.all.collect {|l| [ l.title, l.id ] }, { include_blank: true }) %>
+        <label for="locationTwo">Location One</label>
+        <%= select("location_two", "location_two", @locations.all.collect {|l| [ l.title, l.id ] }, { include_blank: true }) %>
+        <br />
+        <input type="submit" value="Merge Locations" style="margin-top: 20px;">
+    <% end %>
+</div>

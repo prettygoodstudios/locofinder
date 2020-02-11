@@ -4,6 +4,7 @@ class LocationController < ActionController::Base
   before_action :set_location, only: [:show,:edit,:update,:destroy]
   before_action :send_initial_email_verification_email, only: [:index,:show,:edit,:destroy,:update,:new]
   before_action :is_mine_or_admin, only: [:edit,:update,:destroy]
+  before_action :is_admin, only: [:merge]
   before_action :is_logged_in, only: [:new,:create]
   before_action :send_to_landing, only: [:index]
   def index
@@ -56,7 +57,7 @@ class LocationController < ActionController::Base
     @location = Location.new
   end
   def location_params
-    params.require(:location).permit(:title,:city,:address,:state,:country,:id)
+    params.require(:location).permit(:title,:city,:address,:state,:country,:id,:locationOne,:locationTwo)
   end
   def my_location_api
     location = JSON.parse(open("http://ip-api.com/json").read)
@@ -86,6 +87,35 @@ class LocationController < ActionController::Base
       @geo_json.push temp
     end
     render json: @geo_json
+  end
+  def merge 
+    @locations = Location.all
+  end
+  def merge_back_end
+      puts params 
+      if params[:location_one][:location_one] != "" && params[:location_two][:location_two] != ""
+        location_one = Location.find(params[:location_one][:location_one])
+        location_two = Location.find(params[:location_two][:location_two])
+        if location_one && location_two
+          photos = location_two.photos 
+          reviews = location_two.reviews
+          reports = Report.where("location_id="+location_two.id.to_s) 
+          photos.each do |p|
+            p.update_attribute("location_id", location_one.id)
+          end
+          reviews.each do |r|
+            r.update_attribute("location_id", location_one.id)
+          end
+          reports.each do |r|
+            r.update_attribute("location_id", location_one.id)
+          end
+          redirect_to location_path(location_one, alert: "Successfully merged locations")
+        else 
+          redirect_to "/location/admin/merge", alert: "You must select two valid locations"
+        end
+      else 
+        redirect_to "/location/admin/merge", alert: "You must select two valid locations" 
+      end
   end
   def set_location
     @location = Location.where("slug = '#{params[:id]}'").first
@@ -124,6 +154,15 @@ class LocationController < ActionController::Base
   def send_to_landing
     if !signed_in? and params[:see] != "true"
       redirect_to "/landing"
+    end
+  end
+  def is_admin 
+    if signed_in?
+      if current_user.role != "admin"
+        redirect_to location_index_path, alert: "You must be an admin to access this page."
+      end
+    else
+      redirect_to location_index_path, alert: "You must be an admin to access this page."
     end
   end
 end
