@@ -168,7 +168,7 @@ GEM
       heroics (~> 0.0.25)
       moneta (~> 1.0.0)
     public_suffix (4.0.3)
-    puma (3.12.2)
+    puma (3.12.3)
     rack (2.1.1)
     rack-proxy (0.6.5)
       rack
@@ -289,7 +289,7 @@ DEPENDENCIES
   mini_magick
   pg (~> 0.18)
   platform-api
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.4)
   react-rails (~> 2.4.4)
   sass-rails (~> 5.0)
