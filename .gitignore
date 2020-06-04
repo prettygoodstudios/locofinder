@@ -13,7 +13,7 @@
 
 
 # Ignore temporary image files.
-/public/uploads/*
+/public/*.jpg
 
 # Ignore all logfiles and tempfiles.
 /log/*
