@@ -8,7 +8,7 @@ class LocationController < ActionController::Base
   before_action :is_logged_in, only: [:new,:create]
   before_action :send_to_landing, only: [:index]
   def index
-    @locations = Location.all
+    
   end
   def show
     reviews = Review.find_by_sql("SELECT r.*  FROM reviews r JOIN users u ON r.user_id = u.id WHERE r.location_id=#{@location.id} ORDER BY r.id DESC")

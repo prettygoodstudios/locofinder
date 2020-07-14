@@ -44,7 +44,10 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  
+  # Enable sass source maps for development
+  config.sass.inline_source_maps = true
+  
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   config.action_mailer.smtp_settings = {
