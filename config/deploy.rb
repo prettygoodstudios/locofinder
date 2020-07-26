@@ -1,5 +1,6 @@
+require 'bundler/capistrano'
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock "~> 3.11.1"
 
 set :application, "geofocus"
 set :repo_url, "git@github.com:prettygoodstudios/locofinder.git"
