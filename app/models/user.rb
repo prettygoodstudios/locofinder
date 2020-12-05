@@ -8,7 +8,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews, dependent: :destroy
   has_many :photos, dependent: :destroy
-  has_many :reports, dependent: :destroy
   has_many :locations
   has_many :sessions
   mount_uploader :profile_img, ProfileUploader

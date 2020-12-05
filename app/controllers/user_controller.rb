@@ -63,7 +63,7 @@ class UserController < ActionController::Base
     if sign_in(@user,password: params[:token], email: @user.email)
       @token = params[:token]
     else
-      redirect_to location_index_path, alert: "You dont have permission to perform this action."
+      redirect_to location_index_path, alert: "You don't have permission to perform this action."
     end
   end
   def change_password
@@ -77,7 +77,7 @@ class UserController < ActionController::Base
         redirect_to "/new_password/#{@user.id}?token=#{params[:token]}", alert: "Your password and password confirmation must match."
       end
     else
-      redirect_to location_index_path, alert: "You dont have permission to perform this action."
+      redirect_to location_index_path, alert: "You don't have permission to perform this action."
     end
   end
   def set_user
