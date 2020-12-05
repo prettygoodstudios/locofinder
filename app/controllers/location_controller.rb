@@ -125,7 +125,7 @@ class LocationController < ActionController::Base
     if signed_in?
       if current_user.token == nil
         @user = User.find(current_user.id)
-        if @user.profile_img
+        if @user.profile_img?
           @user.update_attribute("width",@user.profile_img.width)
           @user.update_attribute("height",@user.profile_img.height)
         end
