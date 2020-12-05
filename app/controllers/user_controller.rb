@@ -80,7 +80,7 @@ class UserController < ActionController::Base
     end
   end
   def set_user
-    @user = User.where("slug = '#{params[:id]}'").length != 0 ? User.where("slug = '#{params[:id]}'").first : (User.where("slug = '#{params[:id]}'").length == 0 ? User.where("slug = '#{params[:user][:id]}'").first  : User.where("slug = '#{params[:id]}'").first )
+    @user = User.where("slug = '#{params[:id]}'").first 
   end
   def is_mine_or_admin
     if signed_in?

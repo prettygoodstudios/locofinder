@@ -1,5 +1,5 @@
 <div class="container">
-  <% form_url = (Rails.env.production?) ? 'https://geofoc.us/user/update_profile' : (root_url + 'user/update_profile')  %> 
+  <% form_url = (Rails.env.production?) ? 'https://geofoc.us/user/update_profile/'+current_user.slug : (root_url + 'user/update_profile/')+current_user.slug  %> 
   <%= form_for(@user, url: form_url, class:'edit-profile-image', method: :post) do |f| %>
     <h1>Edit my Profile Picture</h1>
     <div id="image-cropper">
@@ -92,7 +92,7 @@
     <br />
     <%= f.submit "Update Profile Picture", id: "submitProfile" %>
   <% end %>
-  <%= link_to "Keep My Old Profile Picture", "/user/show/"+@user.slug.to_s, class: 'button', method: "get" %>
+  <%= link_to "Keep My Old Profile Picture", "/user/show/"+@user.slug, class: 'button', method: "get" %>
   <div class="float-loader">
     <center><h3>Uploading</h3></center>
     <div class="loader"></div>

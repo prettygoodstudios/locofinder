@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post "/change_password/:id", to: "user#change_password"
   delete "/report_destroy/:id", to: "report#report_destroy"
   get "/user/edit_profile/:id", to: "user#edit_profile_image"
-  post "/user/update_profile", to: "user#update_profile_image"
+  post "/user/update_profile/:id", to: "user#update_profile_image"
   get "/location/admin/merge", to: "location#merge"
   post "/location/admin/merge", to: "location#merge_back_end"
   namespace :api do
