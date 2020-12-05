@@ -13,7 +13,7 @@ class UserController < ActionController::Base
     @user = User.find(current_user.id)
     @user.update_attribute("width",@user.profile_img.width)
     @user.update_attribute("height",@user.profile_img.height)
-    UserMailer.verify_email(current_user.id).deliver!
+    UserMailer.verify_email(current_user.slug).deliver!
   end
   def edit_profile_image
 
