@@ -1,4 +1,5 @@
-<% intervals = ((values.max - values.min).to_f/5.to_f).ceil + 1 %>
+<% size = ((values.max - values.min) / 50.00).to_f.ceil * 5 %>
+<% intervals = ((values.max - values.min).to_f/size.to_f).ceil + 2 %>
 <div class="bar-chart">
   <div class="bar-chart__title"><%= title %></div>
   <div class="bar-chart__x-label"><%= x_label %></div>
@@ -6,7 +7,7 @@
   <div class="bar-chart__y-axis">
     <% intervals.times do |i| %>
       <div class="bar-chart__tick">
-        <span class="bar-chart__tick__label"><%= (intervals*5-5*i).to_s %></span>
+        <span class="bar-chart__tick__label"><%= (intervals*size-size*i).to_s %></span>
         <span class="bar-chart__tick__mark"></span>
       </div>
     <% end %>
@@ -23,7 +24,7 @@
   </div>
   <div class="bar-chart__bars">
     <% values.each do |v| %>
-      <div class="bar-chart__bar" style="height: <%= v.to_i*10 %>px;"></div>
+      <div class="bar-chart__bar" style="height: <%= v.to_i*size*2 %>px;"></div>
     <% end %>
   </div>
 </div>
