@@ -67,6 +67,7 @@ class UserController < ActionController::Base
     end
   end
   def change_password
+    @user = User.find(params[:id])
     if sign_in(@user,password: params[:token], email: @user.email)
       if params[:password] == params[:password_confirmation]
         @user.update_attribute("password",params[:password])
