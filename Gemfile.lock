@@ -149,7 +149,9 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
-    mimemagic (0.3.5)
+    mimemagic (0.4.3)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -169,7 +171,8 @@ GEM
       moneta (~> 1.0.0)
       rate_throttle_client (~> 0.1.0)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -298,7 +301,7 @@ DEPENDENCIES
   mini_magick
   pg (~> 0.18)
   platform-api
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.4)
   react-rails (~> 2.4.4)
   sass-rails (~> 5.0)
