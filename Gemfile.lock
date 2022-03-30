@@ -169,7 +169,8 @@ GEM
       moneta (~> 1.0.0)
       rate_throttle_client (~> 0.1.0)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -298,7 +299,7 @@ DEPENDENCIES
   mini_magick
   pg (~> 0.18)
   platform-api
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.4)
   react-rails (~> 2.4.4)
   sass-rails (~> 5.0)
